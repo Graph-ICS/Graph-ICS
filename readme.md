@@ -1,4 +1,4 @@
-GraphMic 0.8
+Graph-ICS 0.8
 ===
 
 ![Qt](https://img.shields.io/badge/Qt-5.11.0-green.svg) ![Itk-Kit](https://img.shields.io/badge/ITK-last%20version-blue.svg) ![OpenCv](https://img.shields.io/badge/OpenCV-last%20version-blue.svg) ![VisualStudio](https://img.shields.io/badge/Visual%20Studio%20compiler-2017-orange.svg) 
@@ -9,7 +9,7 @@ The **[ITK](https://itk.org/)** and **[OpenCV](https://opencv.org/)** Libraries 
 ## User guide
 
 
-GraphMIC is a tool for image processing and uses nodes to represent filters and images. Each node has an input and an output, which are images. 
+Graph-ICS is a tool for image processing and uses nodes to represent filters and images. Each node has an input and an output, which are images. 
 Double clicking on a node will shows you the output of this node on the right window site.
 By creating edges between the nodes you can create a workflow between the nodes. 
 
