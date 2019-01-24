@@ -2,14 +2,12 @@ Graph-ICS
 ===
 
 # Table of Contents
-1. [Example](#example)
-2. [Example2](#example2)
-3. [Third Example](#third-example)
+1. [Overview](#overview)
+2. [Installation](#installation)
+3. [User Guide](#user-guide)
+4. [Developer Guide](#developer-guide)
 
-## Example
-## Example2
- 
-
+## Overview
 
 ![Qt](https://img.shields.io/badge/Qt-5.11.0-green.svg) ![Itk-Kit](https://img.shields.io/badge/ITK-last%20version-blue.svg) ![OpenCv](https://img.shields.io/badge/OpenCV-last%20version-blue.svg) ![VisualStudio](https://img.shields.io/badge/Visual%20Studio%20compiler-2017-orange.svg) 
 
@@ -37,7 +35,7 @@ Example:
 </center>
 The user creates the node "Image" and selects a image file from his file system by clicking on the file symbol. To add the Black-White-Filter he creates the related node and connects the two nodes by drawing an edge between them. The output of the Black-White node is now the editet picture. This can be repaeted as often as required. the output of the last filer (CVMedian) is the image which was loaded from the user with two filter operations. 
 
-# Installation Guide
+## Installation
 
 Installing GraphMIC with QT, ITK and OpenCv
 
@@ -58,7 +56,6 @@ build and run the project.
 #### complementary images.
 
 ## Contents
-## Third Example
 
 1. Installing Debugging Tools from the Windows SDK 
 2. Installing Visual Studio 
@@ -373,7 +370,7 @@ and on the Run option, click on enable QML.
 
 
 
-## Tutorial
+## User Guide
 - **Loading an image** <br /> 
 In order to load an image you must create the node "Image". To do so, go to the combobox and select the item "Image" in the list view (1). by clicking the "Select" Button the node will be created (2).
 You can either write the path to the image you want to edit in the text field or select it drom you file explorer by clicking the file symbol (3)
@@ -494,3 +491,4 @@ You can delete the item from the toolbar with the context menu in the combobox o
 6.	**Filter node: The filter node allows you to set parameters to the filter, you need to connect it to an image node to apply on it the filter, right click on it to show or delete.**	
 
 7.	**Edge: To create an edge, you just must click on a node port, hold and drag with the mouse to the position you want to connect with.**	
+## Developer Guide
