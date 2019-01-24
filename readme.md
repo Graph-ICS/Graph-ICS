@@ -1,7 +1,7 @@
 Graph-ICS
 ===
 
-# Table of Contents
+## Table of Contents
 1. [Overview](#overview)
 2. [Installation](#installation)
 3. [User Guide](#user-guide)
