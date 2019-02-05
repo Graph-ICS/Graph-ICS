@@ -794,6 +794,7 @@ Figure 7 : Parameter name “RadiusY”, represented with a Label.
 
 If you click on the left pane, on the Design tab you can see the result of your code,
 like on the Figure 8 : Designer view of the ITKMedianFilter.qml.
+The design does not look ecaxtly like this in the programm but you can see the size of the node and the position of the labels. 
 
 
 The last step consist on implementing two functions saveNode() and loadNode() its
