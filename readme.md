@@ -506,6 +506,8 @@ Contents
 2.6. Create your QML file  
 2.7. Update the toolbar buttons  
 
+### 1. About the structure
+
 The structure of Graph-ICS is divided on two components
 
 #### 1.1. QtQuick and QML
@@ -513,27 +515,27 @@ The QtQuick framework includes the QML declarative scripting language, QML
 Objects are useful for the interaction with the user, the GraphMic user interface is
 conceded on QML, in GraphMIC it makes possible to:
 
-Represent filters and images using nodes the user can drag on the Editor
-pane (using customs objects).
-Create a data flow between the created nodes connecting them using edges.
-Interact to mouse and key events like user inputs.
-Allow the user to change the filter values on a filter node and apply the filter
-with these new values by clicking on it.
+- Represent filters and images using nodes the user can drag on the Editor
+pane (using customs objects)  
+- Create a data flow between the created nodes connecting them using edges.
+Interact to mouse and key events like user inputs.  
+- Allow the user to change the filter values on a filter node and apply the filter
+with these new values by clicking on it.  
 #### 1.2. C++ Model
 
-Each filter node represents a C++ Class defined as Filter, each filter
+Each filter node represents a C++ Class defined as **\<ClassName\>Filter** , each filter
 class is registered as QML Object on the main function so it can be instantiated as
-QML Object. For more information go here.
+QML Object. For more information go [here](http://doc.qt.io/qt-5/qtqml-cppintegration-exposecppattributes.html)
 
 A typical filter class declaration will be showed on the Figure 1 : Typical filter
 declaration, here the ItkDiscreteGaussianFilter.
 
-The **Q_OBJECT** macro tells the compiler this class implements its owns
-signals and slots, so the meta object compiler moc need to run at first.
-The **Q_PROPERTY** macro will be used to tell the compiler the variables to be
+- The **Q_OBJECT** macro tells the compiler this class implements its owns
+signals and slots, so the meta object compiler moc need to run at first  
+- The **Q_PROPERTY** macro will be used to tell the compiler the variables to be
 read through a given get method, write through a given set method and the
-changes will be notified using the given method next the NOTIFY macro
-The **Q_INVOKABLE** macro allows functions to be called from QML objects.
+changes will be notified using the given method next the NOTIFY macro  
+- The **Q_INVOKABLE** macro allows functions to be called from QML objects  
 
 <center>
 	<img src="doc/Readme_DeveloperGuide/1.PNG" />
@@ -546,12 +548,12 @@ class as a QML object and add it into the window toolbar to make it visible for 
 user. As example we want to add the *ITKMedianImageFilter* as follows:
 
 #### 2.1. Choose the filter
-Go to the documentation page of the filter you want to implement, for OpenCv or
+- Go to the documentation page of the filter you want to implement, for OpenCv or
 ITK (Another good website for ITK examples is <https://itk.org/Wiki/Main_Page> or
 <https://itk.org/ItkSoftwareGuide.pdf>
-Read the documentation of the filter and check the input parameter you will
+- Read the documentation of the filter and check the input parameter you will
 need.
-For our example filer the documentation can be visited at:
+- For our example filer the documentation can be visited at:
 <https://itk.org/Doxygen/html/classitk_1_1MedianImageFilter.html>
 #### 2.2. Adding a new C++ filter class
 Open the project, if you open the project for first time, so follow the step 7 from the
@@ -596,7 +598,8 @@ get, set methods and Q_PROPERTIES.
 <center>
 	<img src="doc/Readme_DeveloperGuide/5.PNG" />
 </center>
-*Figure 2 : ItkMedianFilter Class, implementation example*
+
+ *Figure 2 : ItkMedianFilter Class, implementation example*  
 
 Consider the *Figure 2 : ItkMedianFilter Class, implementation example*. by
 implementing your filter class, pay attention to the following steps:
@@ -625,13 +628,14 @@ cleanCache() on the set methods.
 	<img src="doc/Readme_DeveloperGuide/6.PNG" />
 </center>
 
-- Override the virtual function retrieveResult() as follows:
+- Override the virtual function retrieveResult() as follows:  
 Consider the Figure 3 : itkmedianfilter.cpp, definition of retrieveResult(), the new class
 needs also to overwrite the virtual function node::retrieveResult().
 
 <center>
 	<img src="doc/Readme_DeveloperGuide/7.PNG" />
 </center>
+
 *Figure 3 : itkmedianfilter.cpp, definition of retrieveResult()*
 
 The filter will be implemented on the Try block. The definition of the
@@ -655,9 +659,10 @@ continue the data flow. (line 63)
 output to an QImage, so we call the
 ImageConverter::qImageFromITKImage(TargetQImage, FromITKImage)
 function. (line 65)
-8. In case an exeption occurred, then it will be catched on the catch block. (line 69-
+8. In case an exeption occurred, then it will be catched on the catch block. (line 69-72)
 9. If the Filter was correct implemented, so the function retrieveResult() returns the
-flag true.(line 74)
+flag true.(line 74)  
+
 Take care of the valid parameter types and values for your filter, the Figure 3 :
 itkmedianfilter.cpp, definition of retrieveResult() shows the position where this
 parameters might change for each ITK filter. The number 1 represent the input pixel
@@ -710,6 +715,7 @@ create.
 <center>
 	<img src="doc/Readme_DeveloperGuide/12.PNG" />
 </center>
+
 *Figure 4 : Importing the needed components*
 
 We add the showed import packages like on Figure 4 : Importing the needed
@@ -745,6 +751,7 @@ Figure 5 : Filter object on QML.
 <center>
 	<img src="doc/Readme_DeveloperGuide/13.PNG" />
 </center>
+
 *Figure 5 : Filter object on QML.*
 
 Create a Label to hold the filter name, for us “ITKMedian”.
@@ -759,6 +766,7 @@ corresponding labels and textfields.
 <center>
 	<img src="doc/Readme_DeveloperGuide/14.PNG" />
 </center>
+
 *Figure 6 : TextField for an input parameter*
 
 Consider the Figure 6 : TextField for an input parameter, for each input parameter,
@@ -772,21 +780,32 @@ changes (Lines 45- 47 ).
 	<img src="doc/Readme_DeveloperGuide/15.PNG" />
 </center>
 
+*Figure 7 : Parameter name “RadiusY”, represented with a Label*
+
 
 The parameter name for the TextField radius, will be showed using a Label, see
 Figure 7 : Parameter name “RadiusY”, represented with a Label.
+
+<center>
+	<img src="doc/Readme_DeveloperGuide/16.PNG" />
+</center>
+
+*Figure 8 : Designer view of the ITKMedianFilter.qml*
 
 If you click on the left pane, on the Design tab you can see the result of your code,
 like on the Figure 8 : Designer view of the ITKMedianFilter.qml.
 
 
-Figure 7 : Parameter name “RadiusY”, represented with a Label.
-Figure 8 : Designer view of the ITKMedianFilter.qml
-
 The last step consist on implementing two functions saveNode() and loadNode() its
 implementation are same for each filter, but the ids might vary. If the filter you want
 to implement have no input parameters, you don’t need to implement these
 functions.
+
+<center>
+	<img src="doc/Readme_DeveloperGuide/17.PNG" />
+</center>
+
+*Figure 9 : ITKMedianFilter.qml, functions saveNode() and loadNode()*
 
 Consider the Figure 9 : ITKMedianFilter.qml, functions saveNode() and loadNode(),
 the lines 84- 87 und 90 are same for each filter node, the next lines 88-89 will vary
@@ -802,6 +821,8 @@ object, see Figure 10 : ListModel and ListElements.
 The name of the new ListElement should be exactly the name of the QML file you
 created without the .qml ending.
 
-Figure 9 : ITKMedianFilter.qml, functions saveNode() and loadNode()
+<center>
+	<img src="doc/Readme_DeveloperGuide/18.PNG" />
+</center>
 
-Figure 10 : ListModel and ListElements
+*Figure 10 : ListModel and ListElements*
