@@ -37,7 +37,7 @@ The user creates the node "Image" and selects a image file from his file system 
 
 ## Installation
 
-Installing GraphMIC with QT, ITK and OpenCv
+Installing Graph-ICS with QT, ITK and OpenCv
 
 Required components
 
@@ -197,7 +197,7 @@ click continue.
 
 ## 5. Installing and Build ITK
 
-5.1. Create a folder “ ITK ” with a subfolder “ bin ” (recommended on D:\lib\)
+5.1. Create a folder “ ITK ” with a subfolder “ bin ” (recommended on D:\lib\)  
 5.2. Go to https://github.com/InsightSoftwareConsortium/ITK
 
 - On the left site on Branch select “release” and on the right, click on clone or download, then click download zip
@@ -494,19 +494,19 @@ You can delete the item from the toolbar with the context menu in the combobox o
 ## Developer Guide
 
 Contents
-1. About the structure
-1.1. QtQuick and QML
-1.2. C++ Model
-Creating a new filter node
-2.1. Choose the filter
-2.2. Adding a new C++ filter class
-2.3. Implementing the filter class
-2.4. Defining the filter class in the source file
-2.5. Register the class as QtQuick QML Object
-2.6. Create your QML file
-2.7. Update the toolbar buttons
+1. About the structure  
+1.1. QtQuick and QML  
+1.2. C++ Model  
+2. Creating a new filter node  
+2.1. Choose the filter  
+2.2. Adding a new C++ filter class  
+2.3. Implementing the filter class  
+2.4. Defining the filter class in the source file  
+2.5. Register the class as QtQuick QML Object  
+2.6. Create your QML file  
+2.7. Update the toolbar buttons  
 
-The structure of GraphMic is divided on two components
+The structure of Graph-ICS is divided on two components
 
 #### 1.1. QtQuick and QML
 The QtQuick framework includes the QML declarative scripting language, QML
