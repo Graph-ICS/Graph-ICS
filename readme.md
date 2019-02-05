@@ -57,7 +57,7 @@ build and run the project.
 
 ## Contents
 
-1. Installing Debugging Tools from the Windows SDK 
+1. Installing Debugging Tools from the Windows SDK
 2. Installing Visual Studio 
 3. Preparing CMake 
 4. Installing Qt 
