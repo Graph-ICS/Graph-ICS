@@ -126,6 +126,7 @@ Button {
                 var index = toolBar.toolbarItems.indexOf(toolBarItem);
                 toolBar.toolbarItems.splice(index, 1);
                 toolBarItem.destroy(10);
+                configManager.saveToolBarItems();
                 drawToolbarItems();
             }
         }
@@ -140,16 +141,18 @@ Button {
                 mouseArea.drag.target = toolBarItem;
                 toolBarItem.background.border.color = "orange"
                 move = true;
+                configManager.saveToolBarItems();
             }
         }
     }
     function drawToolbarItems () {
-        var pos = selectButton.width+ selectButton.x+1;
+        var pos = toolBar.selectButton.width + toolBar.selectButton.x+1;
         for( var i=0; i<toolBar.toolbarItems.length; i++) {
             var item = toolBar.toolbarItems[i];
             item.x = pos;
             pos = pos+item.width+1;
         }
+        configManager.saveToolBarItems();
     }
     function sortToolbarItems () {
         if(toolBar.toolbarItems.length === 1) {

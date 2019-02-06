@@ -148,7 +148,6 @@ Item{ // die Items die in der Combo Box
             onTriggered: {
                 filtersLoop:
                 for(var j=0; j<filters.count; j++) {
-
                     if(modelData === filters.get(j).name) {
                         for (var i=0; i<toolbarItems.length; i++) {
                             if(modelData === toolbarItems[i].label.text) {
@@ -161,6 +160,7 @@ Item{ // die Items die in der Combo Box
                         var text = String(filters.get(j).name);
                         item.width = text.length*7.5;
                         toolbarItems.push(item);
+                        configManager.saveToolBarItems();
                         item.drawToolbarItems();
                     }
                 }
@@ -181,6 +181,7 @@ Item{ // die Items die in der Combo Box
                 var itemToDestroy = toolBar.toolbarItems[index];
                 toolBar.toolbarItems.splice(index, 1);
                 itemToDestroy.drawToolbarItems();
+                configManager.saveToolBarItems();
                 itemToDestroy.destroy(10);
             }
         }

@@ -13,6 +13,8 @@ RowLayout {
     property alias selectedItem: chosenItemText.text;
     property var toolbarItems: []
     property alias filters: filters
+    property alias comboBox: comboBox
+    property alias selectButton: selectButton
     height: 40
 
     Rectangle {

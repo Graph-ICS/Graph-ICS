@@ -32,6 +32,7 @@ import Model.Image 1.0
 
 
 ApplicationWindow {
+    Component.onCompleted: {configManager.openToolBarItems()} // beim Start des Programmes wird die Favoriten Toolbar erzeugt, die der Nutzer beim Beenden des Programmes hatte
     id: root
     visible: true
     width: 640

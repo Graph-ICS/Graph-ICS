@@ -74,6 +74,28 @@ Item {
         var dataJson = nodesJson + edgesJson; // Trennzeichen eingefügt, um Daten der Konten und der Kanten zu trennen
         saveFile(dataJson, fileUrl);
     }
+    function saveToolBarItems() {
+        var toolbarItemsNames = [];
+        for (var i=0; i<toolBar.toolbarItems.length; i++) {
+            toolbarItemsNames.push(toolBar.toolbarItems[i].label.text);
+        }
+        var toolbarItemsJson = JSON.stringify(toolbarItemsNames);
+        saveFile(toolbarItemsJson, "../configuration.txt");
+    }
+    function openToolBarItems() {
+        var fileData = openFile("../configuration.txt");
+        var dataToolbarItems = JSON.parse(fileData);
+        for (var i=0; i<dataToolbarItems.length; i++) {
+            var component = Qt.createComponent("ToolBarItem.qml");
+            var item = component.createObject(toolBar.comboBox);
+            item.label.text = dataToolbarItems[i];
+            var text = String(dataToolbarItems[i]);
+            item.width = text.length*7.5;
+            toolBar.toolbarItems.push(item);
+            item.drawToolbarItems();
+        }
+    }
+
     function openConfig(fileUrl) {
         menuManager.windowTitle = getFileName(fileUrl);//Name des aktuellen Files wird im ApplicationWindow angezeigt
         menuManager.filePath = fileUrl;
