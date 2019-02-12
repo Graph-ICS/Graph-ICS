@@ -206,7 +206,8 @@ like in step 3.2.
 5.1. Create a folder “ ITK ” with a subfolder “ bin ” (recommended on D:\lib\)  
 5.2. Go to https://github.com/InsightSoftwareConsortium/ITK
 
-- On the left site on Branch select “release” and on the right, click on clone or download, then click download zip
+- Go to branches
+- Select the branch “release” and on the right, click on clone or download, then click download zip
 - Move the Zip file to the ITK folder
 - Right-click the Zip file and select unzip it here, so it will be a folder “ITK-release” created, this will be the source folder.
     
