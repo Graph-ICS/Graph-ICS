@@ -72,9 +72,9 @@ Windows SDK contains a CDB Debugger, you will need it in case you want to debug
 the application on Qt.
 
 
-1.1. Go to the official Microsoft site https://www.microsoft.com/en-us/download/details.aspx?id=
+1.1. Go to https://developer.microsoft.com/de-de/windows/downloads/windows-10-sdk
 
-1.2. Click on Download, to download the installer.
+1.2. Download the installer.
 
 1.3. Run the installer.
 
@@ -123,13 +123,18 @@ Installing Visual Studio Express 2017 for Windows Desktop
 
 This step is needed if you do not have a pre-installed CMake version on your system.
 
-3.1. You can download a windows installer of CMake (cmake-3.12.1-win64-x64.msi)
+3.1. You can download a windows installer of CMake (cmake-3.13.4-win64-x64.msi) 
 from the CMake download page. Follow the instructions provided on the CMake
 installation page for downloading and installing the software
 <center>
 	<img src="doc/Readme_Installation/Installation4.PNG" />
-</center>
-Note: Add CMake to the system path.
+</center>  
+
+3.2.  Add CMake to the system path:
+
+- Right click on the Computer icon on the desktop and select properties
+- Then follow the instructions [here](https://www.nextofwindows.com/how-to-addedit-environment-variables-in-windows-7)
+- The path you must add is: C:\Program Files\CMake\bin if you didn't change the path in your installation, if you did just add the path to your bin folder 
 
 ## 4. Installing Qt
 
@@ -149,7 +154,7 @@ click continue.
 4.4. Select the components you want to install, the ones you need are:
 
 - Under Qt 5.11.0: MSVC 2015 64-Bit or MSVC 2017 64-Bit
-- Under Tools: Qt Creator 4.7.0 CBD Debugger Support 4.5.
+- Under Developer and Designer Tools: Qt Creator 4.8.1 CDB Debugger Support
 - You can add or delete Tools every time using the Qt Maintenance Tool.
 
 4.5. Finish the installation and not open QtCreator
@@ -163,8 +168,8 @@ click continue.
 	<img src="doc/Readme_Installation/Installation5.PNG" />
 </center>
 
-- On the left pane, go to Build & Run
-- On the right you will see different tabs, go to “Kits” ,
+- On the upper left corner you will see different tabs
+- go to "Kits",
 - Select the MSVC precompiled tool, you have installed on step 4.4 and
     want to use an on the right site click on clone
     <center>
@@ -183,7 +188,7 @@ click continue.
 	<img src="doc/Readme_Installation/Installation8.PNG" />
 </center>
 
-- Click on Apply and ok.
+- Click on Ok and then on Apply.
 - If you want to debug, make sure you select the correct path to the
     debugger like on the follow snip.
     <center>
@@ -192,7 +197,8 @@ click continue.
 
 - Close QtCreator.
 - Add the following path to the env variables
-    D:\lib\Qt\5.11.0\msvc2017_64\bin
+    D:\lib\Qt\5.11.0\msvc2017_64\bin  
+like in step 3.2.
 
 
 ## 5. Installing and Build ITK
@@ -200,7 +206,8 @@ click continue.
 5.1. Create a folder “ ITK ” with a subfolder “ bin ” (recommended on D:\lib\)  
 5.2. Go to https://github.com/InsightSoftwareConsortium/ITK
 
-- On the left site on Branch select “release” and on the right, click on clone or download, then click download zip
+- Go to branches
+- Select the branch “release” and on the right, click on clone or download, then click download zip
 - Move the Zip file to the ITK folder
 - Right-click the Zip file and select unzip it here, so it will be a folder “ITK-release” created, this will be the source folder.
     
@@ -296,6 +303,7 @@ Follow the same Steps like on 5 with following changes:
 7.1. Clone the project from the following repository:
 https://github.com/Graph-ICS/Graph-ICS to you folder
 (D:\Graph-ICS)
+To do so, you can download the zip file and unpack it in the folder D:\Graph-ICS
 
 7.2. Open the Qt Creator and click open project on the Welcome tab.
 
