@@ -51,10 +51,12 @@ set(CMAKE_AUTOMOC true)
 
 # [5] binding of libraries:
 # ******************************************************************************
+set(ITK_DIR "D:\\lib\\ITK\\bin")
 find_package(ITK REQUIRED )
 message("ITK Pakage: " ${ITK_DIR})
 include(${ITK_USE_FILE})
 
+set(OpenCv_DIR "D:\\lib\\opencv\\build")
 find_package(OpenCv REQUIRED )
 message("OpenCv Pakage: " ${OpenCv_DIR})
 set(${OpenCV_INCLUDE_DIRS} ${OpenCv_DIR}/include)
