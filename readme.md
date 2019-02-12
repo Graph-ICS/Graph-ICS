@@ -72,7 +72,7 @@ Windows SDK contains a CDB Debugger, you will need it in case you want to debug
 the application on Qt.
 
 
-1.1. Go to the official Microsoft site https://www.microsoft.com/en-us/download/details.aspx?id=
+1.1. Go to https://www.heise.de/download/product/windows-software-development-kit-sdk-fuer-windows-61897
 
 1.2. Click on Download, to download the installer.
 
@@ -123,7 +123,7 @@ Installing Visual Studio Express 2017 for Windows Desktop
 
 This step is needed if you do not have a pre-installed CMake version on your system.
 
-3.1. You can download a windows installer of CMake (cmake-3.12.1-win64-x64.msi)
+3.1. You can download a windows installer of CMake (cmake-3.13.4-win64-x64.msi) 
 from the CMake download page. Follow the instructions provided on the CMake
 installation page for downloading and installing the software
 <center>
