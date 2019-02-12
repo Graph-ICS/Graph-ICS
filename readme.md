@@ -128,8 +128,13 @@ from the CMake download page. Follow the instructions provided on the CMake
 installation page for downloading and installing the software
 <center>
 	<img src="doc/Readme_Installation/Installation4.PNG" />
-</center>
-Note: Add CMake to the system path.
+</center>  
+
+3.2.  Add CMake to the system path:
+
+- Right click on the Computer icon on the desktop and select properties
+- Then follow the instructions [here](https://www.nextofwindows.com/how-to-addedit-environment-variables-in-windows-7)
+- The path you must add is: C:\Program Files\CMake\bin if you didn't change the path in your installation, if you did just add the path to your bin folder 
 
 ## 4. Installing Qt
 
@@ -193,7 +198,7 @@ click continue.
 - Close QtCreator.
 - Add the following path to the env variables
     D:\lib\Qt\5.11.0\msvc2017_64\bin  
-To do so, go to the Computer icon on the desktop, click right and go to properties. Then follow the instructions [here](https://www.nextofwindows.com/how-to-addedit-environment-variables-in-windows-7)
+like in step 3.2.
 
 
 ## 5. Installing and Build ITK
