@@ -193,7 +193,7 @@ click continue.
 - Close QtCreator.
 - Add the following path to the env variables
     D:\lib\Qt\5.11.0\msvc2017_64\bin  
-A description on how to add the variables you find [here](https://www.nextofwindows.com/how-to-addedit-environment-variables-in-windows-7)
+To do so, go to the Computer icon on the desktop, click right and go to properties. Then follow the instructions [here](https://www.nextofwindows.com/how-to-addedit-environment-variables-in-windows-7)
 
 
 ## 5. Installing and Build ITK
