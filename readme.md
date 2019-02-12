@@ -154,7 +154,7 @@ click continue.
 4.4. Select the components you want to install, the ones you need are:
 
 - Under Qt 5.11.0: MSVC 2015 64-Bit or MSVC 2017 64-Bit
-- Under Tools: Qt Creator 4.7.0 CBD Debugger Support 4.5.
+- Under Developer and Designer Tools: Qt Creator 4.8.1 CDB Debugger Support
 - You can add or delete Tools every time using the Qt Maintenance Tool.
 
 4.5. Finish the installation and not open QtCreator
@@ -168,8 +168,8 @@ click continue.
 	<img src="doc/Readme_Installation/Installation5.PNG" />
 </center>
 
-- On the left pane, go to Build & Run
-- On the right you will see different tabs, go to “Kits” ,
+- On the upper left corner you will see different tabs
+- go to "Kits",
 - Select the MSVC precompiled tool, you have installed on step 4.4 and
     want to use an on the right site click on clone
     <center>
@@ -188,7 +188,7 @@ click continue.
 	<img src="doc/Readme_Installation/Installation8.PNG" />
 </center>
 
-- Click on Apply and ok.
+- Click on Ok and then on Apply.
 - If you want to debug, make sure you select the correct path to the
     debugger like on the follow snip.
     <center>
@@ -302,6 +302,7 @@ Follow the same Steps like on 5 with following changes:
 7.1. Clone the project from the following repository:
 https://github.com/Graph-ICS/Graph-ICS to you folder
 (D:\Graph-ICS)
+To do so, you can download the zip file and unpack it in the folder D:\Graph-ICS
 
 7.2. Open the Qt Creator and click open project on the Welcome tab.
 
