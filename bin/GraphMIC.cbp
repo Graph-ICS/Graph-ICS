@@ -1,0 +1,1412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="GraphMIC"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="msvc8"/>
+		<Option virtualFolders="CMake Files\;CMake Files\cmake\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\lib\;CMake Files\..\..\lib\Qt\;CMake Files\..\..\lib\Qt\5.11.0\;CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\;CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\;CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\;CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5\;CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Core\;CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Gui\;CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Widgets\;CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Quick\;CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Qml\;CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Network\;CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Concurrent\;CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5DBus\;CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5PrintSupport\;CMake Files\..\..\lib\ITK\;CMake Files\..\..\lib\ITK\bin\;CMake Files\..\..\lib\ITK\bin\lib\;CMake Files\..\..\lib\ITK\bin\lib\cmake\;CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\;CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\;CMake Files\..\..\lib\ITK\ITK-release\;CMake Files\..\..\lib\ITK\ITK-release\CMake\;CMake Files\..\..\lib\opencv\;CMake Files\..\..\lib\opencv\build\;CMake Files\..\..\lib\opencv\build\x64\;CMake Files\..\..\lib\opencv\build\x64\vc15\;CMake Files\..\..\lib\opencv\build\x64\vc15\lib\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="D:/Workspace/Graph-ICS/bin"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="jom /NOLOGO /f D:\Workspace\Graph-ICS\bin\Makefile VERBOSE=1 all"/>
+					<CompileFile command="jom /NOLOGO /f D:\Workspace\Graph-ICS\bin\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="jom /NOLOGO /f D:\Workspace\Graph-ICS\bin\Makefile VERBOSE=1 clean"/>
+					<DistClean command="jom /NOLOGO /f D:\Workspace\Graph-ICS\bin\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="GraphMIC">
+				<Option output="D:/Workspace/Graph-ICS/build/GraphMIC.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Workspace/Graph-ICS/build"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add option="-DITK_IO_FACTORY_REGISTER_MANAGER"/>
+					<Add option="-DUSE_INSTALL_TARGET"/>
+					<Add option="-DQT_QML_DEBUG"/>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add option="-DQT_QUICK_LIB"/>
+					<Add option="-DQT_QML_LIB"/>
+					<Add option="-DQT_NETWORK_LIB"/>
+					<Add option="-DQT_CONCURRENT_LIB"/>
+					<Add option="-DDEBUG"/>
+					<Add directory="D:/Workspace/Graph-ICS/bin/GraphMIC_autogen/include"/>
+					<Add directory="D:/Workspace/Graph-ICS/bin/ITKFactoryRegistration"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Segmentation/Watersheds/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Video/IO/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Video/Filtering/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Video/Core/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Bridge/VTK/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Core/TestKernel/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Segmentation/SuperPixel/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/SpatialFunction/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Registration/RegistrationMethodsv4/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Segmentation/RegionGrowing/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/QuadEdgeMeshFiltering/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Registration/Metricsv4/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Numerics/Optimizersv4/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Segmentation/MarkovRandomFieldsClassifiers/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Segmentation/LevelSetsv4/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Segmentation/LabelVoting/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/libLBFGS/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Segmentation/KLMRegionGrowing/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/ImageNoise/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/ImageFusion/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/ImageFrequency/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/VTK/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/TransformMatlab/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/TransformInsightLegacy/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/TransformHDF5/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/TransformBase/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/TransformFactory/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/Stimulate/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/SpatialObjects/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/XML/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/Siemens/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/RAW/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/PNG/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/PNG/src"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/PNG/src"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/NRRD/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/NrrdIO/src/NrrdIO"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/NrrdIO/src/NrrdIO"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/NIFTI/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/Meta/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/Mesh/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/MeshVTK/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/MeshBYU/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/MeshBase/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Segmentation/Voronoi/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/MRC/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/MINC/include"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/HDF5/src/itkhdf5"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/HDF5/src/itkhdf5"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/MINC/src/libminc/volume_io/Include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/MINC/src/libminc/libsrc2"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/MINC/src/libminc/libcommon"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/MINC/src/libminc"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/MINC"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/MINC"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/LSM/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/TIFF/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/TIFF/src"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/TIFF/src/itktiff"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/TIFF/src"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/JPEG/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/JPEG/src"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/JPEG/src"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/HDF5/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/GIPL/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/GE/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/IPL/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/GDCM/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/CSV/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/Bruker/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/BioRad/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/BMP/include"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/HDF5/src"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/HDF5/src"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/GPUThresholding/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/GPUSmoothing/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Registration/GPUPDEDeformable/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Registration/PDEDeformable/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Registration/Common/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Registration/GPUCommon/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/GPUImageFilterBase/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/GPUAnisotropicSmoothing/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Core/GPUFiniteDifference/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Core/GPUCommon/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/GIFTI/src/gifticlib"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/NIFTI/src/nifti/znzlib"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/NIFTI/src/nifti/niftilib"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/GDCM/src/gdcm/Source/DataStructureAndEncodingDefinition"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/GDCM/src/gdcm/Source/MessageExchangeDefinition"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/GDCM/src/gdcm/Source/InformationObjectDefinition"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/GDCM/src/gdcm/Source/Common"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/GDCM/src/gdcm/Source/DataDictionary"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/GDCM/src/gdcm/Source/MediaStorageAndFileFormat"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/GDCM/src/gdcm/Source/Common"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/GDCM"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/Expat/src/expat"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/Expat/src/expat"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Numerics/Eigen/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/DisplacementField/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/DiffusionTensorImage/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/Denoising/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Segmentation/DeformableMesh/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/Deconvolution/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/DICOMParser/src/DICOMParser"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/DICOMParser/src/DICOMParser"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/Convolution/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/FFT/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/Colormap/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Segmentation/Classifiers/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/BiasCorrection/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Numerics/Polynomials/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/AntiAlias/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Segmentation/LevelSets/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Segmentation/SignedDistanceFunction/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Numerics/Optimizers/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/ImageFeature/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/ImageSources/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/ImageGradient/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/Smoothing/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/ImageCompare/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/ImageBase/include"/>
+					<Add directory="D:/lib/ITK/bin/Modules/IO/ImageBase"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/FastMarching/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Core/QuadEdgeMesh/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/DistanceMap/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Numerics/NarrowBand/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/ImageLabel/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/BinaryMathematicalMorphology/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/MathematicalMorphology/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Segmentation/ConnectedComponents/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/Thresholding/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/ImageIntensity/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/Path/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/ImageStatistics/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Core/SpatialObjects/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/MetaIO/src/MetaIO/src"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/MetaIO/src/MetaIO/src"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/ZLIB/src"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/ZLIB/src"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Core/Mesh/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/ImageCompose/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/LabelMap/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/AnisotropicSmoothing/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/ImageGrid/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Core/ImageFunction/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Core/Transform/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Numerics/Statistics/include"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/Netlib"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Core/ImageAdaptors/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/CurvatureFlow/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/ImageFilterBase/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Core/FiniteDifference/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Core/Common/include"/>
+					<Add directory="D:/lib/ITK/bin/Modules/Core/Common"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/VNLInstantiation/include"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/VNL/src/vxl/core"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/VNL/src/vxl/vcl"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/VNL/src/vxl/v3p/netlib"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/VNL/src/vxl/core"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/KWIML/src"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/KWIML/src"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/DoubleConversion/src/double-conversion"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/DoubleConversion/src/double-conversion"/>
+					<Add directory="D:/Workspace/Graph-ICS/Sources"/>
+					<Add directory="D:/Workspace/Graph-ICS/Sources/filter"/>
+					<Add directory="D:/Workspace/Graph-ICS/bin/Sources/bin"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/HDF5/src/itkhdf5/src"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/VNL/src/vxl/vcl"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/VNL/src/vxl/v3p/netlib"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/KWSys/src"/>
+					<Add directory="D:/lib/opencv/build/include"/>
+					<Add directory="D:/lib/opencv/build/include/opencv"/>
+					<Add directory="D:/lib/Qt/5.11.0/msvc2017_64/include"/>
+					<Add directory="D:/lib/Qt/5.11.0/msvc2017_64/include/QtCore"/>
+					<Add directory="D:/lib/Qt/5.11.0/msvc2017_64/./mkspecs/win32-msvc"/>
+					<Add directory="D:/lib/Qt/5.11.0/msvc2017_64/include/QtWidgets"/>
+					<Add directory="D:/lib/Qt/5.11.0/msvc2017_64/include/QtGui"/>
+					<Add directory="D:/lib/Qt/5.11.0/msvc2017_64/include/QtANGLE"/>
+					<Add directory="D:/lib/Qt/5.11.0/msvc2017_64/include/QtQuick"/>
+					<Add directory="D:/lib/Qt/5.11.0/msvc2017_64/include/QtQml"/>
+					<Add directory="D:/lib/Qt/5.11.0/msvc2017_64/include/QtNetwork"/>
+					<Add directory="D:/lib/Qt/5.11.0/msvc2017_64/include/QtConcurrent"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/VNL/src/vxl/core/vnl/algo"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/VNL/src/vxl/core/vnl"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/HDF5/src/itkhdf5/c++/src"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/HDF5/src/itkhdf5/c++/src"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/HDF5/src/itkhdf5/src"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2017\WDExpress\VC\Tools\MSVC\14.15.26726\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="jom /NOLOGO /f D:\Workspace\Graph-ICS\bin\Makefile VERBOSE=1 GraphMIC"/>
+					<CompileFile command="jom /NOLOGO /f D:\Workspace\Graph-ICS\bin\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="jom /NOLOGO /f D:\Workspace\Graph-ICS\bin\Makefile VERBOSE=1 clean"/>
+					<DistClean command="jom /NOLOGO /f D:\Workspace\Graph-ICS\bin\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="GraphMIC/fast">
+				<Option output="D:/Workspace/Graph-ICS/build/GraphMIC.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Workspace/Graph-ICS/build"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add option="-DITK_IO_FACTORY_REGISTER_MANAGER"/>
+					<Add option="-DUSE_INSTALL_TARGET"/>
+					<Add option="-DQT_QML_DEBUG"/>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add option="-DQT_QUICK_LIB"/>
+					<Add option="-DQT_QML_LIB"/>
+					<Add option="-DQT_NETWORK_LIB"/>
+					<Add option="-DQT_CONCURRENT_LIB"/>
+					<Add option="-DDEBUG"/>
+					<Add directory="D:/Workspace/Graph-ICS/bin/GraphMIC_autogen/include"/>
+					<Add directory="D:/Workspace/Graph-ICS/bin/ITKFactoryRegistration"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Segmentation/Watersheds/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Video/IO/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Video/Filtering/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Video/Core/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Bridge/VTK/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Core/TestKernel/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Segmentation/SuperPixel/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/SpatialFunction/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Registration/RegistrationMethodsv4/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Segmentation/RegionGrowing/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/QuadEdgeMeshFiltering/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Registration/Metricsv4/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Numerics/Optimizersv4/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Segmentation/MarkovRandomFieldsClassifiers/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Segmentation/LevelSetsv4/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Segmentation/LabelVoting/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/libLBFGS/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Segmentation/KLMRegionGrowing/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/ImageNoise/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/ImageFusion/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/ImageFrequency/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/VTK/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/TransformMatlab/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/TransformInsightLegacy/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/TransformHDF5/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/TransformBase/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/TransformFactory/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/Stimulate/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/SpatialObjects/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/XML/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/Siemens/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/RAW/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/PNG/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/PNG/src"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/PNG/src"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/NRRD/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/NrrdIO/src/NrrdIO"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/NrrdIO/src/NrrdIO"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/NIFTI/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/Meta/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/Mesh/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/MeshVTK/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/MeshBYU/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/MeshBase/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Segmentation/Voronoi/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/MRC/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/MINC/include"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/HDF5/src/itkhdf5"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/HDF5/src/itkhdf5"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/MINC/src/libminc/volume_io/Include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/MINC/src/libminc/libsrc2"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/MINC/src/libminc/libcommon"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/MINC/src/libminc"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/MINC"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/MINC"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/LSM/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/TIFF/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/TIFF/src"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/TIFF/src/itktiff"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/TIFF/src"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/JPEG/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/JPEG/src"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/JPEG/src"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/HDF5/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/GIPL/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/GE/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/IPL/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/GDCM/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/CSV/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/Bruker/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/BioRad/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/BMP/include"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/HDF5/src"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/HDF5/src"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/GPUThresholding/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/GPUSmoothing/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Registration/GPUPDEDeformable/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Registration/PDEDeformable/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Registration/Common/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Registration/GPUCommon/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/GPUImageFilterBase/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/GPUAnisotropicSmoothing/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Core/GPUFiniteDifference/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Core/GPUCommon/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/GIFTI/src/gifticlib"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/NIFTI/src/nifti/znzlib"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/NIFTI/src/nifti/niftilib"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/GDCM/src/gdcm/Source/DataStructureAndEncodingDefinition"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/GDCM/src/gdcm/Source/MessageExchangeDefinition"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/GDCM/src/gdcm/Source/InformationObjectDefinition"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/GDCM/src/gdcm/Source/Common"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/GDCM/src/gdcm/Source/DataDictionary"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/GDCM/src/gdcm/Source/MediaStorageAndFileFormat"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/GDCM/src/gdcm/Source/Common"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/GDCM"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/Expat/src/expat"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/Expat/src/expat"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Numerics/Eigen/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/DisplacementField/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/DiffusionTensorImage/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/Denoising/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Segmentation/DeformableMesh/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/Deconvolution/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/DICOMParser/src/DICOMParser"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/DICOMParser/src/DICOMParser"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/Convolution/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/FFT/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/Colormap/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Segmentation/Classifiers/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/BiasCorrection/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Numerics/Polynomials/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/AntiAlias/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Segmentation/LevelSets/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Segmentation/SignedDistanceFunction/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Numerics/Optimizers/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/ImageFeature/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/ImageSources/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/ImageGradient/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/Smoothing/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/ImageCompare/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/IO/ImageBase/include"/>
+					<Add directory="D:/lib/ITK/bin/Modules/IO/ImageBase"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/FastMarching/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Core/QuadEdgeMesh/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/DistanceMap/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Numerics/NarrowBand/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/ImageLabel/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/BinaryMathematicalMorphology/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/MathematicalMorphology/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Segmentation/ConnectedComponents/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/Thresholding/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/ImageIntensity/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/Path/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/ImageStatistics/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Core/SpatialObjects/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/MetaIO/src/MetaIO/src"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/MetaIO/src/MetaIO/src"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/ZLIB/src"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/ZLIB/src"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Core/Mesh/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/ImageCompose/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/LabelMap/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/AnisotropicSmoothing/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/ImageGrid/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Core/ImageFunction/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Core/Transform/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Numerics/Statistics/include"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/Netlib"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Core/ImageAdaptors/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/CurvatureFlow/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Filtering/ImageFilterBase/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Core/FiniteDifference/include"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/Core/Common/include"/>
+					<Add directory="D:/lib/ITK/bin/Modules/Core/Common"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/VNLInstantiation/include"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/VNL/src/vxl/core"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/VNL/src/vxl/vcl"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/VNL/src/vxl/v3p/netlib"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/VNL/src/vxl/core"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/KWIML/src"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/KWIML/src"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/DoubleConversion/src/double-conversion"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/DoubleConversion/src/double-conversion"/>
+					<Add directory="D:/Workspace/Graph-ICS/Sources"/>
+					<Add directory="D:/Workspace/Graph-ICS/Sources/filter"/>
+					<Add directory="D:/Workspace/Graph-ICS/bin/Sources/bin"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/HDF5/src/itkhdf5/src"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/VNL/src/vxl/vcl"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/VNL/src/vxl/v3p/netlib"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/KWSys/src"/>
+					<Add directory="D:/lib/opencv/build/include"/>
+					<Add directory="D:/lib/opencv/build/include/opencv"/>
+					<Add directory="D:/lib/Qt/5.11.0/msvc2017_64/include"/>
+					<Add directory="D:/lib/Qt/5.11.0/msvc2017_64/include/QtCore"/>
+					<Add directory="D:/lib/Qt/5.11.0/msvc2017_64/./mkspecs/win32-msvc"/>
+					<Add directory="D:/lib/Qt/5.11.0/msvc2017_64/include/QtWidgets"/>
+					<Add directory="D:/lib/Qt/5.11.0/msvc2017_64/include/QtGui"/>
+					<Add directory="D:/lib/Qt/5.11.0/msvc2017_64/include/QtANGLE"/>
+					<Add directory="D:/lib/Qt/5.11.0/msvc2017_64/include/QtQuick"/>
+					<Add directory="D:/lib/Qt/5.11.0/msvc2017_64/include/QtQml"/>
+					<Add directory="D:/lib/Qt/5.11.0/msvc2017_64/include/QtNetwork"/>
+					<Add directory="D:/lib/Qt/5.11.0/msvc2017_64/include/QtConcurrent"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/VNL/src/vxl/core/vnl/algo"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/VNL/src/vxl/core/vnl"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/HDF5/src/itkhdf5/c++/src"/>
+					<Add directory="D:/lib/ITK/ITK-release/Modules/ThirdParty/HDF5/src/itkhdf5/c++/src"/>
+					<Add directory="D:/lib/ITK/bin/Modules/ThirdParty/HDF5/src/itkhdf5/src"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2017\WDExpress\VC\Tools\MSVC\14.15.26726\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="jom /NOLOGO /f D:\Workspace\Graph-ICS\bin\Makefile VERBOSE=1 GraphMIC/fast"/>
+					<CompileFile command="jom /NOLOGO /f D:\Workspace\Graph-ICS\bin\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="jom /NOLOGO /f D:\Workspace\Graph-ICS\bin\Makefile VERBOSE=1 clean"/>
+					<DistClean command="jom /NOLOGO /f D:\Workspace\Graph-ICS\bin\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CopyResources">
+				<Option working_dir="D:/Workspace/Graph-ICS/bin"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="jom /NOLOGO /f D:\Workspace\Graph-ICS\bin\Makefile VERBOSE=1 CopyResources"/>
+					<CompileFile command="jom /NOLOGO /f D:\Workspace\Graph-ICS\bin\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="jom /NOLOGO /f D:\Workspace\Graph-ICS\bin\Makefile VERBOSE=1 clean"/>
+					<DistClean command="jom /NOLOGO /f D:\Workspace\Graph-ICS\bin\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="D:/Workspace/Graph-ICS/bin"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="jom /NOLOGO /f D:\Workspace\Graph-ICS\bin\Makefile VERBOSE=1 edit_cache"/>
+					<CompileFile command="jom /NOLOGO /f D:\Workspace\Graph-ICS\bin\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="jom /NOLOGO /f D:\Workspace\Graph-ICS\bin\Makefile VERBOSE=1 clean"/>
+					<DistClean command="jom /NOLOGO /f D:\Workspace\Graph-ICS\bin\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="D:/Workspace/Graph-ICS/bin"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="jom /NOLOGO /f D:\Workspace\Graph-ICS\bin\Makefile VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="jom /NOLOGO /f D:\Workspace\Graph-ICS\bin\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="jom /NOLOGO /f D:\Workspace\Graph-ICS\bin\Makefile VERBOSE=1 clean"/>
+					<DistClean command="jom /NOLOGO /f D:\Workspace\Graph-ICS\bin\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="GraphMIC_autogen">
+				<Option working_dir="D:/Workspace/Graph-ICS/bin"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="jom /NOLOGO /f D:\Workspace\Graph-ICS\bin\Makefile VERBOSE=1 GraphMIC_autogen"/>
+					<CompileFile command="jom /NOLOGO /f D:\Workspace\Graph-ICS\bin\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="jom /NOLOGO /f D:\Workspace\Graph-ICS\bin\Makefile VERBOSE=1 clean"/>
+					<DistClean command="jom /NOLOGO /f D:\Workspace\Graph-ICS\bin\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="D:/Workspace/Graph-ICS/QML/ComoBoxItem.qml">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/QML/ConfigManager.qml">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/QML/ConfigureToolbar.qml">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/QML/Filter/CvMedianFilter.qml">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/QML/Filter/CvSobelOperatorFilter.qml">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/QML/Filter/ITKBinaryMorphClosingFilter.qml">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/QML/Filter/ITKBinaryMorphOpeningFilter.qml">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/QML/Filter/ITKCannyEdgeDetectionFilter.qml">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/QML/Filter/ITKDiscreteGaussianFilter.qml">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/QML/Filter/ITKMedianFilter.qml">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/QML/Filter/ITKSubstractFilter.qml">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/QML/Filter/ITKWatershed.qml">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/QML/Filter/QtBlackWhiteFilter.qml">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/QML/Filter/QtDarkerFilter.qml">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/QML/Filter/QtLighterFilter.qml">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/QML/GCanvas.qml">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/QML/GFilter.qml">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/QML/GFilter2Ports.qml">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/QML/GFilter3Ports.qml">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/QML/GNode.qml">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/QML/GToolBar.qml">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/QML/Image.qml">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/QML/InfoPopup.qml">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/QML/MenuManager.qml">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/QML/NewConfigDialog.qml">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/QML/Port.qml">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/QML/ToolBarItem.qml">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/QML/main.qml">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/Filter/cvmedianfilter.cpp">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/Filter/cvmedianfilter.h">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/Filter/cvsobeloperatorfilter.cpp">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/Filter/cvsobeloperatorfilter.h">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/Filter/itkbinarymorphclosingfilter.cpp">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/Filter/itkbinarymorphclosingfilter.h">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/Filter/itkbinarymorphopeningfilter.cpp">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/Filter/itkbinarymorphopeningfilter.h">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/Filter/itkcannyedgedetectionfilter.cpp">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/Filter/itkcannyedgedetectionfilter.h">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/Filter/itkdiscretegaussianfilter.cpp">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/Filter/itkdiscretegaussianfilter.h">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/Filter/itkmedianfilter.cpp">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/Filter/itkmedianfilter.h">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/Filter/itksubstractfilter.cpp">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/Filter/itksubstractfilter.h">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/Filter/itkwatershedfilter.cpp">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/Filter/itkwatershedfilter.h">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/Filter/qtblackwhitefilter.cpp">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/Filter/qtblackwhitefilter.h">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/Filter/qtdarkerfilter.cpp">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/Filter/qtdarkerfilter.h">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/Filter/qtlighterfilter.cpp">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/Filter/qtlighterfilter.h">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/channelpixelaccessors.cpp">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/channelpixelaccessors.h">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/gimageprovider.cpp">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/gimageprovider.h">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/image.cpp">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/image.h">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/imageconverter.cpp">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/imageconverter.h">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/main.cpp">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/node.cpp">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/Sources/node.h">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/bin/GraphMIC_autogen/mocs_compilation.cpp">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/doc/EA1.png">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/doc/File.PNG">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/doc/LogoCES.png">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/doc/RemicLogo.png">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/doc/ScreenshotReadMe.PNG">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/doc/ScreenshotReadMeWithNumbers.PNG">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/doc/UserGuide.png">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/doc/getResultExample.PNG">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/doc/guide.png">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/doc/icon.png">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/doc/loadingAnImage.PNG">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/doc/overview.png">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/doc/readme_addingAFilter.png">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/doc/readme_components.png">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/doc/readme_editNodes1.png">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/doc/readme_editNodes2.png">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/doc/readme_favoritesToolbar1.png">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/doc/readme_favoritesToolbar2.png">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/doc/readme_favoritesToolbar3.png">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/doc/readme_favoritesToolbar4.png">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/doc/readme_loadAnImage.png">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/doc/readme_manageYourConfiguration1.png">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/doc/readme_manageYourConfiguration2.png">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/doc/readme_manageYourConfiguration3.png">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/doc/readme_removingAnNode.png">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/doc/screenshot.png">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/doc/screenshot2.png">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/doc/star.jpg">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/doc/star2.png">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/doc/star3jpg.jpg">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/doc/star4.png">
+			<Option target="GraphMIC"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/cmake/Functions.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5/Qt5Config.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5/Qt5ConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5/Qt5ModuleLocation.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Core/Qt5CoreConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Core/Qt5CoreConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Core/Qt5CoreConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Core/Qt5CoreMacros.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Gui/Qt5GuiConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Gui/Qt5GuiConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Gui/Qt5Gui_QFlatpakThemePlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Gui/Qt5Gui_QGifPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Gui/Qt5Gui_QICNSPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Gui/Qt5Gui_QICOPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Gui/Qt5Gui_QJpegPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Gui/Qt5Gui_QMinimalIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Gui/Qt5Gui_QOffscreenIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Gui/Qt5Gui_QTgaPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Gui/Qt5Gui_QTiffPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Gui/Qt5Gui_QTuioTouchPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Gui/Qt5Gui_QWbmpPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Gui/Qt5Gui_QWebpPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Gui/Qt5Gui_QWindowsDirect2DIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Gui/Qt5Gui_QWindowsIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Widgets/Qt5WidgetsConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Widgets/Qt5Widgets_QWindowsVistaStylePlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Quick/Qt5QuickConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Quick\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Quick/Qt5QuickConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Quick\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Qml/Qt5QmlConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Qml/Qt5QmlConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Qml/Qt5QmlConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Qml/Qt5Qml_QDebugMessageServiceFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Qml/Qt5Qml_QLocalClientConnectionFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Qml/Qt5Qml_QQmlDebugServerFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Qml/Qt5Qml_QQmlDebuggerServiceFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Qml/Qt5Qml_QQmlInspectorServiceFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Qml/Qt5Qml_QQmlNativeDebugConnectorFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Qml/Qt5Qml_QQmlNativeDebugServiceFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Qml/Qt5Qml_QQmlProfilerServiceFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Qml/Qt5Qml_QQuickProfilerAdapterFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Qml/Qt5Qml_QTcpServerConnectionFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Network/Qt5NetworkConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Network\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Network/Qt5NetworkConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Network\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Network/Qt5Network_QGenericEnginePlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Network\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Concurrent/Qt5ConcurrentConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Concurrent\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5Concurrent/Qt5ConcurrentConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5Concurrent\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5DBus/Qt5DBusConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5DBus\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5DBus/Qt5DBusConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5DBus\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5DBus/Qt5DBusConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5DBus\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5DBus/Qt5DBusMacros.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5DBus\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5PrintSupport/Qt5PrintSupportConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5PrintSupport\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5PrintSupport/Qt5PrintSupportConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5PrintSupport\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/Qt/5.11.0/msvc2017_64/lib/cmake/Qt5PrintSupport/Qt5PrintSupport_QWindowsPrinterSupportPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\Qt\5.11.0\msvc2017_64\lib\cmake\Qt5PrintSupport\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/ITKConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/ITKConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/ITKTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKAnisotropicSmoothing.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKAntiAlias.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKBiasCorrection.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKBinaryMathematicalMorphology.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKClassifiers.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKColormap.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKCommon.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKConnectedComponents.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKConvolution.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKCurvatureFlow.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKDICOMParser.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKDeconvolution.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKDeformableMesh.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKDenoising.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKDiffusionTensorImage.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKDisplacementField.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKDistanceMap.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKDoubleConversion.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKEigen.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKExpat.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKFFT.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKFastMarching.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKFiniteDifference.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKGDCM.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKGIFTI.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKGPUAnisotropicSmoothing.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKGPUCommon.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKGPUFiniteDifference.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKGPUImageFilterBase.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKGPUPDEDeformableRegistration.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKGPURegistrationCommon.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKGPUSmoothing.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKGPUThresholding.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKGoogleTest.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKHDF5.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKIOBMP.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKIOBioRad.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKIOBruker.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKIOCSV.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKIOGDCM.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKIOGE.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKIOGIPL.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKIOHDF5.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKIOIPL.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKIOImageBase.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKIOJPEG.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKIOLSM.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKIOMINC.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKIOMRC.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKIOMesh.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKIOMeshBYU.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKIOMeshBase.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKIOMeshVTK.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKIOMeta.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKIONIFTI.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKIONRRD.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKIOPNG.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKIORAW.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKIOSiemens.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKIOSpatialObjects.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKIOStimulate.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKIOTIFF.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKIOTransformBase.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKIOTransformHDF5.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKIOTransformInsightLegacy.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKIOTransformMatlab.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKIOVTK.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKIOXML.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKImageAdaptors.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKImageCompare.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKImageCompose.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKImageFeature.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKImageFilterBase.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKImageFrequency.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKImageFunction.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKImageFusion.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKImageGradient.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKImageGrid.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKImageIntensity.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKImageLabel.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKImageNoise.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKImageSources.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKImageStatistics.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKIntegratedTest.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKJPEG.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKKLMRegionGrowing.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKKWIML.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKKWSys.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKLIBLBFGS.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKLabelMap.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKLabelVoting.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKLevelSets.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKLevelSetsv4.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKMINC.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKMarkovRandomFieldsClassifiers.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKMathematicalMorphology.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKMesh.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKMetaIO.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKMetricsv4.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKNIFTI.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKNarrowBand.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKNetlib.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKNrrdIO.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKOptimizers.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKOptimizersv4.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKPDEDeformableRegistration.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKPNG.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKPath.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKPolynomials.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKQuadEdgeMesh.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKQuadEdgeMeshFiltering.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKRegionGrowing.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKRegistrationCommon.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKRegistrationMethodsv4.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKSignedDistanceFunction.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKSmoothing.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKSpatialFunction.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKSpatialObjects.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKStatistics.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKSuperPixel.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKTIFF.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKTestKernel.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKThresholding.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKTransform.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKTransformFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKVNL.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKVNLInstantiation.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKVTK.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKVideoCore.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKVideoFiltering.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKVideoIO.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKVoronoi.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKWatersheds.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/bin/lib/cmake/ITK-5.0/Modules/ITKZLIB.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\bin\lib\cmake\ITK-5.0\Modules\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/ITK-release/CMake/ITKModuleAPI.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\ITK-release\CMake\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/ITK-release/CMake/UseITK.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\ITK-release\CMake\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/ITK-release/CMake/itkImageIOFactoryRegisterManager.h.in">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\ITK-release\CMake\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/ITK-release/CMake/itkMeshIOFactoryRegisterManager.h.in">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\ITK-release\CMake\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/ITK/ITK-release/CMake/itkTransformIOFactoryRegisterManager.h.in">
+			<Option virtualFolder="CMake Files\..\..\lib\ITK\ITK-release\CMake\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/opencv/build/OpenCVConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\opencv\build\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/opencv/build/OpenCVConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\opencv\build\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/opencv/build/x64/vc15/lib/OpenCVConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\opencv\build\x64\vc15\lib\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/opencv/build/x64/vc15/lib/OpenCVModules-debug.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\opencv\build\x64\vc15\lib\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/opencv/build/x64/vc15/lib/OpenCVModules-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\opencv\build\x64\vc15\lib\"/>
+		</Unit>
+		<Unit filename="D:/Workspace/Graph-ICS/../../lib/opencv/build/x64/vc15/lib/OpenCVModules.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\opencv\build\x64\vc15\lib\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

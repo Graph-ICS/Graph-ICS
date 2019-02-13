@@ -1,0 +1,5 @@
+D:/Workspace/Graph-ICS/bin/CMakeFiles/GraphMIC.dir
+D:/Workspace/Graph-ICS/bin/CMakeFiles/CopyResources.dir
+D:/Workspace/Graph-ICS/bin/CMakeFiles/edit_cache.dir
+D:/Workspace/Graph-ICS/bin/CMakeFiles/rebuild_cache.dir
+D:/Workspace/Graph-ICS/bin/CMakeFiles/GraphMIC_autogen.dir

@@ -1,0 +1,189 @@
+The system is: Windows - 6.1.7601 - AMD64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: C:/Program Files (x86)/Microsoft Visual Studio/2017/WDExpress/VC/Tools/MSVC/14.15.26726/bin/HostX86/x64/cl.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+Microsoft (R) C/C++-Optimierungscompiler Version 19.15.26726 fÅr x64
+Copyright (C) Microsoft Corporation. Alle Rechte vorbehalten.
+
+CMakeCCompilerId.c
+Microsoft (R) Incremental Linker Version 14.15.26726.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/out:CMakeCCompilerId.exe 
+CMakeCCompilerId.obj 
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.exe"
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.obj"
+
+The C compiler identification is MSVC, found in "D:/Workspace/Graph-ICS/bin/CMakeFiles/3.12.1/CompilerIdC/CMakeCCompilerId.exe"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: C:/Program Files (x86)/Microsoft Visual Studio/2017/WDExpress/VC/Tools/MSVC/14.15.26726/bin/HostX86/x64/cl.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+Microsoft (R) C/C++-Optimierungscompiler Version 19.15.26726 fÅr x64
+Copyright (C) Microsoft Corporation. Alle Rechte vorbehalten.
+
+CMakeCXXCompilerId.cpp
+Microsoft (R) Incremental Linker Version 14.15.26726.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/out:CMakeCXXCompilerId.exe 
+CMakeCXXCompilerId.obj 
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.exe"
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.obj"
+
+The CXX compiler identification is MSVC, found in "D:/Workspace/Graph-ICS/bin/CMakeFiles/3.12.1/CompilerIdCXX/CMakeCXXCompilerId.exe"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: D:/Workspace/Graph-ICS/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"jom" "/nologo" "cmTC_faf3b\fast"
+jom: parallel job execution disabled for Makefile
+	D:\lib\Qt\Tools\QtCreator\bin\jom.exe -f CMakeFiles\cmTC_faf3b.dir\build.make /nologo -L CMakeFiles\cmTC_faf3b.dir\build
+Building C object CMakeFiles/cmTC_faf3b.dir/testCCompiler.c.obj
+	C:\PROGRA~2\MIB055~1\2017\WDEXPR~1\VC\Tools\MSVC\1415~1.267\bin\HostX86\x64\cl.exe @C:\Users\uib08007\AppData\Local\Temp\testCCompiler.c.obj.6224.0.jom
+testCCompiler.c
+Linking C executable cmTC_faf3b.exe
+	"C:\Program Files\CMake\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_faf3b.dir --manifests  -- C:\PROGRA~2\MIB055~1\2017\WDEXPR~1\VC\Tools\MSVC\1415~1.267\bin\Hostx86\x64\link.exe /nologo @CMakeFiles\cmTC_faf3b.dir\objects1.rsp @C:\Users\uib08007\AppData\Local\Temp\cmTC_faf3b.exe.6224.421.jom
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: D:/Workspace/Graph-ICS/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"jom" "/nologo" "cmTC_1b11c\fast"
+jom: parallel job execution disabled for Makefile
+	D:\lib\Qt\Tools\QtCreator\bin\jom.exe -f CMakeFiles\cmTC_1b11c.dir\build.make /nologo -L CMakeFiles\cmTC_1b11c.dir\build
+Building C object CMakeFiles/cmTC_1b11c.dir/CMakeCCompilerABI.c.obj
+	C:\PROGRA~2\MIB055~1\2017\WDEXPR~1\VC\Tools\MSVC\1415~1.267\bin\HostX86\x64\cl.exe @C:\Users\uib08007\AppData\Local\Temp\CMakeCCompilerABI.c.obj.6876.15.jom
+CMakeCCompilerABI.c
+Linking C executable cmTC_1b11c.exe
+	"C:\Program Files\CMake\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_1b11c.dir --manifests  -- C:\PROGRA~2\MIB055~1\2017\WDEXPR~1\VC\Tools\MSVC\1415~1.267\bin\Hostx86\x64\link.exe /nologo @CMakeFiles\cmTC_1b11c.dir\objects1.rsp @C:\Users\uib08007\AppData\Local\Temp\cmTC_1b11c.exe.6876.187.jom
+
+
+
+
+Detecting C [] compiler features compiled with the following output:
+Change Dir: D:/Workspace/Graph-ICS/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"jom" "/nologo" "cmTC_87f2c\fast"
+jom: parallel job execution disabled for Makefile
+	D:\lib\Qt\Tools\QtCreator\bin\jom.exe -f CMakeFiles\cmTC_87f2c.dir\build.make /nologo -L CMakeFiles\cmTC_87f2c.dir\build
+Building C object CMakeFiles/cmTC_87f2c.dir/feature_tests.c.obj
+	C:\PROGRA~2\MIB055~1\2017\WDEXPR~1\VC\Tools\MSVC\1415~1.267\bin\HostX86\x64\cl.exe @C:\Users\uib08007\AppData\Local\Temp\feature_tests.c.obj.8060.0.jom
+feature_tests.c
+Linking C executable cmTC_87f2c.exe
+	"C:\Program Files\CMake\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_87f2c.dir --manifests  -- C:\PROGRA~2\MIB055~1\2017\WDEXPR~1\VC\Tools\MSVC\1415~1.267\bin\Hostx86\x64\link.exe /nologo @CMakeFiles\cmTC_87f2c.dir\objects1.rsp @C:\Users\uib08007\AppData\Local\Temp\cmTC_87f2c.exe.8060.172.jom
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_variadic_macros
+Determining if the CXX compiler works passed with the following output:
+Change Dir: D:/Workspace/Graph-ICS/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"jom" "/nologo" "cmTC_7c582\fast"
+jom: parallel job execution disabled for Makefile
+	D:\lib\Qt\Tools\QtCreator\bin\jom.exe -f CMakeFiles\cmTC_7c582.dir\build.make /nologo -L CMakeFiles\cmTC_7c582.dir\build
+Building CXX object CMakeFiles/cmTC_7c582.dir/testCXXCompiler.cxx.obj
+	C:\PROGRA~2\MIB055~1\2017\WDEXPR~1\VC\Tools\MSVC\1415~1.267\bin\HostX86\x64\cl.exe @C:\Users\uib08007\AppData\Local\Temp\testCXXCompiler.cxx.obj.10184.0.jom
+testCXXCompiler.cxx
+Linking CXX executable cmTC_7c582.exe
+	"C:\Program Files\CMake\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_7c582.dir --manifests  -- C:\PROGRA~2\MIB055~1\2017\WDEXPR~1\VC\Tools\MSVC\1415~1.267\bin\Hostx86\x64\link.exe /nologo @CMakeFiles\cmTC_7c582.dir\objects1.rsp @C:\Users\uib08007\AppData\Local\Temp\cmTC_7c582.exe.10184.187.jom
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: D:/Workspace/Graph-ICS/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"jom" "/nologo" "cmTC_35dea\fast"
+jom: parallel job execution disabled for Makefile
+	D:\lib\Qt\Tools\QtCreator\bin\jom.exe -f CMakeFiles\cmTC_35dea.dir\build.make /nologo -L CMakeFiles\cmTC_35dea.dir\build
+Building CXX object CMakeFiles/cmTC_35dea.dir/CMakeCXXCompilerABI.cpp.obj
+	C:\PROGRA~2\MIB055~1\2017\WDEXPR~1\VC\Tools\MSVC\1415~1.267\bin\HostX86\x64\cl.exe @C:\Users\uib08007\AppData\Local\Temp\CMakeCXXCompilerABI.cpp.obj.3156.0.jom
+CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_35dea.exe
+	"C:\Program Files\CMake\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_35dea.dir --manifests  -- C:\PROGRA~2\MIB055~1\2017\WDEXPR~1\VC\Tools\MSVC\1415~1.267\bin\Hostx86\x64\link.exe /nologo @CMakeFiles\cmTC_35dea.dir\objects1.rsp @C:\Users\uib08007\AppData\Local\Temp\cmTC_35dea.exe.3156.172.jom
+
+
+
+
+Detecting CXX [] compiler features compiled with the following output:
+Change Dir: D:/Workspace/Graph-ICS/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"jom" "/nologo" "cmTC_7b179\fast"
+jom: parallel job execution disabled for Makefile
+	D:\lib\Qt\Tools\QtCreator\bin\jom.exe -f CMakeFiles\cmTC_7b179.dir\build.make /nologo -L CMakeFiles\cmTC_7b179.dir\build
+Building CXX object CMakeFiles/cmTC_7b179.dir/feature_tests.cxx.obj
+	C:\PROGRA~2\MIB055~1\2017\WDEXPR~1\VC\Tools\MSVC\1415~1.267\bin\HostX86\x64\cl.exe @C:\Users\uib08007\AppData\Local\Temp\feature_tests.cxx.obj.8572.0.jom
+feature_tests.cxx
+Linking CXX executable cmTC_7b179.exe
+	"C:\Program Files\CMake\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_7b179.dir --manifests  -- C:\PROGRA~2\MIB055~1\2017\WDEXPR~1\VC\Tools\MSVC\1415~1.267\bin\Hostx86\x64\link.exe /nologo @CMakeFiles\cmTC_7b179.dir\objects1.rsp @C:\Users\uib08007\AppData\Local\Temp\cmTC_7b179.exe.8572.202.jom
+
+
+    Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:1cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:1cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:1cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:1cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:1cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:1cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:1cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:1cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:1cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
