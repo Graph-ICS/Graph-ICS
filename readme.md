@@ -323,7 +323,7 @@ not, then change to it or create it like on the following image and go to the
 tab edit right-click on the project folder and run CMake.
 
 7.6. (Optional)If you have another configuration and it fails, so make sure you
-delete the created CMakeCache.txt on the GraphMic0.7\bin folder and the
+delete the created CMakeCache.txt on the Graph-ICS\bin folder and the
 CMakeLists.txt.user on the source folder before you try it again.
 <center>
 	<img src="doc/Readme_Installation/Installation17.PNG" />
@@ -335,7 +335,7 @@ libraries automatically, then you will see the error on the common output tab
 below like on the following image, so you must set the paths manually using
 the CMake GUI:
 
-- Open CMake Gui, set the GraphMIC source folder and the binary folder, click on file and reload cache
+- Open CMake Gui, set the Graph-ICS source folder and the binary folder, click on file and reload cache
 <center>
 	<img src="doc/Readme_Installation/Installation18.PNG" />
 </center>
