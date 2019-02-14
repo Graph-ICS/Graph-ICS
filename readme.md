@@ -69,7 +69,7 @@ build and run the project.
 8. Configure the project (Graph-ICS)
 
 ### 1. Download the Project from GitHub
-1.1. Go from the following repository:
+1.1. Click on the following repository:
 https://github.com/Graph-ICS/Graph-ICS   
 1.2. Click on "Clone or Download"  
 1.3. Click on "Download zip"  
