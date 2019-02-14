@@ -166,13 +166,13 @@ select go open source and then download.
 - Under Developer and Designer Tools: Qt Creator 4.8.1 CDB Debugger Support
 - You can add or delete Tools every time using the Qt Maintenance Tool.
 
-5.5. Finish the installation and not open QtCreator
+5.5. Finish the installation and do not open QtCreator
 
 5.6. Add the C:\Qt\Tools\QtCreator\bin path to the environments variables (the path may differ if you have installed Qt at a different path)
 
-5.7. Setting the QT Creator up (NMake Generator)
+5.7. Setting up the QT Creator (NMake Generator)
 
-- Open the QtCreator, go to Tools and click Options
+- Open QtCreator, go to Tools and click Options
 <center>
 	<img src="doc/Readme_Installation/Installation5.PNG" />
 </center>
@@ -207,7 +207,7 @@ select go open source and then download.
 - Close QtCreator.
 - Add the following path to the env variables
     C:\Qt\5.11.0\msvc2017_64\bin  (path also may differ)  
-like in step 3.2.
+like in step 4.2.
 
 
 ## 6. Install and Build ITK
