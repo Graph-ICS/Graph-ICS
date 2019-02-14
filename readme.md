@@ -39,6 +39,8 @@ The user creates the node "Image" and selects a image file from his file system 
 
 Installing Graph-ICS with QT, ITK and OpenCv
 
+Note: the project has been recently renamed from GraphMIC to Graph-ICS. The screenshots shown in the installation guide may contain the old name of the project.  
+
 Required components
 
 - Windows 7 Operating system
@@ -57,16 +59,16 @@ build and run the project.
 
 ## Contents
 
-1. Installing Debugging Tools from the Windows SDK
-2. Installing Visual Studio 
-3. Preparing CMake 
-4. Installing Qt 
-5. Installing and Build ITK 
-6. Installing and Build OpenCV 
+1. Install Debugging Tools from the Windows SDK
+2. Install Visual Studio 
+3. Prepare CMake 
+4. Install Qt 
+5. Install and Build ITK 
+6. Install and Build OpenCV 
 7. Download and configure the project (Graph-ICS)
 
 
-### 1. Installing Debugging Tools from the Windows SDK
+### 1. Install Debugging Tools from the Windows SDK
 
 Windows SDK contains a CDB Debugger, you will need it in case you want to debug
 the application on Qt.
@@ -93,7 +95,7 @@ Visual C++ 2010 Redistributable and try to install the Debugging Tools for
 windows again.
 
 
-## 2. Installing Visual Studio
+## 2. Install Visual Studio
 
 Installing Visual Studio Express 2017 for Windows Desktop
 
@@ -119,7 +121,7 @@ Installing Visual Studio Express 2017 for Windows Desktop
 
 2.6. Wait until the installer is done and close it.
 
-## 3. Preparing CMake
+## 3. Prepare CMake
 
 This step is needed if you do not have a pre-installed CMake version on your system.
 
@@ -136,7 +138,7 @@ installation page for downloading and installing the software
 - Then follow the instructions [here](https://www.nextofwindows.com/how-to-addedit-environment-variables-in-windows-7)
 - The path you must add is: C:\Program Files\CMake\bin if you didn't change the path in your installation, if you did just add the path to your bin folder 
 
-## 4. Installing Qt
+## 4. Install Qt
 
 If you already have a Qt version on your system, just open the Qt Maintenance
 Tool, click on next, skip, select add or remove components and continue, so
@@ -201,7 +203,7 @@ click continue.
 like in step 3.2.
 
 
-## 5. Installing and Build ITK
+## 5. Install and Build ITK
 
 5.1. Create a folder “ ITK ” with a subfolder “ bin ” (recommended on D:\lib\)  
 5.2. Go to https://github.com/InsightSoftwareConsortium/ITK
@@ -255,7 +257,7 @@ be open with Visual studio.
 - If Visual Studio fails to compile the Installation subproject, consider
     trying it again running visual studio as administrator.
 
-## 6. Installing and Build OpenCV:
+## 6. Install and Build OpenCV:
 This Step performs the OpenCv build and install, you can download and use
 the pre-compiled binaries from OpenCv online following the step 6.
 (Recommended) or you can build the binaries from yourself on step 6.
