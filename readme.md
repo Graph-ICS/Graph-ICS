@@ -33,7 +33,7 @@ Example:
 <center>
 	<img src="doc/getResultExample.PNG" />
 </center>
-The user creates the node "Image" and selects a image file from his file system by clicking on the file symbol. To add the Black-White-Filter he creates the related node and connects the two nodes by drawing an edge between them. The output of the Black-White node is now the editet picture. This can be repaeted as often as required. the output of the last filer (CVMedian) is the image which was loaded from the user with two filter operations. 
+The user creates the node "Image" and selects a image file from his file system by clicking on the file symbol. To add the Black-White-Filter he creates the related node and connects the two nodes by drawing an edge between them. The output of the Black-White node is now the editet picture. This can be repeated as often as required. the output of the last filer (CVMedian) is the image which was loaded from the user with two filter operations. 
 
 ## Installation
 
@@ -59,111 +59,117 @@ build and run the project.
 
 ## Contents
 
-1. Install Debugging Tools from the Windows SDK
-2. Install Visual Studio 
-3. Prepare CMake 
-4. Install Qt 
-5. Install and Build ITK 
-6. Install and Build OpenCV 
-7. Download and configure the project (Graph-ICS)
+1. Download the Project from GitHub
+2. Install Debugging Tools from the Windows SDK
+3. Install Visual Studio 
+4. Prepare CMake 
+5. Install Qt 
+6. Install and Build ITK 
+7. Install and Build OpenCV 
+8. Configure the project (Graph-ICS)
+
+### 1. Download the Project from GitHub
+1.1. Go from the following repository:
+https://github.com/Graph-ICS/Graph-ICS   
+1.2. Click on "Clone or Download"  
+1.3. Click on "Download zip"  
+1.4. Unpack the file and save it at the path you want (for example C:\Graph-ICS)  
 
 
-### 1. Install Debugging Tools from the Windows SDK
+### 2. Install Debugging Tools from the Windows SDK
 
 Windows SDK contains a CDB Debugger, you will need it in case you want to debug
 the application on Qt.
 
+2.1. Go to https://www.microsoft.com/en-us/download/details.aspx?id=8279
 
-1.1. Go to https://www.microsoft.com/en-us/download/details.aspx?id=8279
+2.2. Download the installer.
 
-1.2. Download the installer.
+2.3. Run the installer.
 
-1.3. Run the installer.
+2.4. Read the licence and select I Agree
 
-1.4. Read the licence and select I Agree
+2.5. Click next.
 
-1.5. Click next.
-
-1.6. Select the Options like on the image, click next.
+2.6. Select the Options like on the image, click next.
 
 <center>
 	<img src="doc/Readme_Installation/Installation1.PNG" />
 </center>
 
-1.7. If the Installer Fails, you must close the installer, uninstall all versions of the
+2.7. If the Installer Fails, you must close the installer, uninstall all versions of the
 Visual C++ 2010 Redistributable and try to install the Debugging Tools for
 windows again.
 
 
-## 2. Install Visual Studio
+## 3. Install Visual Studio
 
 Installing Visual Studio Express 2017 for Windows Desktop
 
-2.1. Go to the Microsoft website
+3.1. Go to the Microsoft website
     https://visualstudio.microsoft.com/de/vs/express/
     
-2.2. Scroll to the bottom of the site and click on “Express 2017 for Windows Desktop”, the installer will be downloaded.
+3.2. Scroll to the bottom of the site and click on “Express 2017 for Windows Desktop”, the installer will be downloaded.
 
 <center>
 	<img src="doc/Readme_Installation/Installation2.PNG" />
 </center>
 
-2.3. Go to the downloads folder, select the installer and run it as administrator.
+3.3. Go to the downloads folder, select the installer and run it as administrator.
 
-2.4. You may see a pop-up “We have to prepare some things...” click on
+3.4. You may see a pop-up “We have to prepare some things...” click on
     continue.
     
-2.5. Click on install.
+3.5. Click on install.
 
 <center>
 	<img src="doc/Readme_Installation/Installation3.PNG" />
 </center>
 
-2.6. Wait until the installer is done and close it.
+3.6. Wait until the installer is done and close it.
 
-## 3. Prepare CMake
+## 4. Prepare CMake
 
 This step is needed if you do not have a pre-installed CMake version on your system.
 
-3.1. You can download a windows installer of CMake (cmake-3.13.4-win64-x64.msi) 
+4.1. You can download a windows installer of CMake (cmake-3.13.4-win64-x64.msi) 
 from the CMake download page. https://cmake.org/download/ Follow the instructions provided on the CMake
 installation page for downloading and installing the software
 <center>
 	<img src="doc/Readme_Installation/Installation4.PNG" />
 </center>  
 
-3.2.  Add CMake to the system path:
+4.2.  Add CMake to the system path:
 
 - Right click on the Computer icon on the desktop and select properties
 - Then follow the instructions [here](https://www.nextofwindows.com/how-to-addedit-environment-variables-in-windows-7)
 - The path you must add is: C:\Program Files\CMake\bin if you didn't change the path in your installation, if you did just add the path to your bin folder 
 
-## 4. Install Qt
+## 5. Install Qt
 
 If you already have a Qt version on your system, just open the Qt Maintenance
 Tool, click on next, skip, select add or remove components and continue, so
 continue with step 4.
 
-4.1. Go to the download site https://www.qt.io/download, go to open source,
+5.1. Go to the download site https://www.qt.io/download, go to open source,
 select go open source and then download.
 
-4.2. Run the installer, click on next, skip, if the installer throw an error like
+5.2. Run the installer, click on next, skip, if the installer throw an error like
 “Failed to connect to server”, so click on Options and select “no Proxy”
 
-4.3. Select the path where you want to install Qt, recommended on “D: \lib\Qt ”,
-click continue.
+5.3. Select the path where you want to install Qt
 
-4.4. Select the components you want to install, the ones you need are:
+5.4. Select the components you want to install, the ones you need are:
 
 - Under Qt 5.11.0: MSVC 2015 64-Bit or MSVC 2017 64-Bit
 - Under Developer and Designer Tools: Qt Creator 4.8.1 CDB Debugger Support
 - You can add or delete Tools every time using the Qt Maintenance Tool.
 
-4.5. Finish the installation and not open QtCreator
+5.5. Finish the installation and not open QtCreator
 
-4.6. Add the D:\lib\Qt\Tools\QtCreator\bin path to the environments variables
+5.6. Add the C:\Qt\Tools\QtCreator\bin path to the environments variables (the path may differ if you have installed Qt at a different path)
 
-4.7. Setting the QT Creator up (NMake Generator)
+5.7. Setting the QT Creator up (NMake Generator)
 
 - Open the QtCreator, go to Tools and click Options
 <center>
@@ -199,21 +205,21 @@ click continue.
 
 - Close QtCreator.
 - Add the following path to the env variables
-    D:\lib\Qt\5.11.0\msvc2017_64\bin  
+    C:\Qt\5.11.0\msvc2017_64\bin  (path also may differ)  
 like in step 3.2.
 
 
-## 5. Install and Build ITK
+## 6. Install and Build ITK
 
-5.1. Create a folder “ ITK ” with a subfolder “ bin ” (recommended on D:\lib\)  
-5.2. Go to https://github.com/InsightSoftwareConsortium/ITK
+6.1. Create a folder “ ITK ” with a subfolder “ bin ” at the empty lib folder in the project you downloaded in step 1 (for example C:\Graph-ICS\lib)  
+6.2. Go to https://github.com/InsightSoftwareConsortium/ITK
 
 - Go to branches
 - Select the branch “release” and on the right, click on clone or download, then click download zip
 - Move the Zip file to the ITK folder
 - Right-click the Zip file and select unzip it here, so it will be a folder “ITK-release” created, this will be the source folder.
     
-5.3. Open the CMake GUI
+6.3. Open the CMake GUI
 
 - On “Where is the source code” set the path to the unzipped “ITK-release” folder
 - On “Where to build the binaries” set the path to the bin folder you created before
@@ -236,10 +242,10 @@ like in step 3.2.
 
 - When the configuration is done, then click on generate, so it will generate a Visual studio project.
 
-5.4. When it finishes the generation, so you can click on “Open Project” and it will
+6.4. When it finishes the generation, so you can click on “Open Project” and it will
 be open with Visual studio.
 
-5.5. On Visual Studio
+6.5. On Visual Studio
 
 - Wait until the project initializes and parses the files. (you can read it on the blue bar on the bottom)
 <center>
@@ -257,7 +263,7 @@ be open with Visual studio.
 - If Visual Studio fails to compile the Installation subproject, consider
     trying it again running visual studio as administrator.
 
-## 6. Install and Build OpenCV:
+## 7. Install and Build OpenCV:
 This Step performs the OpenCv build and install, you can download and use
 the pre-compiled binaries from OpenCv online following the step 6.
 (Recommended) or you can build the binaries from yourself on step 6.
@@ -267,7 +273,7 @@ using the same procedure like with ITK on step 5 but it will take a long time.
 	<img src="doc/Readme_Installation/Installation14.PNG" />
 </center>
 
-6.1. USING THE MSVC BINARIES: On the Website from OpenCv
+7.1. USING THE MSVC BINARIES: On the Website from OpenCv
 (https://opencv.org/releases.html) you can find the already build
 binaries package for Windows or IOS:
 
@@ -279,17 +285,16 @@ binaries package for Windows or IOS:
 
 - Go to the download folder and click on the opencv....exe you
     downloaded.
-- Set the path where you want to extract the package (D:\lib\).
+- Set the path where you want to extract the package (C:\Graph-ICS\lib). (path may differ if you downloaded the project to a different path)
 - Extract the files.
-- A opencv folder will be created on D:\lib\
+- A opencv folder will be created on C:\Graph-ICS\lib
 - Make sure you add the build path to the environment variables
-    (D:\lib\opencv\build).
+    (C:\Graph-ICS\lib\opencv\build).
     
-6.2. BUILDING OF OpenCv BINARIES with MSVC:
+7.2. BUILDING OF OpenCv BINARIES with MSVC:
 Follow the same Steps like on 5 with following changes:
 
-- For 5.1 create a Folder OpenCv with a subfolder “bin” (recommended
-    on D:\lib\).
+- For 7.1 create a Folder OpenCv with a subfolder “bin” also in the lib folder of the downloaded project
 - For 5.2 Download the OpenCv from https://opencv.org/releases.html,
     select sources.
 - Move the Zip file to the OpenCv folder
@@ -300,38 +305,33 @@ Follow the same Steps like on 5 with following changes:
 - Configure and generate with Cmake and continue making the same
     procedure as step 5.
 
-## 7. Download and configure the project (Graph-ICS):
+## 8. Download and configure the project (Graph-ICS):
 
-7.1. Clone the project from the following repository:
-https://github.com/Graph-ICS/Graph-ICS to you folder
-(D:\Graph-ICS)
-To do so, you can download the zip file and unpack it in the folder D:\Graph-ICS
+8.1. Open the Qt Creator and click open project on the Welcome tab.
 
-7.2. Open the Qt Creator and click open project on the Welcome tab.
-
-7.3. Go to the path of the project (D:\Graph-ICS) and select the CMakeLists.txt
+8.2. Go to the path of the project and select the CMakeLists.txt
 file
 
-7.4. Qt Creator will show you the possible configurations you can use for your
-project, Select the kit you cloned on step 4.7 installing Qt. then click on
+8.3. Qt Creator will show you the possible configurations you can use for your
+project, Select the kit you cloned on step 5.7 installing Qt. then click on
 details select Default, Debug and Release
 and click on “configure project”
 <center>
 	<img src="doc/Readme_Installation/Installation16.PNG" />
 </center>
 
-7.5. Make sure as build folder on Qt Creator is set the bin folder of the project, if
+8.4. Make sure as build folder on Qt Creator is set the bin folder of the project, if
 not, then change to it or create it like on the following image and go to the
 tab edit right-click on the project folder and run CMake.
 
-7.6. (Optional)If you have another configuration and it fails, so make sure you
-delete the created CMakeCache.txt on the Graph-ICS\bin folder and the
+8.5. (Optional)If you have another configuration and it fails, so make sure you
+delete the created CMakeCache.txt in the bin folder and the
 CMakeLists.txt.user on the source folder before you try it again.
 <center>
 	<img src="doc/Readme_Installation/Installation17.PNG" />
 </center>
 
-7.7. (This step can be optional if you add the opencv build directory to the
+8.6. (This step can be optional if you add the opencv build directory to the
 environment path variables) If the CMake don’t find the ITK or OpenCv
 libraries automatically, then you will see the error on the common output tab
 below like on the following image, so you must set the paths manually using
@@ -359,20 +359,20 @@ the CMake GUI:
 
 - Close CMake GUI
 
-7.8. Go to Qt Creator to the tab edit right-click on the project folder and run
+8.7. Go to Qt Creator to the tab edit right-click on the project folder and run
 CMake, the project should be configured jet and you will see all the folders
 and files corresponding to the project on the left tab:
 <center>
 	<img src="doc/Readme_Installation/Installation21.PNG" />
 </center>
 
-7.9. You should be able to build and run the project, maybe you should restart the
+8.8. You should be able to build and run the project, maybe you should restart the
 Qt Creator und re-open it and the project from the recent used projects pane.
 <center>
 	<img src="doc/Readme_Installation/Installation22.PNG" />
 </center>
 
-7.10. If you want to debug the application in C++ and QML go to Projects,
+8.9. If you want to debug the application in C++ and QML go to Projects,
 and on the Run option, click on enable QML.
 <center>
 	<img src="doc/Readme_Installation/Installation23.PNG" />
