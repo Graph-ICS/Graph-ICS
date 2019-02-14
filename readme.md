@@ -84,7 +84,7 @@ the application on Qt.
 
 2.1. Go to https://www.microsoft.com/en-us/download/details.aspx?id=8279
 
-2.2. Download the installer.
+2.2. Click "Download"
 
 2.3. Run the installer.
 
