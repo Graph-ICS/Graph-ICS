@@ -72,7 +72,7 @@ Windows SDK contains a CDB Debugger, you will need it in case you want to debug
 the application on Qt.
 
 
-1.1. Go to https://developer.microsoft.com/de-de/windows/downloads/windows-10-sdk
+1.1. Go to https://www.microsoft.com/en-us/download/details.aspx?id=8279
 
 1.2. Download the installer.
 
