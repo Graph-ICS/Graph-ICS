@@ -306,7 +306,7 @@ Follow the same Steps like on 5 with following changes:
 - Configure and generate with Cmake and continue making the same
     procedure as step 5.
 
-## 8. Download and configure the project (Graph-ICS):
+## 8. Configure the project (Graph-ICS):
 
 8.1. Open the Qt Creator and click open project on the Welcome tab.
 
