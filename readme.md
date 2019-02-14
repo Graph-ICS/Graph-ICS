@@ -148,23 +148,18 @@ installation page for downloading and installing the software
 
 ## 5. Install Qt
 
-If you already have a Qt version on your system, just open the Qt Maintenance
-Tool, click on next, skip, select add or remove components and continue, so
-continue with step 4.
 
 5.1. Go to the download site https://www.qt.io/download, go to open source,
-select go open source and then download.
+select "Go open source" and then click "Download"
 
-5.2. Run the installer, click on next, skip, if the installer throw an error like
-“Failed to connect to server”, so click on Options and select “no Proxy”
+5.2. Run the installer, click on next, then skip 
 
-5.3. Select the path where you want to install Qt
+5.3. Select the path where you want to install Qt. Click next
 
 5.4. Select the components you want to install, the ones you need are:
 
-- Under Qt 5.11.0: MSVC 2015 64-Bit or MSVC 2017 64-Bit
-- Under Developer and Designer Tools: Qt Creator 4.8.1 CDB Debugger Support
-- You can add or delete Tools every time using the Qt Maintenance Tool.
+- Below Qt 5.11.0: select latest MSVC 64-bit compiler e.g. MSVC 64-bit 2017
+- Below Developer and Designer Tools: Qt Creator 4.8.1 CDB Debugger Support
 
 5.5. Finish the installation and do not open QtCreator
 
