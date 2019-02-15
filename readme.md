@@ -215,7 +215,7 @@ like in step 4.2.
 - Move the Zip file to the ITK folder
 - Right-click the Zip file and select unzip it here, so it will be a folder “ITK-release” created, this will be the source folder.
     
-6.3. Open the CMake GUI
+6.3. Open CMake GUI
 
 - On “Where is the source code” set the path to the unzipped “ITK-release” folder
 - On “Where to build the binaries” set the path to the bin folder you created before
@@ -238,8 +238,7 @@ like in step 4.2.
 
 - When the configuration is done, then click on generate, so it will generate a Visual studio project.
 
-6.4. When it finishes the generation, so you can click on “Open Project” and it will
-be open with Visual studio.
+6.4. When it finishes the generation, run Visual Studio as administrator and open the project
 
 6.5. On Visual Studio
 
@@ -256,14 +255,12 @@ be open with Visual studio.
 - Right-click on INSTALL and select “build”, make sure you make this
     step for both Debug and Release configuration. (This step is needed for
     the CMake to find the properly paths to ITK)
-- If Visual Studio fails to compile the Installation subproject, consider
-    trying it again running visual studio as administrator.
 
 ## 7. Install and Build OpenCV:
 This Step performs the OpenCv build and install, you can download and use
-the pre-compiled binaries from OpenCv online following the step 6.
-(Recommended) or you can build the binaries from yourself on step 6.
-using the same procedure like with ITK on step 5 but it will take a long time.
+the pre-compiled binaries from OpenCv online and continue with the installation guide.
+(Recommended) or you can build the binaries from yourself
+using the same procedure like you did with ITK on chapter 6 but it will take a long time.
 
 <center>
 	<img src="doc/Readme_Installation/Installation14.PNG" />
