@@ -68,6 +68,7 @@ build and run the project.
 7. Install and Build OpenCV   
 8. Set the environment varibles
 9. Configure the project (Graph-ICS)
+10. (Optional) Change CMakeLists.txt file
 
 ### 1. Download the Project from GitHub
 1.1. Click on the following repository:
@@ -375,6 +376,11 @@ and on the Run option, click on enable QML.
 
 **This step is only necessary if you have installed ITK and OpenCV not unter D:\lib**
 10.1. In the opended project in the QtCerator go to the CMakeList.txt file and go to step 5: binding of libraries  
+
+<center>
+	<img src="doc/Readme_Installation/24.PNG" />
+</center>
+
 10.2. In line 54 in the image change the path D:\\lib\\ITK\\bin to the path where you have installed the lib folder <<yourPath>>\lib\ITK\bin 
 10.3. In line 59 in the image change the path D:\\lib\opencv\\build to your path <<yourPath>>\lib\opencv\build
 
