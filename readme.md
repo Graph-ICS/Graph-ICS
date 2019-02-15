@@ -296,9 +296,10 @@ Follow the same Steps like on chapter 6 with following changes:
 - Right click on the Computer icon on the desktop and select properties
 - Then follow the instructions [here](https://www.nextofwindows.com/how-to-addedit-environment-variables-in-windows-7)
 - The path you must add is: C:\Program Files\CMake\bin if you didn't change the path in your installation, if you did just add the path to your bin folder  
-8.2. Add the C:\Qt\Tools\QtCreator\bin path to the environments variables (the path may differ if you have installed Qt at a different path) the same way you did at step 8.1.  
-8.3.  Add the Ot path to the variables: C:\Qt\5.11.0\msvc2017_64\bin  (path also may differ)   
-8.4.  Add the OpenCv path to the environment variables (D:\lib\opencv\build).
+
+8.2. Add the C:\Qt\Tools\QtCreator\bin path to the environments variables (the path may differ if you have installed Qt at a different path) the same way you did at step 8.1.    
+8.3.  Add the Ot path to the variables: C:\Qt\5.11.0\msvc2017_64\bin  (path also may differ)     
+8.4.  Add the OpenCv path to the environment variables (D:\lib\opencv\build)  (path may differ)
 
 
 ## 9. Configure the project (Graph-ICS):
@@ -374,15 +375,15 @@ and on the Run option, click on enable QML.
 
 ## 10. (Optional) Change the CMakeLists.txt file
 
-**This step is only necessary if you have installed ITK and OpenCV not unter D:\lib**
+**This step is only necessary if you have installed ITK and OpenCV not unter D:\lib**  
 10.1. In the opended project in the QtCerator go to the CMakeList.txt file and go to step 5: binding of libraries  
 
 <center>
 	<img src="doc/Readme_Installation/24.PNG" />
-</center>
+</center>  
 
-10.2. In line 54 in the image change the path D:\\lib\\ITK\\bin to the path where you have installed the lib folder <<yourPath>>\lib\ITK\bin 
-10.3. In line 59 in the image change the path D:\\lib\opencv\\build to your path <<yourPath>>\lib\opencv\build
+10.2. In line 54 in the image change the path D:\\lib\\ITK\\bin to the path where you have installed the lib folder \<<yourPath\>>\lib\ITK\bin  
+10.3. In line 59 in the image change the path D:\\lib\opencv\\build to your path \<<yourPath\>>\lib\opencv\build
 
 ## User Guide
 - **Loading an image** <br /> 
