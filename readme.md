@@ -257,7 +257,7 @@ like in step 4.2.
     the CMake to find the properly paths to ITK)
 
 ## 7. Install and Build OpenCV:
-This Step performs the OpenCv build and install, you can download and use
+To install and build OpenCv, you can download and use
 the pre-compiled binaries from OpenCv online and continue with the installation guide.
 (Recommended) or you can build the binaries from yourself
 using the same procedure like you did with ITK on chapter 6 but it will take a long time.
@@ -270,8 +270,7 @@ using the same procedure like you did with ITK on chapter 6 but it will take a l
 (https://opencv.org/releases.html) you can find the already build
 binaries package for Windows or IOS:
 
-- Select Win pack from the latest version, the download will take up to 2
-    Hours for each configuration.
+- Select Win pack from the latest version
     <center>
 	<img src="doc/Readme_Installation/Installation15.PNG" />
 </center>
@@ -284,19 +283,19 @@ binaries package for Windows or IOS:
 - Make sure you add the build path to the environment variables
     (C:\Graph-ICS\lib\opencv\build).
     
-7.2. BUILDING OF OpenCv BINARIES with MSVC:
-Follow the same Steps like on 5 with following changes:
+7.2. BUILDING OF OPENCV BINARIES WITH MSVC:
+Follow the same Steps like on chapter 6 with following changes:
 
-- For 7.1 create a Folder OpenCv with a subfolder “bin” also in the lib folder of the downloaded project
-- For 5.2 Download the OpenCv from https://opencv.org/releases.html,
+- For 6.1 create a Folder OpenCv with a subfolder “bin” also in the lib folder of the downloaded project
+- For 6.2 Download the OpenCv from https://opencv.org/releases.html,
     select sources.
 - Move the Zip file to the OpenCv folder
 - Right-click the Zip file and select unzip it here, so it will be a “opencv-3.4.2”
     folder created, this will be the source folder, rename it to “opencv”.
-- For 5.3 omit to uncheck the KWSTYLE component on the CMake
+- For 6.3 omit unchecking the KWSTYLE component on the CMake
     Configuration from OpenCv.
 - Configure and generate with Cmake and continue making the same
-    procedure as step 5.
+    procedure as in chapter 6.
 
 ## 8. Configure the project (Graph-ICS):
 
@@ -313,9 +312,7 @@ and click on “configure project”
 	<img src="doc/Readme_Installation/Installation16.PNG" />
 </center>
 
-8.4. Make sure as build folder on Qt Creator is set the bin folder of the project, if
-not, then change to it or create it like on the following image and go to the
-tab edit right-click on the project folder and run CMake.
+8.4. Make sure that the path is set to the bin folder of the project. You may have to create the folder first. If the path looks like the path in the image, go to the tab "Edit", right click on the project folder and select "Run Cmake"
 
 8.5. (Optional)If you have another configuration and it fails, so make sure you
 delete the created CMakeCache.txt in the bin folder and the
