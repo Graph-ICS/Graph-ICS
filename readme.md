@@ -197,9 +197,10 @@ select "Go open source" and then click "Download"
 
 ## 6. Install and Build ITK
 
-6.1. Create a folder "lib" in D: (you can also install create a folder "lib" somewhere else, but you have to change some lines in the CMake textfile later and pay attention to the paths which are used as a example in this installation guide, you have to changed them to your path where you have created your lib folder)
+6.1. Create a folder "lib" in D: (you can also install create a folder "lib" somewhere else, but you have to change some lines in the CMake textfile later and **pay attention to the paths which are used as a example in this installation guide, you have to changed them to your path where you have created your lib folder**)  
+Note: Don't choose a path which is too long because you might get in trouble due to the restriction CMake has on the length of the path variables
 
-6.1. In D:\lib create a subfolder “ ITK ” with a subfolder “ bin ” so that the path looks like this: D:\lib\Itk\bin 
+6.1. In D:\lib create a subfolder “ ITK ” with a subfolder “ bin ” so that the path looks like this: D:\lib\Itk\bin  
 6.2. Go to https://github.com/InsightSoftwareConsortium/ITK
 
 - Go to branches
