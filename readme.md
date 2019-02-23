@@ -43,7 +43,7 @@ Note: the project has been recently renamed from GraphMIC to Graph-ICS. The scre
 
 Required components
 
-- Windows 7 Operating system
+- Microsoft Windows 7, 8, 10 or higher
 - Visual Studio 2017 or Visual Studio 2015 compiler.
 - CMake GUI
 - Qt 5.1 1 .0 with Qt Creator
@@ -79,12 +79,12 @@ https://github.com/Graph-ICS/Graph-ICS
 
 ### 2. Install Debugging Tools from the Windows SDK
 
-Windows SDK contains a CDB Debugger, you will need it in case you want to debug
-the application on Qt.
+Windows SDK contains a CDB Debugger. You will need it in case you want to debug
+the application. 
 
-2.1. Go to https://www.microsoft.com/en-us/download/details.aspx?id=8279
+2.1. Go to https://www.microsoft.com/en-us/download/details.aspx?id=8279 in case you use Windows 7.
 
-2.2. Click "Download"
+2.2. Click "Download".
 
 2.3. Run the installer.
 
@@ -98,19 +98,19 @@ the application on Qt.
 	<img src="doc/Readme_Installation/Installation1.PNG" />
 </center>
 
-2.7. If the Installer Fails, you must close the installer, uninstall all versions of the
+2.7. If the Installer fails you must close the installer, uninstall all versions of the
 Visual C++ 2010 Redistributable and try to install the Debugging Tools for
-windows again.
+Windows again.
 
 
 ## 3. Install Visual Studio
 
-Installing Visual Studio Express 2017 for Windows Desktop
+Installing Visual Studio Community 2017 for Windows Desktop
 
 3.1. Go to the Microsoft website
-    https://visualstudio.microsoft.com/de/vs/express/
+    https://visualstudio.microsoft.com/vs/community/
     
-3.2. Scroll to the bottom of the site and click on “Express 2017 for Windows Desktop”, the installer will be downloaded.
+3.2. Ensure that "Windows" is selected then click download to download the installer.
 
 <center>
 	<img src="doc/Readme_Installation/Installation2.PNG" />
@@ -118,10 +118,9 @@ Installing Visual Studio Express 2017 for Windows Desktop
 
 3.3. Go to the downloads folder, select the installer and run it as administrator.
 
-3.4. You may see a pop-up “We have to prepare some things...” click on
-    continue.
+3.4. You may see a pop-up of “Visual Studio Installer”. Click continue.
     
-3.5. Click on install.
+3.5. Wait for the download, then select "Desktop development using C++" and click "Install".
 
 <center>
 	<img src="doc/Readme_Installation/Installation3.PNG" />
