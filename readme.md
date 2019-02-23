@@ -126,7 +126,7 @@ Installing Visual Studio Community 2017 for Windows Desktop
 	<img src="doc/Readme_Installation/Installation3.PNG" />
 </center>
 
-3.6. Wait until the installer is done and close it.
+3.6. Wait until the installer is finished. After that you get asked for restarting your computer which you should follow.
 
 ## 4. Prepare CMake
 
