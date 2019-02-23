@@ -75,7 +75,7 @@ build and run the project.
 https://github.com/Graph-ICS/Graph-ICS   
 1.2. Click on "Clone or Download"  
 1.3. Click on "Download ZIP"  
-1.4. Unpack the file and save it at the path you want
+1.4. Unpack the file and save it at the path of your choice
 
 ### 2. Install Debugging Tools from the Windows SDK
 
