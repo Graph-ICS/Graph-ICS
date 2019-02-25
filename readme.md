@@ -95,7 +95,7 @@ the application.
 2.6. Select the Options like on the image, click next.
 
 <center>
-	<img src="doc/Readme_Installation/Installation1.PNG" />
+	<img src="doc/Readme_Installation/Installation1.PNG" width="400" />
 </center>
 
 2.7. If the Installer fails you must close the installer, uninstall all versions of the
