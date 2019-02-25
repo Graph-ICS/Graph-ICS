@@ -62,7 +62,7 @@ build and run the project.
 1. Download the Project from GitHub
 2. Install Debugging Tools from the Windows SDK
 3. Install Visual Studio 
-4. Prepare CMake 
+4. Install CMake 
 5. Install Qt 
 6. Install and Build ITK 
 7. Install and Build OpenCV   
@@ -128,32 +128,35 @@ Installing Visual Studio Community 2017 for Windows Desktop
 
 3.6. Wait until the installer is finished. After that you get asked for restarting your computer which you should follow.
 
-## 4. Prepare CMake
+## 4. Install CMake
 
-This step is needed if you do not have a pre-installed CMake version on your system.
+4.1. Go to https://cmake.org/download/
 
-4.1. You can download a windows installer of CMake (cmake-3.13.4-win64-x64.msi) 
-from the CMake download page. https://cmake.org/download/ Follow the instructions provided on the CMake
-installation page for downloading and installing the software
+4.2. Select installer of latest release, e.g. "cmake-3.13.4-win64-x64.msi"
+
+4.3. Start the installer and follow its instructions.
+
+4.4. Select "Add CMake to the system PATH for all users":
+
 <center>
 	<img src="doc/Readme_Installation/Installation4.PNG" />
 </center>  
 
+4.5. Finish setup.
 
 ## 5. Install Qt
-
 
 5.1. Go to the download site https://www.qt.io/download, go to open source,
 select "Go open source" and then click "Download"
 
-5.2. Run the installer, click on next, then skip 
+5.2. Run the installer, click on next, then skip, click next.
 
-5.3. Select the path where you want to install Qt. Click next
+5.3. Select the path where you want to install Qt. Click next.
 
 5.4. Select the components you want to install, the ones you need are:
 
-- Below Qt 5.11.0: select latest MSVC 64-bit compiler e.g. MSVC 64-bit 2017
-- Below Developer and Designer Tools: Qt Creator 4.8.1 CDB Debugger Support
+- Below "Qt 5.11.0": select latest MSVC 64-bit compiler e.g. "MSVC 2017 64-bit"
+- Below "Developer and Designer Tools": "Qt Creator 4.8.1 CDB Debugger Support"
 
 5.5. Finish the installation and do not open QtCreator
 
