@@ -139,7 +139,7 @@ Installing Visual Studio Community 2017 for Windows Desktop
 4.4. Select "Add CMake to the system PATH for all users":
 
 <center>
-	<img src="doc/Readme_Installation/Installation4.PNG" />
+	<img src="doc/Readme_Installation/Installation4.PNG" width="400" />
 </center>  
 
 4.5. Finish setup.
