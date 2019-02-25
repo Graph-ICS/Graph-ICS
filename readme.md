@@ -95,7 +95,7 @@ the application.
 2.6. Select the Options like on the image, click next.
 
 <center>
-	<img src="doc/Readme_Installation/Installation1.PNG" width="400" />
+	<img src="doc/Readme_Installation/Installation1.PNG" />
 </center>
 
 2.7. If the Installer fails you must close the installer, uninstall all versions of the
@@ -113,7 +113,7 @@ Installing Visual Studio Community 2017 for Windows Desktop
 3.2. Ensure that "Windows" is selected then click download to download the installer.
 
 <center>
-	<img src="doc/Readme_Installation/Installation2.PNG" />
+	<img src="doc/Readme_Installation/Installation2.PNG" width="400" />
 </center>
 
 3.3. Go to the downloads folder, select the installer and run it as administrator.
