@@ -162,7 +162,7 @@ select "Go open source" and then click "Download"
 
 5.6. Setting up the QT Creator (NMake Generator)
 
-- Open QtCreator, go to Tools and click Options
+- Open QtCreator, go to "Tools" and click "Options"
 <center>
 	<img src="doc/Readme_Installation/Installation5.PNG" />
 </center>
@@ -186,9 +186,9 @@ select "Go open source" and then click "Download"
 	<img src="doc/Readme_Installation/Installation8.PNG" />
 </center>
 
-- Click on Ok and then on Apply.
+- Click on "Ok" and then on "Apply".
 - If you want to debug, make sure you select the correct path to the
-    debugger like on the follow snip.
+    debugger like on the follow picture:
     <center>
 	<img src="doc/Readme_Installation/Installation9.PNG" />
 </center>
