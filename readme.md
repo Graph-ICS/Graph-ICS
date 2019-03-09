@@ -158,7 +158,7 @@ select "Go open source" and then click "Download"
 - Below "Qt 5.11.0": select latest MSVC 64-bit compiler e.g. "MSVC 2017 64-bit"
 - Below "Developer and Designer Tools": "Qt Creator 4.8.1 CDB Debugger Support"
 
-5.5. Finish the installation and do not open QtCreator
+5.5. Finish the installation.
 
 5.6. Setting up the QT Creator (NMake Generator)
 
@@ -175,8 +175,8 @@ select "Go open source" and then click "Download"
 	<img src="doc/Readme_Installation/Installation6.PNG" />
 </center>
 
-- You will see the cloned kit will appears on the bottom side of the window,
-    select it and go to “CMake generator” and click on change:
+- The cloned kit will appear on the bottom side of the window.
+    Select it, go to “CMake generator” and click on change:
     <center>
 	<img src="doc/Readme_Installation/Installation7.PNG" />
 </center>
