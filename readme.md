@@ -167,8 +167,7 @@ select "Go open source" and then click "Download"
 	<img src="doc/Readme_Installation/Installation5.PNG" />
 </center>
 
-- On the upper left corner you will see different tabs
-- go to "Kits",
+- On the upper left corner you will see different tabs. Go to "Kits".
 - Select the MSVC precompiled tool, you have installed on step 5.4 and
     want to use an on the right site click on clone
     <center>
@@ -181,8 +180,8 @@ select "Go open source" and then click "Download"
 	<img src="doc/Readme_Installation/Installation7.PNG" />
 </center>
 
-- Select NMake MakeFiles JOM as generator, and CodeBlocks as
-    Extra generator.
+- Select "NMake MakeFiles JOM" as generator, and "CodeBlocks" as
+    extra generator.
     <center>
 	<img src="doc/Readme_Installation/Installation8.PNG" />
 </center>
