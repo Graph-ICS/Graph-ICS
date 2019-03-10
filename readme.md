@@ -201,18 +201,18 @@ select "Go open source" and then click "Download"
 6.1. Create a folder "lib" in D: (you can also install create a folder "lib" somewhere else, but you have to change some lines in the CMake textfile later and **pay attention to the paths which are used as a example in this installation guide, you have to changed them to your path where you have created your lib folder**)  
 Note: Don't choose a path which is too long because you might get in trouble due to the restriction CMake has on the length of the path variables
 
-6.1. In D:\lib create a subfolder “ ITK ” with a subfolder “ bin ” so that the path looks like this: D:\lib\Itk\bin  
-6.2. Go to https://github.com/InsightSoftwareConsortium/ITK
+6.2. In D:\lib create a subfolder “ITK” with a subfolder “bin” so that the path looks like this: D:\lib\ITK\bin
+6.3. Go to https://github.com/InsightSoftwareConsortium/ITK
 
 - Go to branches
-- Select the branch “release” and on the right, click on clone or download, then click download zip
+- Select the branch “release”. On the right click on "Clone or download", then click "Download ZIP"
 - Move the Zip file to the ITK folder
 - Right-click the Zip file and select unzip it here, so it will be a folder “ITK-release” created, this will be the source folder.
     
-6.3. Open CMake GUI
+6.4. Open CMake GUI
 
-- On “Where is the source code” set the path to the unzipped “ITK-release” folder
-- On “Where to build the binaries” set the path to the bin folder you created before
+- On “Where is the source code” set the path to the unzipped “ITK-release” folder.
+- On “Where to build the binaries” set the path to the bin folder you created before.
 <center>
 	<img src="doc/Readme_Installation/Installation10.PNG" />
 </center>
@@ -232,9 +232,9 @@ Note: Don't choose a path which is too long because you might get in trouble due
 
 - When the configuration is done, then click on generate, so it will generate a Visual studio project.
 
-6.4. When it finishes the generation, run Visual Studio as administrator and open the project
+6.5. When it finishes the generation, run Visual Studio as administrator and open the project
 
-6.5. On Visual Studio
+6.6. On Visual Studio
 
 - Wait until the project initializes and parses the files. (you can read it on the blue bar on the bottom)
 <center>
