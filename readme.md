@@ -201,6 +201,7 @@ select "Go open source" and then click "Download"
 6.1. Create a target folder for ITK. We recommend "D:\lib\ITK".
 
 **Note: if you choose another folder you need to adjust CMake files later on.**
+
 **Note: do not choose a path wich is too long because CMake paths are restricted to 50 characters by default.**
 
 6.2. In your ITK folder create a subfolder "bin".
@@ -262,9 +263,12 @@ To install and build OpenCV you can download and use the pre-compiled binaries a
 </center>
 
 7.1. USING THE PROVIDED MSVC BINARIES:
+
 - Go to https://opencv.org/releases.html
+
 - Select "Win pack" of the latest 3.x.x version:
-    <center>
+
+<center>
 	<img src="doc/Readme_Installation/Installation15.PNG" />
 </center>
 
