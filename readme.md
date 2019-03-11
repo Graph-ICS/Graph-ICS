@@ -198,21 +198,28 @@ select "Go open source" and then click "Download"
 
 ## 6. Install and Build ITK
 
+6.1. Create an 
+
+Create a folder "lib" with a subfolder "bin" in "D:" (you can also install create a folder "lib" somewhere else, but you have to change some lines in the CMake textfile later and **pay attention to the paths which are used as a example in this installation guide, you have to changed them to your path where you have created your lib folder**)  
+Note: Don't choose a path which is too long because you might get in trouble due to the restriction CMake has on the length of the path variables
+
 6.1. Create a folder "lib" in D: (you can also install create a folder "lib" somewhere else, but you have to change some lines in the CMake textfile later and **pay attention to the paths which are used as a example in this installation guide, you have to changed them to your path where you have created your lib folder**)  
 Note: Don't choose a path which is too long because you might get in trouble due to the restriction CMake has on the length of the path variables
 
 6.2. In D:\lib create a subfolder “ITK” with a subfolder “bin” so that the path looks like this: D:\lib\ITK\bin
+
 6.3. Go to https://github.com/InsightSoftwareConsortium/ITK
 
 - Go to branches
 - Select the branch “release”. On the right click on "Clone or download", then click "Download ZIP"
-- Move the Zip file to the ITK folder
+- Move the Zip file to an installation folder for ITK. We propose: "D:\lib\ITK". You need to create it in advance.
+  Note: xxx
 - Right-click the Zip file and select unzip it here, so it will be a folder “ITK-release” created, this will be the source folder.
     
 6.4. Open CMake GUI
 
 - On “Where is the source code” set the path to the unzipped “ITK-release” folder.
-- On “Where to build the binaries” set the path to the bin folder you created before.
+- On “Where to build the binaries” set the path to the "bin" folder you created before.
 <center>
 	<img src="doc/Readme_Installation/Installation10.PNG" />
 </center>
@@ -252,35 +259,32 @@ Note: Don't choose a path which is too long because you might get in trouble due
 
 ## 7. Install and Build OpenCV:
 
-To install and build OpenCv, you can download and use
-the pre-compiled binaries from OpenCv online and continue with the installation guide.
-(Recommended) or you can build the binaries from yourself
-using the same procedure like you did with ITK on chapter 6 but it will take a long time.
+To install and build OpenCV you can download and use
+the pre-compiled binaries and continue with the installation guide
+(which is recommended) or you can build the binaries from yourself
+using the same procedure like with ITK on chapter 6 but it will take much time.
 
 <center>
 	<img src="doc/Readme_Installation/Installation14.PNG" />
 </center>
 
-7.1. USING THE MSVC BINARIES: On the Website from OpenCv
+7.1. USING THE MSVC BINARIES: On the Website from OpenCV
 (https://opencv.org/releases.html) you can find the already build
-binaries package for Windows or IOS:
+binaries package for Windows or IOS.
 
-- Select Win pack from the latest version
+- Select "Win pack" of the latest 3.x.x version:
     <center>
 	<img src="doc/Readme_Installation/Installation15.PNG" />
 </center>
 
-- Go to the download folder and click on the opencv....exe you
-    downloaded.
-- Set the path where you want to extract the package (D:\lib)
+- Open the download folder and start the just downloaded "opencv....exe".
+- Set the path where you want to extract the package, e.g. "D:\lib"
 - Extract the files.
-- A opencv folder will be created on D:\lib
-
     
 7.2. BUILDING OF OPENCV BINARIES WITH MSVC:
 Follow the same Steps like on chapter 6 with following changes:
 
-- For 6.1 create a Folder OpenCv with a subfolder “bin” in D:\lib
+- Instead of 6.1 create a folder "opencv" with a sub folder "bin" in your lib folder, e.g. "D:\lib"
 - For 6.2 Download the OpenCv from https://opencv.org/releases.html,
     select sources.
 - Move the Zip file to the OpenCv folder
