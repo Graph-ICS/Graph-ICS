@@ -75,7 +75,7 @@ build and run the project.
 https://github.com/Graph-ICS/Graph-ICS   
 1.2. Click on "Clone or Download"  
 1.3. Click on "Download ZIP"  
-1.4. Unpack the file and save it at the path of your choice
+1.4. Unpack the file and save it at the project path of your choice, e.g. "D:\Graph-ICS"
 
 ### 2. Install Debugging Tools from the Windows SDK
 
@@ -289,29 +289,27 @@ Follow the steps in section 6 and consider the following changes:
 
 Add the following paths to your system path. [Here](https://www.nextofwindows.com/how-to-addedit-environment-variables-in-windows-7) is how it works in general.
 
-8.1. Add CMake, e.g. "C:\Program Files\CMake\bin"
+8.1. Add Qt Creator, e.g. "C:\Qt\Tools\QtCreator\bin"
 
-8.2. Add Qt Creator, e.g. "C:\Qt\Tools\QtCreator\bin"
+8.2.  Add the Qt, e.g. C:\Qt\5.11.0\msvc2017_64\bin 
 
-8.3.  Add the Qt, e.g. C:\Qt\5.11.0\msvc2017_64\bin 
-
-8.4.  Add the OpenCV, e.g. D:\lib\opencv\build
+8.3.  Add the OpenCV, e.g. D:\lib\opencv\build
 
 
-## 9. Configure the Project (Graph-ICS):
+## 9. Configure the Project (Graph-ICS)
 
-9.1. Open the Qt Creator and click open project on the Welcome tab.
+9.1. Open Qt Creator and click "open project" on the "Welcome" tab.
 
-9.2. Go to the path of the project and select the CMakeLists.txt
-file
+9.2. Select "CMakeLists.txt" in the project path.
 
-9.3. Qt Creator will show you the possible configurations you can use for your
-project, Select the kit you cloned on step 5.7 installing Qt. then click on
-details select Default, Debug and Release
-and click on “configure project”
+9.3. Of the shown project configurations select the kit you cloned in step 5.6 and click "Details". Then select "Default", "Debug" and "Release" and set a bin folder (output folder), e.g. "D:\Graph-ICS\bin":
+
 <center>
 	<img src="doc/Readme_Installation/Installation16.PNG" />
 </center>
+
+9.4. Click “configure project”
+
 
 9.4. Make sure that the path is set to the bin folder of the project. You may have to create the folder first. If the path looks like the path in the image, go to the tab "Edit", right click on the project folder and select "Run Cmake"
 
