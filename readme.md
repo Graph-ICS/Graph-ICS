@@ -66,8 +66,8 @@ build and run the project.
 5. Install Qt 
 6. Install and Build ITK 
 7. Install and Build OpenCV   
-8. Set the environment varibles
-9. Configure the project (Graph-ICS)
+8. Set Environment Varibles
+9. Configure the Project (Graph-ICS)
 10. (Optional) Change CMakeLists.txt file
 
 ### 1. Download the Project from GitHub
@@ -277,21 +277,15 @@ To install and build OpenCV you can download and use the pre-compiled binaries a
 - Extract the files.
     
 7.2. BUILDING OF OPENCV BINARIES WITH MSVC ON YOUR OWN:
-Follow the same Steps like on chapter 6 with following changes:
+Follow the steps in section 6 and consider the following changes:
 
-- Instead of 6.1 create a folder "opencv" with a sub folder "bin" in your lib folder, e.g. "D:\lib"
-- For 6.2 Download the OpenCv from https://opencv.org/releases.html,
-    select sources.
-- Move the Zip file to the OpenCv folder
-- Right-click the Zip file and select unzip it here, so it will be a “opencv-3.4.2”
-    folder created, this will be the source folder, rename it to “opencv”.
-- For 6.3 omit unchecking the KWSTYLE component on the CMake
-    Configuration from OpenCv.
-- Configure and generate with Cmake and continue making the same
-    procedure as in chapter 6.
+- For 6.1 we recommend the target folder "D:\lib\opencv".
+- For 6.3 download OpenCC from https://opencv.org/releases.html, select "Sources" of the latest 3.x.x version.
+- Move the Zip file to the OpenCV folder.
+- Right-click on the Zip file and select unzip it here. The created subfolder is the source folder in 6.4.
+- For 6.4 omit unchecking the KWSTYLE component on the CMake Configuration.    
     
-    
-## 8. Set the environment variables
+## 8. Set Environment Variables
 8.1.  Add CMake to the system path:
 
 - Right click on the Computer icon on the desktop and select properties
@@ -303,7 +297,7 @@ Follow the same Steps like on chapter 6 with following changes:
 8.4.  Add the OpenCv path to the environment variables (D:\lib\opencv\build)  (path may differ)
 
 
-## 9. Configure the project (Graph-ICS):
+## 9. Configure the Project (Graph-ICS):
 
 9.1. Open the Qt Creator and click open project on the Welcome tab.
 
