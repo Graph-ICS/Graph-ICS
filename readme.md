@@ -286,15 +286,16 @@ Follow the steps in section 6 and consider the following changes:
 - For 6.4 omit unchecking the KWSTYLE component on the CMake Configuration.    
     
 ## 8. Set Environment Variables
-8.1.  Add CMake to the system path:
 
-- Right click on the Computer icon on the desktop and select properties
-- Then follow the instructions [here](https://www.nextofwindows.com/how-to-addedit-environment-variables-in-windows-7)
-- The path you must add is: C:\Program Files\CMake\bin if you didn't change the path in your installation, if you did just add the path to your bin folder  
+Add the following paths to your system path. [Here](https://www.nextofwindows.com/how-to-addedit-environment-variables-in-windows-7) is how it works in general.
 
-8.2. Add the C:\Qt\Tools\QtCreator\bin path to the environments variables (the path may differ if you have installed Qt at a different path) the same way you did at step 8.1.    
-8.3.  Add the Ot path to the variables: C:\Qt\5.11.0\msvc2017_64\bin  (path also may differ)     
-8.4.  Add the OpenCv path to the environment variables (D:\lib\opencv\build)  (path may differ)
+8.1. Add CMake, e.g. "C:\Program Files\CMake\bin"
+
+8.2. Add Qt Creator, e.g. "C:\Qt\Tools\QtCreator\bin"
+
+8.3.  Add the Qt, e.g. C:\Qt\5.11.0\msvc2017_64\bin 
+
+8.4.  Add the OpenCV, e.g. D:\lib\opencv\build
 
 
 ## 9. Configure the Project (Graph-ICS):
