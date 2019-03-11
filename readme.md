@@ -198,24 +198,19 @@ select "Go open source" and then click "Download"
 
 ## 6. Install and Build ITK
 
-6.1. Create a target folder for ITK
+6.1. Create a target folder for ITK. We recommend "D:\lib\ITK".
 
-Create a folder "lib" with a subfolder "bin" in "D:" (you can also install create a folder "lib" somewhere else, but you have to change some lines in the CMake textfile later and **pay attention to the paths which are used as a example in this installation guide, you have to changed them to your path where you have created your lib folder**)  
-Note: Don't choose a path which is too long because you might get in trouble due to the restriction CMake has on the length of the path variables
+**Note: if you choose another folder you need to adjust CMake files later on.**
+**Note: do not choose a path wich is too long because CMake paths are restricted to 50 characters by default.**
 
-6.1. Create a folder "lib" in D: (you can also install create a folder "lib" somewhere else, but you have to change some lines in the CMake textfile later and **pay attention to the paths which are used as a example in this installation guide, you have to changed them to your path where you have created your lib folder**)  
-Note: Don't choose a path which is too long because you might get in trouble due to the restriction CMake has on the length of the path variables
-
-6.2. In D:\lib create a subfolder “ITK” with a subfolder “bin” so that the path looks like this: D:\lib\ITK\bin
+6.2. In your ITK folder create a subfolder "bin".
 
 6.3. Go to https://github.com/InsightSoftwareConsortium/ITK
 
 - Go to branches
 - Select the branch “release”. On the right click on "Clone or download", then click "Download ZIP"
-- Move the Zip file to an installation folder for ITK. We propose: "D:\lib\ITK". You need to create it in advance.
-
-  Note: xxx
-- Right-click the Zip file and select unzip it here, so it will be a folder “ITK-release” created, this will be the source folder.
+- Move the Zip file to your ITK folder, e.g. "D:\lib\ITK".
+- Right-click the Zip file and select unzip it here, so it will be a folder “ITK-release” created.
     
 6.4. Open CMake GUI
 
@@ -225,7 +220,7 @@ Note: Don't choose a path which is too long because you might get in trouble due
 	<img src="doc/Readme_Installation/Installation10.PNG" />
 </center>
 
-- Click on Generate so on the pop-up window select “Visual Studio 15 2017 Win64” (see the image below, if you have Visual Studio 2015, 	     then select Visual studio 14 2015 Win64) as generator and click finish, it will take a couple of minutes to configure the project.
+- Click on "Generate" so on the pop-up window select “Visual Studio 15 2017 Win64” (see the image below, if you have Visual Studio 2015 select "Visual Studio 14 2015 Win64") as generator and click "finish". It will take a couple of minutes to configure the project.
 <center>
 	<img src="doc/Readme_Installation/Installation11.PNG" />
 </center>
@@ -260,29 +255,24 @@ Note: Don't choose a path which is too long because you might get in trouble due
 
 ## 7. Install and Build OpenCV:
 
-To install and build OpenCV you can download and use
-the pre-compiled binaries and continue with the installation guide
-(which is recommended) or you can build the binaries from yourself
-using the same procedure like with ITK on chapter 6 but it will take much time.
+To install and build OpenCV you can download and use the pre-compiled binaries and follow 7.1 (which is recommended) or you can build the binaries by yourself following 7.2 (wich takes much time).
 
 <center>
 	<img src="doc/Readme_Installation/Installation14.PNG" />
 </center>
 
-7.1. USING THE MSVC BINARIES: On the Website from OpenCV
-(https://opencv.org/releases.html) you can find the already build
-binaries package for Windows or IOS.
-
+7.1. USING THE PROVIDED MSVC BINARIES:
+- Go to https://opencv.org/releases.html
 - Select "Win pack" of the latest 3.x.x version:
     <center>
 	<img src="doc/Readme_Installation/Installation15.PNG" />
 </center>
 
 - Open the download folder and start the just downloaded "opencv....exe".
-- Set the path where you want to extract the package, e.g. "D:\lib"
+- Set the path where you want to extract the package. We recommend "D:\lib".
 - Extract the files.
     
-7.2. BUILDING OF OPENCV BINARIES WITH MSVC:
+7.2. BUILDING OF OPENCV BINARIES WITH MSVC ON YOUR OWN:
 Follow the same Steps like on chapter 6 with following changes:
 
 - Instead of 6.1 create a folder "opencv" with a sub folder "bin" in your lib folder, e.g. "D:\lib"
