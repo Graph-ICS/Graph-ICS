@@ -43,12 +43,12 @@ Note: the project has been recently renamed from GraphMIC to Graph-ICS. The scre
 
 Required components
 
-- Microsoft Windows 7, 8, 10 or higher
-- Visual Studio 2017 or Visual Studio 2015 compiler.
-- CMake GUI
-- Qt 5.1 1 .0 with Qt Creator
+- Microsoft Windows 7, 8 or 10
+- Visual Studio 2015 or Visual Studio 2017
+- CMake
+- Qt 5.11.0 with Qt Creator
 - ITK
-- OpenCv 3.4.
+- OpenCV 3.4
 
 With a successfully execution of the Installations guide steps, you should be able to
 build and run the project.
@@ -66,7 +66,7 @@ build and run the project.
 5. Install Qt 
 6. Install and Build ITK 
 7. Install and Build OpenCV   
-8. Set Environment Varibles
+8. Set Environment Variables
 9. Configure the Project (Graph-ICS)
 10. (Optional) Change CMakeLists.txt file
 
@@ -195,6 +195,8 @@ select "Go open source" and then click "Download"
 
 - Close QtCreator.
 
+5.7. Add Qt Creator, e.g. "C:\Qt\Tools\QtCreator\bin", to system path. [Here](https://www.nextofwindows.com/how-to-addedit-environment-variables-in-windows-7) is how it works in general.
+
 
 ## 6. Install and Build ITK
 
@@ -221,7 +223,7 @@ select "Go open source" and then click "Download"
 	<img src="doc/Readme_Installation/Installation10.PNG" />
 </center>
 
-- Click on "Generate" so on the pop-up window select “Visual Studio 15 2017 Win64” (see the image below, if you have Visual Studio 2015 select "Visual Studio 14 2015 Win64") as generator and click "finish". It will take a couple of minutes to configure the project.
+- Click on "Configure" so on the pop-up window select “Visual Studio 15 2017 Win64” (see the image below, if you have Visual Studio 2015 select "Visual Studio 14 2015 Win64") as generator and click "finish". It will take a couple of minutes to configure the project.
 <center>
 	<img src="doc/Readme_Installation/Installation11.PNG" />
 </center>
@@ -245,14 +247,9 @@ select "Go open source" and then click "Download"
 	<img src="doc/Readme_Installation/Installation13.PNG" />
 </center>
 
-- You see on the solution explorer several project files, go to the
-    “CMakePredefinedTargets” folder, so right-click on ALL_BUILD and
-    select “build” , it will take several minutes to complete the process.
-- Make sure you make this step for both Debug and Release configuration,
-    so Visual studio will generate the appropriated libraries for each of them.
-- Right-click on INSTALL and select “build”, make sure you make this
-    step for both Debug and Release configuration. (This step is needed for
-    the CMake to find the properly paths to ITK)
+- Right-click on "CMakePredefinedTargets/ALL_BUILD" and click "build". It will take several minutes to complete the process.
+
+- Make sure you make this step for both "Debug" and "Release" configuration.
 
 ## 7. Install and Build OpenCV:
 
@@ -273,54 +270,50 @@ To install and build OpenCV you can download and use the pre-compiled binaries a
 </center>
 
 - Open the download folder and start the just downloaded "opencv....exe".
+
 - Set the path where you want to extract the package. We recommend "D:\lib".
+
 - Extract the files.
     
 7.2. BUILDING OF OPENCV BINARIES WITH MSVC ON YOUR OWN:
 Follow the steps in section 6 and consider the following changes:
 
 - For 6.1 we recommend the target folder "D:\lib\opencv".
+
 - For 6.3 download OpenCC from https://opencv.org/releases.html, select "Sources" of the latest 3.x.x version.
+
 - Move the Zip file to the OpenCV folder.
+
 - Right-click on the Zip file and select unzip it here. The created subfolder is the source folder in 6.4.
+
 - For 6.4 omit unchecking the KWSTYLE component on the CMake Configuration.    
     
-## 8. Set Environment Variables
+    
+## 8. Configure the Project (Graph-ICS)
 
-Add the following paths to your system path. [Here](https://www.nextofwindows.com/how-to-addedit-environment-variables-in-windows-7) is how it works in general.
+8.1. Open Qt Creator and click "open project" on the "Welcome" tab.
 
-8.1. Add Qt Creator, e.g. "C:\Qt\Tools\QtCreator\bin"
+8.2. Select "CMakeLists.txt" in the project path.
 
-8.2.  Add the Qt, e.g. C:\Qt\5.11.0\msvc2017_64\bin 
-
-8.3.  Add the OpenCV, e.g. D:\lib\opencv\build
-
-
-## 9. Configure the Project (Graph-ICS)
-
-9.1. Open Qt Creator and click "open project" on the "Welcome" tab.
-
-9.2. Select "CMakeLists.txt" in the project path.
-
-9.3. Of the shown project configurations select the kit you cloned in step 5.6 and click "Details". Then select "Default", "Debug" and "Release" and set a bin folder (output folder), e.g. "D:\Graph-ICS\bin":
+8.3. Of the shown project configurations select the kit you cloned in step 5.6 and click "Details". Then select "Default", "Debug" and "Release" and set a bin folder (output folder), e.g. "D:\Graph-ICS\bin":
 
 <center>
 	<img src="doc/Readme_Installation/Installation16.PNG" />
 </center>
 
-9.4. Click “configure project”
+8.4. Click “configure project”
 
 
-9.4. Make sure that the path is set to the bin folder of the project. You may have to create the folder first. If the path looks like the path in the image, go to the tab "Edit", right click on the project folder and select "Run Cmake"
+8.4. Make sure that the path is set to the bin folder of the project. You may have to create the folder first. If the path looks like the path in the image, go to the tab "Edit", right click on the project folder and select "Run Cmake"
 
-9.5. (Optional)If you have another configuration and it fails, so make sure you
+8.5. (Optional)If you have another configuration and it fails, so make sure you
 delete the created CMakeCache.txt in the bin folder and the
 CMakeLists.txt.user on the source folder before you try it again.
 <center>
 	<img src="doc/Readme_Installation/Installation17.PNG" />
 </center>
 
-9.6. (This step can be optional if you add the opencv build directory to the
+8.6. (This step can be optional if you add the opencv build directory to the
 environment path variables) If the CMake don’t find the ITK or OpenCv
 libraries automatically, then you will see the error on the common output tab
 below like on the following image, so you must set the paths manually using
@@ -348,24 +341,27 @@ the CMake GUI:
 
 - Close CMake GUI
 
-9.7. Go to Qt Creator to the tab edit right-click on the project folder and run
+8.7. Go to Qt Creator to the tab edit right-click on the project folder and run
 CMake, the project should be configured jet and you will see all the folders
 and files corresponding to the project on the left tab:
+
 <center>
 	<img src="doc/Readme_Installation/Installation21.PNG" />
 </center>
 
-9.8. You should be able to build and run the project, maybe you should restart the
+8.8. You should be able to build and run the project, maybe you should restart the
 Qt Creator und re-open it and the project from the recent used projects pane.
 <center>
 	<img src="doc/Readme_Installation/Installation22.PNG" />
 </center>
 
-9.9. If you want to debug the application in C++ and QML go to Projects,
+8.9. If you want to debug the application in C++ and QML go to Projects,
 and on the Run option, click on enable QML.
+
 <center>
 	<img src="doc/Readme_Installation/Installation23.PNG" />
 </center>
+
 
 ## 10. (Optional) Change the CMakeLists.txt file
 
