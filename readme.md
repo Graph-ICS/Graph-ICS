@@ -33,25 +33,20 @@ So if you double-click in the example below on "CVMedian" first the image "brain
 
 ## Installation
 
-Installing Graph-ICS with QT, ITK and OpenCv
+With a successfully execution of the Installations guide steps you should be able to build and run the project.
 
-Note: the project has been recently renamed from "GraphMIC" to "Graph-ICS". The screenshots shown in the installation guide may contain the old name of the project.  
+**Note:** The project has been recently renamed from "GraphMIC" to "Graph-ICS". The screenshots shown in the installation guide may contain the old name of the project.  
 
-Required components
+Required components:
 
 - Microsoft Windows 7, 8 or 10
 - Visual Studio 2015 or Visual Studio 2017
 - CMake
 - Qt 5.11.0 with Qt Creator
 - ITK
-- OpenCV 3.4
+- OpenCV 3.x
 
-With a successfully execution of the Installations guide steps, you should be able to
-build and run the project.
-
-#### Please read the instructions carefully and pay attention to the
-
-#### complementary images.
+**Please read the instructions carefully and pay attention to the complementary images.**
 
 ## Contents
 
@@ -198,9 +193,9 @@ select "Go open source" and then click "Download"
 
 6.1. Create a target folder for ITK. We recommend "D:\lib\ITK".
 
-**Note: if you choose another folder you need to adjust CMake files later on.**
+**Note:** If you choose another folder you need to adjust CMake files later on.
 
-**Note: do not choose a path wich is too long because CMake paths are restricted to 50 characters by default.**
+**Note:** Do not choose a path wich is too long because CMake paths are restricted to 50 characters by default.
 
 6.2. In your ITK folder create a subfolder "bin".
 
