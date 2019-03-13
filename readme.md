@@ -206,13 +206,17 @@ Windows SDK contains a CDB Debugger. You will need it in case you want to debug 
 6.3. Open CMake GUI
 
 - On “Where is the source code” set the path to the “ITK-release” folder.
+
 - On “Where to build the binaries” set the path to the "bin" folder.
+
 <center>
 	<img src="doc/Readme_Installation/Installation10.PNG" />
 </center>
 
 - Click on "Configure".
+
 - A window will pop up. Specify the generator with “Visual Studio 15 2017 Win64” and click "Finish":
+
 <center>
 	<img src="doc/Readme_Installation/Installation11.PNG" />
 </center>
@@ -225,7 +229,8 @@ Windows SDK contains a CDB Debugger. You will need it in case you want to debug 
 
 6.6. On Visual Studio
 
-- Wait until the project initializes and parses the files. (you can read it on the blue bar on the bottom)
+- Wait until the project is initialized. (See blue progress bar below)
+
 <center>
 	<img src="doc/Readme_Installation/Installation13.PNG" />
 </center>
