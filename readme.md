@@ -259,22 +259,16 @@ To install and build OpenCV you can download and use the pre-compiled binaries a
 7.2. BUILDING OF OPENCV BINARIES WITH MSVC ON YOUR OWN:
 Follow the steps in section 6 and consider the following changes:
 
-- For 6.1 we recommend the target folder "D:\lib\opencv".
+- For 6.1 download OpenCV from https://opencv.org/releases.html, select "Sources" of the latest 3.x.x version.
 
-- For 6.3 download OpenCC from https://opencv.org/releases.html, select "Sources" of the latest 3.x.x version.
+- For 6.2 we recommend the target folder "D:\lib\opencv". Unzip the downloaded file in that folder. The created subfolder is the source folder in 6.3.
 
-- Move the Zip file to the OpenCV folder.
-
-- Right-click on the Zip file and select unzip it here. The created subfolder is the source folder in 6.4.
-
-- For 6.4 omit unchecking the KWSTYLE component on the CMake Configuration.    
-    
     
 ## 8. Configure the Project (Graph-ICS)
 
 8.1. If ITK or OpenCV is not installed at the default path which is "D:\lib\ITK\bin" and "D:\lib\opencv\build":
 
-- Open "CMakeLists.txt" in the project path.
+- Open "CMakeLists.txt" in the project path:
 
 <center>
 	<img src="doc/Readme_Installation/24.PNG" />
