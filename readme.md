@@ -231,10 +231,6 @@ Windows SDK contains a CDB Debugger. You will need it in case you want to debug 
 
 - Wait until the project is initialized. (See blue progress bar below)
 
-<center>
-	<img src="doc/Readme_Installation/Installation13.PNG" />
-</center>
-
 - Right-click on "CMakePredefinedTargets/ALL_BUILD" and click "build". It will take several minutes to complete the process.
 
 - Make sure you make this step for both "Debug" and "Release" configuration.
@@ -243,10 +239,6 @@ Windows SDK contains a CDB Debugger. You will need it in case you want to debug 
 ## 7. Install and Build OpenCV:
 
 To install and build OpenCV you can download and use the pre-compiled binaries and follow 7.1 (which is recommended) or you can build the binaries by yourself following 7.2 (wich takes much time).
-
-<center>
-	<img src="doc/Readme_Installation/Installation14.PNG" />
-</center>
 
 7.1. USING THE PROVIDED MSVC BINARIES:
 
@@ -280,89 +272,32 @@ Follow the steps in section 6 and consider the following changes:
     
 ## 8. Configure the Project (Graph-ICS)
 
-8.1. Open Qt Creator and click "open project" on the "Welcome" tab.
+8.1. If ITK or OpenCV is not installed at the default path which is "D:\lib\ITK\bin" and "D:\lib\opencv\build":
 
-8.2. Select "CMakeLists.txt" in the project path.
-
-8.3. Of the shown project configurations select the kit you cloned in step 5.6 and click "Details". Then select "Default", "Debug" and "Release" and set a bin folder (output folder), e.g. "D:\Graph-ICS\bin":
-
-<center>
-	<img src="doc/Readme_Installation/Installation16.PNG" />
-</center>
-
-8.4. Click “configure project”
-
-
-8.4. Make sure that the path is set to the bin folder of the project. You may have to create the folder first. If the path looks like the path in the image, go to the tab "Edit", right click on the project folder and select "Run Cmake"
-
-8.5. (Optional)If you have another configuration and it fails, so make sure you
-delete the created CMakeCache.txt in the bin folder and the
-CMakeLists.txt.user on the source folder before you try it again.
-<center>
-	<img src="doc/Readme_Installation/Installation17.PNG" />
-</center>
-
-8.6. (This step can be optional if you add the opencv build directory to the
-environment path variables) If the CMake don’t find the ITK or OpenCv
-libraries automatically, then you will see the error on the common output tab
-below like on the following image, so you must set the paths manually using
-the CMake GUI:
-
-- Open CMake Gui, set the Graph-ICS source folder and the binary folder, click on file and reload cache
-<center>
-	<img src="doc/Readme_Installation/Installation18.PNG" />
-</center>
-
-- CMake GUI and set the correct build path of the OpenCv directory on the  field OpenCv_Dir and click on configure
-<center>
-	<img src="doc/Readme_Installation/Installation19.PNG" />
-</center>
-
-- (Repeat the proces for ITK_Dir) Go back to Set the correct build path
-    of the ITK directory on the field ITK_Dir and click on configure, click on reload cache.
-
-- Go to Qt Creator, Edit tab and click on Run Cmake.
-- (Optional)CMake might will throw an error, but the path should be already
-    set, so you can ignore it.
-    <center>
-	<img src="doc/Readme_Installation/Installation20.PNG" />
-</center>
-
-- Close CMake GUI
-
-8.7. Go to Qt Creator to the tab edit right-click on the project folder and run
-CMake, the project should be configured jet and you will see all the folders
-and files corresponding to the project on the left tab:
-
-<center>
-	<img src="doc/Readme_Installation/Installation21.PNG" />
-</center>
-
-8.8. You should be able to build and run the project, maybe you should restart the
-Qt Creator und re-open it and the project from the recent used projects pane.
-<center>
-	<img src="doc/Readme_Installation/Installation22.PNG" />
-</center>
-
-8.9. If you want to debug the application in C++ and QML go to Projects,
-and on the Run option, click on enable QML.
-
-<center>
-	<img src="doc/Readme_Installation/Installation23.PNG" />
-</center>
-
-
-## 10. (Optional) Change the CMakeLists.txt file
-
-**This step is only necessary if you have installed ITK and OpenCV not unter D:\lib**  
-10.1. In the opended project in the QtCerator go to the CMakeList.txt file and go to step 5: binding of libraries  
+- Open "CMakeLists.txt" in the project path.
 
 <center>
 	<img src="doc/Readme_Installation/24.PNG" />
 </center>  
 
-10.2. In line 54 in the image change the path D:\\lib\\ITK\\bin to the path where you have installed the lib folder \<<yourPath\>>\lib\ITK\bin  
-10.3. In line 59 in the image change the path D:\\lib\opencv\\build to your path \<<yourPath\>>\lib\opencv\build
+- Search for "ITK_DIR" and adjust the set path.
+
+- Search for "OpenCv_DIR" and adjust the set path.
+ 
+- Save and close the file.
+
+8.2. Open Qt Creator and click "open project" on the "Welcome" tab.
+
+8.3. Select "CMakeLists.txt" in the project path.
+
+8.4. Of the shown project configurations select the kit you cloned in step 5.6 and click "Details". Then select "Default", "Debug" and "Release" and set a bin folder (output folder), e.g. "D:\Graph-ICS\bin":
+
+<center>
+	<img src="doc/Readme_Installation/Installation16.PNG" />
+</center>
+
+8.5. Click “configure project”
+
 
 ## User Guide
 - **Loading an image** <br /> 
