@@ -11,35 +11,31 @@ Graph-ICS
 
 ![Qt](https://img.shields.io/badge/Qt-5.11.0-green.svg) ![Itk-Kit](https://img.shields.io/badge/ITK-last%20version-blue.svg) ![OpenCv](https://img.shields.io/badge/OpenCV-last%20version-blue.svg) ![VisualStudio](https://img.shields.io/badge/Visual%20Studio%20compiler-2017-orange.svg) 
 
-Graph-ICS is a **[CMake](https://cmake.org)** project for image processing, it uses   **[QML](http://doc.qt.io/qt-5/qtqml-index.html)** and **[QtQuick](http://doc.qt.io/qt-5/qtquick-index.html)** for implementing the user interface.
-The **[ITK](https://itk.org/)** and **[OpenCV](https://opencv.org/)** Libraries and filters are used as well. 
+Graph-ICS is a software for image processing. It supports image filters using **[ITK](https://itk.org/)** and **[OpenCV](https://opencv.org/)**. Its user interface is based on  **[QML](http://doc.qt.io/qt-5/qtqml-index.html)** and **[QtQuick](http://doc.qt.io/qt-5/qtquick-index.html)**.
 
-Graph-ICS uses nodes to represent filters and images. Each node has an input and an output, which are images. 
-Double clicking on a node will shows you the output of this node on the right window site.
-By creating edges between the nodes you can create a workflow between the nodes. 
+The user interface is basically divided into two parts: the canvas (drawing area) on the left and the viewer on the right. Via drag&drop  from the toolbar above you can draw nodes on the canvas. Nodes represent images or filters. 
 
-You can also concatenate nodes connecting the output of a filter node with the input of another one.
+Nodes can be connected to each other. So they can have input nodes on the left side and output nodes on the right side. Usually there is one image node input for a chain of filters.
+
+The picture below shows an example:
 
 <center>
 	<img src="doc/overview.png" />
 </center>
 
-The programm is devided in two parts: the canvas (drawing area) and the viewer. Inside the canvas the user is able to create nodes and connect them. if he double-cklicks on one node the output will be shown in the viewer on the right side.
+Via double-click on a node the corresponding output image will be calculated and shown on the right side by the viewer.
 
+So if you double-click in the example below on "CVMedian" the image "brain.jpg" will be first processed by a black/white filter, then by an (OpenCV) median filter and then it the corresponding output image will be shown in the viewer. Otherwise if you double-click on "BlackWhite" only the black/white filter will be applied:
 
-
-
-Example: 
 <center>
 	<img src="doc/getResultExample.PNG" />
 </center>
-The user creates the node "Image" and selects a image file from his file system by clicking on the file symbol. To add the Black-White-Filter he creates the related node and connects the two nodes by drawing an edge between them. The output of the Black-White node is now the editet picture. This can be repeated as often as required. the output of the last filer (CVMedian) is the image which was loaded from the user with two filter operations. 
 
 ## Installation
 
 Installing Graph-ICS with QT, ITK and OpenCv
 
-Note: the project has been recently renamed from GraphMIC to Graph-ICS. The screenshots shown in the installation guide may contain the old name of the project.  
+Note: the project has been recently renamed from "GraphMIC" to "Graph-ICS". The screenshots shown in the installation guide may contain the old name of the project.  
 
 Required components
 
@@ -513,12 +509,10 @@ Contents
 
 ### 1. About the structure
 
-The structure of Graph-ICS is divided on two components
+The structure of Graph-ICS is divided on two components.
 
 #### 1.1. QtQuick and QML
-The QtQuick framework includes the QML declarative scripting language, QML
-Objects are useful for the interaction with the user, the GraphMic user interface is
-conceded on QML, in GraphMIC it makes possible to:
+The QtQuick framework includes the QML declarative scripting language. QML Objects are useful for the interaction with the user, the Graph-ICS user interface is conceded on QML, in Graph-ICS it makes possible to:
 
 - Represent filters and images using nodes the user can drag on the Editor
 pane (using customs objects)  
