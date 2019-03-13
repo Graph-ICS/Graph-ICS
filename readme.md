@@ -15,7 +15,7 @@ Graph-ICS is a software for image processing. It supports image filters using **
 
 The user interface is basically divided into two parts: the canvas (drawing area) on the left and the viewer on the right. Via drag&drop  from the toolbar above you can draw nodes on the canvas. Nodes represent images or filters. 
 
-Nodes can be connected to each other. So they can have input nodes on the left side and output nodes on the right side. Usually there is one image node input for a chain of filters.
+Nodes can be connected to each other. So they can have input nodes on their left side and output nodes on their right side. Usually there is one image node input for a chain of filters.
 
 The picture below shows an example:
 
@@ -25,7 +25,7 @@ The picture below shows an example:
 
 Via double-click on a node the corresponding output image will be calculated and shown on the right side by the viewer.
 
-So if you double-click in the example below on "CVMedian" the image "brain.jpg" will be first processed by a black/white filter, then by an (OpenCV) median filter and then it the corresponding output image will be shown in the viewer. Otherwise if you double-click on "BlackWhite" only the black/white filter will be applied:
+So if you double-click in the example below on "CVMedian" first the image "brain.jpg" will be  processed by a black/white filter, then by an (OpenCV) median filter and then the corresponding output image will be shown in the viewer. Otherwise if you double-click on "BlackWhite" only the black/white filter will be applied:
 
 <center>
 	<img src="doc/getResultExample.PNG" />
