@@ -50,28 +50,29 @@ Required components:
 
 ## Contents
 
-1. Download the Project from GitHub
+1. Download Project from GitHub
 2. Install Debugging Tools from the Windows SDK
 3. Install Visual Studio 
 4. Install CMake 
 5. Install Qt 
 6. Install and Build ITK 
 7. Install and Build OpenCV   
-8. Set Environment Variables
-9. Configure the Project (Graph-ICS)
-10. (Optional) Change CMakeLists.txt file
+8. Configure the Project (Graph-ICS)
+9. (Optional) Change CMakeLists.txt file
 
 ### 1. Download the Project from GitHub
-1.1. Click on the following repository:
-https://github.com/Graph-ICS/Graph-ICS   
+1.1. Go to https://github.com/Graph-ICS/Graph-ICS   
+
 1.2. Click on "Clone or Download"  
+
 1.3. Click on "Download ZIP"  
+
 1.4. Unpack the file and save it at the project path of your choice, e.g. "D:\Graph-ICS"
+
 
 ### 2. Install Debugging Tools from the Windows SDK
 
-Windows SDK contains a CDB Debugger. You will need it in case you want to debug
-the application. 
+Windows SDK contains a CDB Debugger. You will need it in case you want to debug the application. 
 
 2.1. Go to https://www.microsoft.com/en-us/download/details.aspx?id=8279 in case you use Windows 7.
 
@@ -79,29 +80,22 @@ the application.
 
 2.3. Run the installer.
 
-2.4. Read the licence and select I Agree
+2.4. Read the licence and select "I Agree".
 
 2.5. Click next.
 
-2.6. Select the Options like on the image, click next.
+2.6. Select option "Debugging Tools for Windows" as shown here and click next:
 
 <center>
 	<img src="doc/Readme_Installation/Installation1.PNG" />
 </center>
 
-2.7. If the Installer fails you must close the installer, uninstall all versions of the
-Visual C++ 2010 Redistributable and try to install the Debugging Tools for
-Windows again.
-
 
 ## 3. Install Visual Studio
 
-Installing Visual Studio Community 2017 for Windows Desktop
-
-3.1. Go to the Microsoft website
-    https://visualstudio.microsoft.com/vs/community/
+3.1. Go to https://visualstudio.microsoft.com/vs/community/
     
-3.2. Ensure that "Windows" is selected then click download to download the installer.
+3.2. Ensure that "Windows" is selected then click download to download the installer:
 
 <center>
 	<img src="doc/Readme_Installation/Installation2.PNG" width="400" />
@@ -109,15 +103,16 @@ Installing Visual Studio Community 2017 for Windows Desktop
 
 3.3. Go to the downloads folder, select the installer and run it as administrator.
 
-3.4. You may see a pop-up of “Visual Studio Installer”. Click continue.
+3.4. Click continue.
     
-3.5. Wait for the download, then select "Desktop development using C++" and click "Install".
+3.5. Wait for the download, then select "Desktop development using C++" and click "Install":
 
 <center>
 	<img src="doc/Readme_Installation/Installation3.PNG" />
 </center>
 
-3.6. Wait until the installer is finished. After that you get asked for restarting your computer which you should follow.
+3.6. Restart you computer as requested after the installation.
+
 
 ## 4. Install CMake
 
@@ -135,58 +130,59 @@ Installing Visual Studio Community 2017 for Windows Desktop
 
 4.5. Finish setup.
 
+
 ## 5. Install Qt
 
-5.1. Go to the download site https://www.qt.io/download, go to open source,
-select "Go open source" and then click "Download"
+5.1. Go to https://www.qt.io/download, select "Go open source" and then click "Download"
 
 5.2. Run the installer, click on next, then skip, click next.
 
-5.3. Select the path where you want to install Qt. Click next.
+5.3. Select the path where you want to install Qt, e.g. "C:\Qt". Click next.
 
 5.4. Select the components you want to install, the ones you need are:
 
-- Below "Qt 5.11.0": select latest MSVC 64-bit compiler e.g. "MSVC 2017 64-bit"
+- Below "Qt 5.11.0": select "MSVC 2017 64-bit"
 - Below "Developer and Designer Tools": "Qt Creator 4.8.1 CDB Debugger Support"
 
 5.5. Finish the installation.
 
 5.6. Setting up the QT Creator (NMake Generator)
 
-- Open QtCreator, go to "Tools" and click "Options"
+- Open QtCreator, go to "Tools" and click "Options":
+
 <center>
 	<img src="doc/Readme_Installation/Installation5.PNG" />
 </center>
 
-- On the upper left corner you will see different tabs. Go to "Kits".
-- Select the MSVC precompiled tool, you have installed on step 5.4 and
-    want to use an on the right site click on clone
-    <center>
+- Select "Kits".
+
+- Select "Desktop Qt 5.11.0 MSVC 2017 64bit" and click "Clone":
+
+<center>
 	<img src="doc/Readme_Installation/Installation6.PNG" />
 </center>
 
-- The cloned kit will appear on the bottom side of the window.
-    Select it, go to “CMake generator” and click on change:
-    <center>
+- Select the cloned kit, go to "CMake generator" and click "Change...":
+
+<center>
 	<img src="doc/Readme_Installation/Installation7.PNG" />
 </center>
 
-- Select "NMake MakeFiles JOM" as generator, and "CodeBlocks" as
-    extra generator.
-    <center>
+- Select "NMake MakeFiles JOM" as generator, and "CodeBlocks" as extra generator, then click "OK":
+
+<center>
 	<img src="doc/Readme_Installation/Installation8.PNG" />
 </center>
 
-- Click on "Ok" and then on "Apply".
-- If you want to debug, make sure you select the correct path to the
-    debugger like on the follow picture:
-    <center>
+- If you want to debug make sure you select the correct path to the debugger like on the following picture:
+
+<center>
 	<img src="doc/Readme_Installation/Installation9.PNG" />
 </center>
 
-- Close QtCreator.
+- Click "OK" and close the Qt Creator.
 
-5.7. Add Qt Creator, e.g. "C:\Qt\Tools\QtCreator\bin", to system path. [Here](https://www.nextofwindows.com/how-to-addedit-environment-variables-in-windows-7) is how it works in general.
+5.7. Add Qt Creator, e.g. "C:\Qt\Tools\QtCreator\bin", to your system path. [Here](https://www.nextofwindows.com/how-to-addedit-environment-variables-in-windows-7) is described how that works in general.
 
 
 ## 6. Install and Build ITK
@@ -241,6 +237,7 @@ select "Go open source" and then click "Download"
 - Right-click on "CMakePredefinedTargets/ALL_BUILD" and click "build". It will take several minutes to complete the process.
 
 - Make sure you make this step for both "Debug" and "Release" configuration.
+
 
 ## 7. Install and Build OpenCV:
 
