@@ -187,45 +187,41 @@ Windows SDK contains a CDB Debugger. You will need it in case you want to debug 
 
 ## 6. Install and Build ITK
 
-6.1. Create a target folder for ITK. We recommend "D:\lib\ITK".
+6.1. Go to https://github.com/InsightSoftwareConsortium/ITK
 
-**Note:** If you choose another folder you need to adjust CMake files later on.
+- Select the branch “release”. 
+- Click on"Clone or download", 
+- Click on"Download ZIP"
+    
+6.2. Create a target folder for ITK. We recommend "D:\lib\ITK".
+
+**Note:** If you choose another folder you need adjust a CMake file later on.
 
 **Note:** Do not choose a path wich is too long because CMake paths are restricted to 50 characters by default.
 
-6.2. In your ITK folder create a subfolder "bin".
+- Unzip the downloaded file in your ITK folder, so a subfolder “ITK-release” will be created.
 
-6.3. Go to https://github.com/InsightSoftwareConsortium/ITK
+- In your ITK folder create a subfolder "bin".
 
-- Go to branches
-- Select the branch “release”. On the right click on "Clone or download", then click "Download ZIP"
-- Move the Zip file to your ITK folder, e.g. "D:\lib\ITK".
-- Right-click the Zip file and select unzip it here, so it will be a folder “ITK-release” created.
-    
-6.4. Open CMake GUI
+6.3. Open CMake GUI
 
-- On “Where is the source code” set the path to the unzipped “ITK-release” folder.
-- On “Where to build the binaries” set the path to the "bin" folder you created before.
+- On “Where is the source code” set the path to the “ITK-release” folder.
+- On “Where to build the binaries” set the path to the "bin" folder.
 <center>
 	<img src="doc/Readme_Installation/Installation10.PNG" />
 </center>
 
-- Click on "Configure" so on the pop-up window select “Visual Studio 15 2017 Win64” (see the image below, if you have Visual Studio 2015 select "Visual Studio 14 2015 Win64") as generator and click "finish". It will take a couple of minutes to configure the project.
+- Click on "Configure".
+- A window will pop up. Specify the generator with “Visual Studio 15 2017 Win64” and click "Finish":
 <center>
 	<img src="doc/Readme_Installation/Installation11.PNG" />
 </center>
 
-- The output window will tell you the configuring is done, so search for  the component BUILD_TESTING and uncheck it! then click on
-    configure:
-- The output window will tell you the configuring is done, so search for
-    the component KWSTYLE and uncheck it! then click on configure
-<center>
-	<img src="doc/Readme_Installation/Installation12.PNG" />
-</center>
+- Search for "BUILD_TESTING" and uncheck it.
 
-- When the configuration is done, then click on generate, so it will generate a Visual studio project.
+- Click "Generate".
 
-6.5. When it finishes the generation, run Visual Studio as administrator and open the project
+6.5. Run Visual Studio as administrator and open the generated project in your bin folder.
 
 6.6. On Visual Studio
 
