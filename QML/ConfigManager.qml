@@ -84,15 +84,39 @@ Item {
     }
     function openToolBarItems() {
         var fileData = openFile("../configuration.txt");
-        var dataToolbarItems = JSON.parse(fileData);
-        for (var i=0; i<dataToolbarItems.length; i++) {
-            var component = Qt.createComponent("ToolBarItem.qml");
-            var item = component.createObject(toolBar.comboBox);
-            item.label.text = dataToolbarItems[i];
-            var text = String(dataToolbarItems[i]);
-            item.width = text.length*7.5;
-            toolBar.toolbarItems.push(item);
-            item.drawToolbarItems();
+        if(fileData === "") { //default favoriten Toolbar -> sollte über textfile geladen werden
+            var comp1 = Qt.createComponent("ToolBarItem.qml");
+            var item1 = comp1.createObject(toolBar.comboBox);
+            item1.label.text = "Image";
+            item1.width = item1.label.text.length*7.5;
+            toolBar.toolbarItems.push(item1);
+            item1.drawToolbarItems();
+            var comp2 = Qt.createComponent("ToolBarItem.qml");
+            var item2 = comp2.createObject(toolBar.comboBox);
+            item2.label.text = "QtBlackWhiteFilter";
+            item2.width = item2.label.text.length*7.5;
+            toolBar.toolbarItems.push(item2);
+            item2.drawToolbarItems();
+            var comp3 = Qt.createComponent("ToolBarItem.qml");
+            var item3 = comp3.createObject(toolBar.comboBox);
+            item3.label.text = "ITKMedianFilter";
+            item3.width = item3.label.text.length*7.5;
+            toolBar.toolbarItems.push(item3);
+            item3.drawToolbarItems();
+        }
+        else {
+
+            fileData = openFile("../configuration.txt");
+            var dataToolbarItems = JSON.parse(fileData);
+            for (var i=0; i<dataToolbarItems.length; i++) {
+                var component = Qt.createComponent("ToolBarItem.qml");
+                var item = component.createObject(toolBar.comboBox);
+                item.label.text = dataToolbarItems[i];
+                var text = String(dataToolbarItems[i]);
+                item.width = text.length*7.5;
+                toolBar.toolbarItems.push(item);
+                item.drawToolbarItems();
+            }
         }
     }
 
