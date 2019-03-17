@@ -377,49 +377,6 @@ Via context menu you can also rearrange items within the toolbar by selecting "M
 </center>
 
 
-## The diffenrent components of the programm are explained by the following figure:
-
-<center>
-	<img src="doc/readme_components.png" />
-</center>
-
-
-
- 1.	**Menu tab: There are different Menu Items:**
-
-	1.1. **File:** you can manage your current file  
-	<center>
-	<img src="doc/File.PNG" />
-	</center>
-	
-
-	- open a new configuration
-  	- open a configuration from your file explorer
-	- save your current configuration
-	- save your current configuration and select the name and path
-	- open an image in the viewer from your files
-	- remove the image shown in the viewer
-	- save the current image in your viewer
-	- exit the programm
-
-	1.2. **Edit:** you can remove selected Nodes, Copy, Paste and Duplicate them
-	
-	1.3. **View:** if only one node is selected you can either get the result or delete this node
-	
-	1.4. **Help:** Information: About us and licences 
-
-	
-2.	**Toolbar: You will find all available filters in the combobox. You can scroll to the filter you want and then click "Select" to create a filter. If you choose "Add to Favorites" the filter will be shown in the toolbar and you can drag the node to the position you want**
-	
-3.	**Canvas: you can drag the nodes here and draw the edges between them**
-	
-4.	**Viewer: If you double click on a node, you will see its result image (output) here**
-	
-5.	**Image node: This node is an image node, you can load images on it, writing the path of the image on the textbox, right click on it to show or delete.**	
-	
-6.	**Filter node: The filter node allows you to set parameters to the filter, you need to connect it to an image node to apply on it the filter, right click on it to show or delete.**	
-
-7.	**Edge: To create an edge, you just must click on a node port, hold and drag with the mouse to the position you want to connect with.**	
 ## Developer Guide
 
 Contents
