@@ -221,7 +221,9 @@ Windows SDK contains a CDB Debugger. You will need it in case you want to debug 
 	<img src="doc/Readme_Installation/Installation11.PNG" />
 </center>
 
-- Search for "BUILD_TESTING" and uncheck it.
+- (You can ignore the error about "KWStyle".) Uncheck "BUILD_TESTING".
+
+- Click on "Configure" again until there is no more red value, i.e. changed value.
 
 - Click "Generate".
 
@@ -294,77 +296,81 @@ Follow the steps in section 6 and consider the following changes:
 
 
 ## User Guide
-- **Loading an image** <br /> 
-In order to load an image you must create the node "Image". To do so, go to the combobox and select the item "Image" in the list view (1). by clicking the "Select" Button the node will be created (2).
-You can either write the path to the image you want to edit in the text field or select it drom you file explorer by clicking the file symbol (3)
+- **Add an image**
+
+In order to add an image you must create an "Image" node. To do so, go to the combobox and select the item "Image" in the list view (1). By Drag&Drop from the "Select" Button the node will be created where you release the mouse button (2).
+You can either write the path to the image you want to edit in the text field or select it drom you file explorer by clicking the file symbol (3).
 
 <center>
 	<img src="doc/readme_loadAnImage.png" />
 </center>
 
-- **Adding a filter** <br />
-If you have created an image you can execute a filter on it by creating a node according to the filter you want. Then connect the image with the filter by drawing an edge from the output from the image to the input of the filer. Double-click on the filer and the edited image will be shown in the viewer. This can also be done if you click right on the node and select "Show Image" in the context menu.
+- **Add and apply a filter**
+
+If you have created an image you can apply a filter on it. Create any filter node as you created the image node. Then connect your image (or your previous filter) with the filter by drawing an edge from the (right) output port to a filter's (left) input port. Double-click on the filer and the filtered image will be shown in the viewer. This can also be done if you right-click on the node and select "Show Image" its context menu.
+
 <center>
 	<img src="doc/readme_addingAFilter.png" />
 </center>
 
-- **Removing an node** <br />
-Right-cklicking on a node will open a context menu. Click "Remove Node".
+- **Removing an node**
+
+Right-click on a node and select "Remove Node".
+
 <center>
 	<img src="doc/readme_removingAnNode.png" />
 </center>
 
-- **Edit nodes** <br />
-If you want to edit various nodes you can select them by drawing a rectangle on the canvas with your mouse (1).
+- **Edit several nodes**
+
+If you want to edit several nodes you can select them by drawing a rectangle on the canvas with your mouse.
 
 <center>
 	<img src="doc/readme_editNodes1.png" />
 </center>
 
-The selected nodes will be marked and you can perform differnet actions on them with the menu "Edit" (2)
+The selected nodes will be marked and you can perform different actions on them using the "Edit" menu.
 
 <center>
 	<img src="doc/readme_editNodes2.png" />
 </center>
 
-- Deleting all marked nodes: "Edit" -> "Remove Nodes"
-- Copy all marked nodes: "Edit" -> "Copy" 
-- Past the copied nodes: "Edit" -> "Paste" (you can also paste the selected nodes from one file to another)
-- Duplicate: "Edit" -> "Duplicate" (Copy and Paste in one step) 
-- Move all marked nodes: drag one of the selected nodes and move it with the mouse, the other nodes will also chage their position
-- **Manage your Configuration** <br />
-You can save your current confguration and open existing configurations at the menuitem "File". It is also possible to select an image from your filesystem which will be shown in the viewer.
+- **Manage your Configuration**
+
+You can open and save a configuration of nodes via the "File" menu. It is also possible to select an image from your filesystem to show it the viewer.
+
 <center>
 	<img src="doc/readme_manageYourConfiguration1.png" />
 </center>
 
-These options are also available by clicking right on the canvas or viewer.
-At the canvas:
+These options also works via the context menu of the canvas:
 
 <center>
 	<img src="doc/readme_manageYourConfiguration2.png" />
 </center>
 
-At the viewer:
+...or of the viewer:
 
 <center>
 	<img src="doc/readme_manageYourConfiguration3.png" />
 </center>
 
-- **Favorites Toolbar** <br />
-The programm allows to add filters to the toolbar. To do so, go to the combobox and right click on a filter. Select "Add To Favorites".
+- **Favorites Toolbar**
+
+Graph-ICS allows adding filters to the toolbar. To do so go to the combobox, right click on a node and select "Add To Favorites".
 
 <center>
 	<img src="doc/readme_favoritesToolbar1.png" />
 </center>
 
-The filterbutton is now available in the toolbar. Pressing on the filterbutton and moving the mouse inside the canvas will create the node at the requested position.
+Via Drag&Drop from a node in the toolbar a corresponding node will be created in the canvas.
+
 <center>
 	<img src="doc/readme_favoritesToolbar2.png" />
 </center>
 
-The items in the toolbar can be rearranged by right cklicking and selecting "Move Item". Now you can drag the item with the mouse inside the toolbar.
-You can delete the item from the toolbar with the context menu in the combobox or in the item itself
+You can delete an item from the toolbar via its context menu item "Remove From Favorites" (1).
+Via context menu you can also rearrange items within the toolbar by selecting "Move Item" (2). So you can drag an item with your mouse inside the toolbar.
 
 <center>
 	<img src="doc/readme_favoritesToolbar3.png" />
