@@ -297,7 +297,7 @@ Follow the steps in section 6 and consider the following changes:
 
 ## User Guide
 
-### - Add an image
+- ### Add an image
 
 In order to add an image you must create an "Image" node. To do so, go to the combobox and select the item "Image" in the list view (1). By Drag&Drop from the "Select" Button the node will be created where you release the mouse button (2).
 You can either write the path to the image you want to edit in the text field or select it drom you file explorer by clicking the file symbol (3).
