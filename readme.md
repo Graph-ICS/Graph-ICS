@@ -48,7 +48,7 @@ Required components:
 
 **Please read the instructions carefully and pay attention to the complementary images.**
 
-## Contents
+### Contents
 
 1. Download Project from GitHub
 2. Install Debugging Tools from the Windows SDK
@@ -60,7 +60,7 @@ Required components:
 8. Configure the Project (Graph-ICS)
 9. (Optional) Change CMakeLists.txt file
 
-### 1. Download the Project from GitHub
+#### 1. Download the Project from GitHub
 1.1. Go to https://github.com/Graph-ICS/Graph-ICS   
 
 1.2. Click on "Clone or Download"  
@@ -70,7 +70,7 @@ Required components:
 1.4. Unpack the file and save it at the project path of your choice, e.g. "D:\Graph-ICS"
 
 
-### 2. Install Debugging Tools from the Windows SDK
+#### 2. Install Debugging Tools from the Windows SDK
 
 Windows SDK contains a CDB Debugger. You will need it in case you want to debug the application. 
 
@@ -394,7 +394,7 @@ Contents
 
 ### 1. About the structure
 
-The structure of Graph-ICS is divided on two components.
+Graph-ICS is basically following a MVC architecture. is divided on two components.
 
 #### 1.1. QtQuick and QML
 The QtQuick framework includes the QML declarative scripting language. QML Objects are useful for the interaction with the user, the Graph-ICS user interface is conceded on QML, in Graph-ICS it makes possible to:
