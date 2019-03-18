@@ -457,14 +457,14 @@ The structure of filter classes are quite similar. So you can orient on predefin
 
 - Pay attention to the following steps:
 
-1. Include "node.h".
-2. Inherit from the Node class.
-3. Use Q_OBJECT macro with the class.
-4. Declare member variables per input parameter of the filter.
-5. Declare a pair of get and set method per input parameter.
-6. Add a Signal per input parameter.
-7. Add a Q_PROPERTY per input parameter referring member variable, get method, set method and signal. This is needed for the interaction between QML view and C++ model.
-8. retrieveResult() is a pure virtual function of the base class. So it must be implemented and it shall contain the actual filter functionality.
+	1) Include "node.h".
+	2) Inherit from the Node class.
+	3) Use Q_OBJECT macro with the class.
+	4) Declare member variables per input parameter of the filter.
+	5) Declare a pair of get and set method per input parameter.
+	6) Add a Signal per input parameter.
+	7) Add a Q_PROPERTY per input parameter referring member variable, get method, set method and signal. This is needed for the interaction between QML view and C++ model.
+	8) retrieveResult() is a pure virtual function of the base class. So it must be implemented and it shall contain the actual filter functionality.
 
 
 ### 4. Defining the filter class in the source file
