@@ -246,7 +246,7 @@ To install and build OpenCV you can download and use the pre-compiled binaries a
 
 - Go to https://opencv.org/releases.html
 
-- Select "Win pack" of the latest 3.x.x version:
+- Select "Win pack" of the **latest 3.x.x** version:
 
 <center>
 	<img src="doc/Readme_Installation/Installation15.PNG" />
