@@ -488,11 +488,12 @@ The structure of filter classes are quite similar. So you can orient on predefin
 	<img src="doc/Readme_DeveloperGuide/7.PNG" />
 </center>
 
-	- m_img is inherited. It is the possibly cached image of a node.
-	- So first we check if the (one) input node is set and their is a cached image (lines 37 - 40). Then no "(re)calculation" needs to be done. 
-	- If this is not the case we proceed the actual filter (42 - 74).
-	- Worth mentioning is line 67 where we define our result value.
-	- In case of an error we return "false" (line 71) otherwise we return "true".
+- Please consider those aspects:
+    - m_img is inherited. It is the possibly cached image of a node.
+    - So first we check if the (one) input node is set and their is a cached image (lines 37 - 40). Then no "(re)calculation" needs to be done. 
+    - If this is not the case we proceed the actual filter (42 - 74).
+    - Worth mentioning is line 67 where we define our result value.
+    - In case of an error we return "false" (line 71) otherwise we return "true".
 
 
 ### 5. Register the class as QtQuick QML Object
