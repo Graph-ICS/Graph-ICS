@@ -544,19 +544,19 @@ The structure of filter classes are quite similar. So you can orient on predefin
 	<img src="doc/Readme_DeveloperGuide/14.PNG" />
 </center>
 
-- And a label field your property could be defined like this:
+- A label field for your property could be defined like this:
 
 <center>
 	<img src="doc/Readme_DeveloperGuide/15.PNG" />
 </center>
 
-- A corresponding filter node for ITKMedian with its two parameters could look like this:
+- The resulting filter node for ITKMedian with its two parameters could look like this:
 
 <center>
 	<img src="doc/Readme_DeveloperGuide/16.PNG" />
 </center>
 
--Finally the two functions saveNode() and loadNode() must be implemented to support persisting node configurations:
+- In order to support persisting node configurations still the two functions saveNode() and loadNode() must be implemented:
 
 <center>
 	<img src="doc/Readme_DeveloperGuide/17.PNG" />
