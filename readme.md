@@ -380,43 +380,8 @@ Via context menu you can also rearrange items within the toolbar by selecting "M
 
 ## Developer Guide
 
-
-Graph-ICS is basically following a MVC architecture. is divided on two components.
-
-
-The QtQuick framework includes the QML declarative scripting language. QML Objects are useful for the interaction with the user, the Graph-ICS user interface is conceded on QML, in Graph-ICS it makes possible to:
-
-- Represent filters and images using nodes the user can drag on the Editor
-pane (using customs objects)  
-- Create a data flow between the created nodes connecting them using edges.
-Interact to mouse and key events like user inputs.  
-- Allow the user to change the filter values on a filter node and apply the filter
-with these new values by clicking on it.  
-
-
-Each filter node represents a C++ Class defined as **\<ClassName\>Filter** , each filter
-class is registered as QML Object on the main function so it can be instantiated as
-QML Object. For more information go [here](http://doc.qt.io/qt-5/qtqml-cppintegration-exposecppattributes.html)
-
-A typical filter class declaration will be showed on the Figure 1 : Typical filter
-declaration, here the ItkDiscreteGaussianFilter.
-
-- The **Q_OBJECT** macro tells the compiler this class implements its owns
-signals and slots, so the meta object compiler moc need to run at first  
-- The **Q_PROPERTY** macro will be used to tell the compiler the variables to be
-read through a given get method, write through a given set method and the
-changes will be notified using the given method next the NOTIFY macro  
-- The **Q_INVOKABLE** macro allows functions to be called from QML objects  
-
-<center>
-	<img src="doc/Readme_DeveloperGuide/1.PNG" />
-</center>
-
-*Figure 1 : Typical filter declaration, here the ItkDiscreteGaussianFilter class*
-
-
-Graph-ICS supports to add your own filters. To create a new filter it is needed to create a filter class, register this
-class as a QML object and add it into the toolbar to make it visible for the user. The following steps show this in detail based on the example *ITKMedianImageFilter*.
+Graph-ICS supports to add your own filters. To create a new filter it is needed to create a filter class (the model), register this
+class as a QML object, define a corresponding view via QML (using the model) and adding this to the toolbar to make it visible for the user. The following steps show this in detail based on the example *ITKMedianImageFilter*.
 
 
 ### 1. Choose filter
