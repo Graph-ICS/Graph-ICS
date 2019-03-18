@@ -60,7 +60,7 @@ Required components:
 8. Configure the Project (Graph-ICS)
 9. (Optional) Change CMakeLists.txt file
 
-#### 1. Download the Project from GitHub
+### 1. Download the Project from GitHub
 1.1. Go to https://github.com/Graph-ICS/Graph-ICS   
 
 1.2. Click on "Clone or Download"  
@@ -70,7 +70,7 @@ Required components:
 1.4. Unpack the file and save it at the project path of your choice, e.g. "D:\Graph-ICS"
 
 
-#### 2. Install Debugging Tools from the Windows SDK
+### 2. Install Debugging Tools from the Windows SDK
 
 Windows SDK contains a CDB Debugger. You will need it in case you want to debug the application. 
 
@@ -91,7 +91,7 @@ Windows SDK contains a CDB Debugger. You will need it in case you want to debug 
 </center>
 
 
-## 3. Install Visual Studio
+### 3. Install Visual Studio
 
 3.1. Go to https://visualstudio.microsoft.com/vs/community/
     
@@ -114,7 +114,7 @@ Windows SDK contains a CDB Debugger. You will need it in case you want to debug 
 3.6. Restart you computer as requested after the installation.
 
 
-## 4. Install CMake
+### 4. Install CMake
 
 4.1. Go to https://cmake.org/download/
 
@@ -131,7 +131,7 @@ Windows SDK contains a CDB Debugger. You will need it in case you want to debug 
 4.5. Finish setup.
 
 
-## 5. Install Qt
+### 5. Install Qt
 
 5.1. Go to https://www.qt.io/download, select "Go open source" and then click "Download"
 
@@ -185,7 +185,7 @@ Windows SDK contains a CDB Debugger. You will need it in case you want to debug 
 5.7. Add Qt Creator, e.g. "C:\Qt\Tools\QtCreator\bin", to your system path. [Here](https://www.nextofwindows.com/how-to-addedit-environment-variables-in-windows-7) is described how that works in general.
 
 
-## 6. Install and Build ITK
+### 6. Install and Build ITK
 
 6.1. Go to https://github.com/InsightSoftwareConsortium/ITK
 
@@ -238,7 +238,7 @@ Windows SDK contains a CDB Debugger. You will need it in case you want to debug 
 - Make sure you make this step for both "Debug" and "Release" configuration.
 
 
-## 7. Install and Build OpenCV:
+### 7. Install and Build OpenCV:
 
 To install and build OpenCV you can download and use the pre-compiled binaries and follow 7.1 (which is recommended) or you can build the binaries by yourself following 7.2 (wich takes much time).
 
@@ -266,7 +266,7 @@ Follow the steps in section 6 and consider the following changes:
 - For 6.2 we recommend the target folder "D:\lib\opencv". Unzip the downloaded file in that folder. The created subfolder is the source folder in 6.3.
 
     
-## 8. Configure the Project (Graph-ICS)
+### 8. Configure the Project (Graph-ICS)
 
 8.1. If ITK or OpenCV is not installed at the default path which is "D:\lib\ITK\bin" and "D:\lib\opencv\build":
 
@@ -296,6 +296,7 @@ Follow the steps in section 6 and consider the following changes:
 
 
 ## User Guide
+
 - **Add an image**
 
 In order to add an image you must create an "Image" node. To do so, go to the combobox and select the item "Image" in the list view (1). By Drag&Drop from the "Select" Button the node will be created where you release the mouse button (2).
@@ -335,7 +336,7 @@ The selected nodes will be marked and you can perform different actions on them 
 	<img src="doc/readme_editNodes2.png" />
 </center>
 
-- **Manage your Configuration**
+- **Manage your configuration**
 
 You can open and save a configuration of nodes via the "File" menu. It is also possible to select an image from your filesystem to show it the viewer.
 
@@ -355,7 +356,7 @@ These options also works via the context menu of the canvas:
 	<img src="doc/readme_manageYourConfiguration3.png" />
 </center>
 
-- **Favorites Toolbar**
+- **Favorites toolbar**
 
 Graph-ICS allows adding filters to the toolbar. To do so go to the combobox, right click on a node and select "Add To Favorites".
 
