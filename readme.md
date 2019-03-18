@@ -434,7 +434,7 @@ class as a QML object and add it into the toolbar to make it visible for the use
 	<img src="doc/Readme_DeveloperGuide/3.PNG" />
 </center>
 
-- Select "C++ Class" and click on "choose".
+- Select "C++", "C++ Class" and click on "choose".
 - Enter a class name, e.g. "ItkMedianFilter".
 - Click "next", then "finish".
 - Ignore CMake warning.
@@ -492,31 +492,19 @@ The structure of filter classes are quite similar. So you can orient on predefin
     - m_img is inherited. It is the possibly cached image of a node.
     - So first we check if the (one) input node is not set or their is a cached image (lines 37 - 40). Then no "(re)calculation" needs to be done. 
     - If this is not the case we proceed the actual filter (42 - 74).
-    - Worth mentioning is line 67 where we define our result value.
-    - In case of an error we return "false" (line 71) otherwise we return "true".
+    - Worth mentioning is line 67 where we define our result value and our new cached image, respectively.
+    - In case of an error we return "false" (see line 71) otherwise we return "true".
 
 
-### 5. Register the class as QtQuick QML Object
+### 4. Register filter as QML Object
 
-Once we have already prepared the class following successfully the step 2 , so we
-should register this class on the main.cpp file as QML Type, it will make possible to
-use this class on QML files declaring it as normal QML Object.
-
-So, we will need to add the following line to the code (take care of the used name
-convetion):
+- In "main.cpp" add the the following code to the main function in which "1" and "0" indicates major and minor version of the filter:
 
 <center>
 	<img src="doc/Readme_DeveloperGuide/8.PNG" />
 </center>
 
-The syntax for this function should be as follows:
-
-<center>
-	<img src="doc/Readme_DeveloperGuide/9.PNG" />
-</center>
-
-Whit X, Y as the package version. We will always use the package version X= 1 and
-Y = 0. Make sure you include your class header file, so we must add the line:
+- Furthermore in "main.cpp" include the corresponding filter header:
 
 <center>
 	<img src="doc/Readme_DeveloperGuide/10.PNG" />
@@ -524,122 +512,55 @@ Y = 0. Make sure you include your class header file, so we must add the line:
 
 ### 6. Create your QML file
 
-In this step you should create a QML file on the QML project folder to be able to use
-our filter class in our user interface.
-
-- Right click on the QML/file folder, select Add new
-- Select Qt, and QML File as the following image
+- Right-click on the QML/Filterand select "Add New...".
+- Select "Qt", "QML File" and click on "choose":
 
 <center>
 	<img src="doc/Readme_DeveloperGuide/11.PNG" />
 </center>
 
-We turn into the QML coding, so we create a new file to hold the created class on the
-QML folder, we name this file ITKMedian.qml, like the name of the filter you want to
-create.
+- Enter a name, e.g. "ItkMedianFilter".
+- Click "next", then "finish".
+- Right-click on project node and select “Run CMake”.
+- Open new file and provide all needed imports while the last one is the just created and registered model class:
 
 <center>
 	<img src="doc/Readme_DeveloperGuide/12.PNG" />
 </center>
 
-*Figure 4 : Importing the needed components*
-
-We add the showed import packages like on Figure 4 : Importing the needed
-components to the top of the QML file.
-
-qmlRegisterType< ItkMedianFilter >(" Model.ItkMedian ", 1 , 0 ," ItkMedian ");
-
-qmlRegisterType< ClassName >(" Model.FilterName ",X,Y," FilterName ");
-
-#include "itkmedianfilter.h"
-
-For your class you need to change the line 6 , and import the filter name you
-registered before on the step 2.5, the numbers following the import package are
-taken as the package version.
-
-If the Filter needs 2 inputs, you must instantiate an QML Object from the class
-GFilter2Ports.qml as parent, so just write GFilter2Ports on line 8.
-
-If the Filter needs 3 inputs you must instantiate the parent GFilter 3 Ports.qml, so
-write GFilter 3 Ports.
-
-If your filter just need one input, so use the GFilter object as you see on the Figure 5 :
-Filter object on QML..
-
-For the median filter we just need one input, this will contain all the needed
-implementations for a basic node (dragging, connections through edges...), so we
-use the GFilter object.
-
-Inside this GFilter Object, you need to create an instance of your filter class (lines
-14 - 16 ) with the id: model and a property alias to the model (line 1 8 ) like on the
-Figure 5 : Filter object on QML.
+- A filter view is represented by a "GFilter" object (in case your filter has 2 input ports then "GFilter2Ports" for 3 take "GFilter3Ports"):
 
 <center>
 	<img src="doc/Readme_DeveloperGuide/13.PNG" />
 </center>
 
-*Figure 5 : Filter object on QML.*
+- Within the filter we need esp. an instance of the corresponding model object, e.g. "ItkMedian".
 
-Create a Label to hold the filter name, for us “ITKMedian”.
+- Usually you define a label for the filter title.
 
-Create a Label and a TextField for each input parameter your filter needs, the Label
-just holds the parameter name and the TextField will contain the parameter value,
-make sure you give each TextField a valid id.
-
-For us, the ItkMedian needs two inputs: RadiusX and RadiusY, so we created the
-corresponding labels and textfields.
+- For a property you might want to use a "TextField". Please consider esp. the references to the model in line 42 and 46:
 
 <center>
 	<img src="doc/Readme_DeveloperGuide/14.PNG" />
 </center>
 
-*Figure 6 : TextField for an input parameter*
-
-Consider the Figure 6 : TextField for an input parameter, for each input parameter,
-you should create a TextField like this for each input parameter, it is recommended
-to use the parameter name as id (line 29), its text property should hold the
-parameter value from your filter class model (line 42), the onTextChanged event
-should be implemented changing the model parameter every time the TextField text
-changes (Lines 45- 47 ).
+- And a label field your property could be defined like this:
 
 <center>
 	<img src="doc/Readme_DeveloperGuide/15.PNG" />
 </center>
 
-*Figure 7 : Parameter name “RadiusY”, represented with a Label*
-
-
-The parameter name for the TextField radius, will be showed using a Label, see
-Figure 7 : Parameter name “RadiusY”, represented with a Label.
+- A corresponding filter node for ITKMedian with its two parameters could look like this:
 
 <center>
 	<img src="doc/Readme_DeveloperGuide/16.PNG" />
 </center>
 
-*Figure 8 : Designer view of the ITKMedianFilter.qml*
-
-If you click on the left pane, on the Design tab you can see the result of your code,
-like on the Figure 8 : Designer view of the ITKMedianFilter.qml.
-The design does not look ecaxtly like this in the programm but you can see the size of the node and the position of the labels. 
-
-
-The last step consist on implementing two functions saveNode() and loadNode() its
-implementation are same for each filter, but the ids might vary. If the filter you want
-to implement have no input parameters, you don’t need to implement these
-functions.
+-Finally the two functions saveNode() and loadNode() must be implemented to support persisting node configurations:
 
 <center>
 	<img src="doc/Readme_DeveloperGuide/17.PNG" />
 </center>
-
-*Figure 9 : ITKMedianFilter.qml, functions saveNode() and loadNode()*
-
-Consider the Figure 9 : ITKMedianFilter.qml, functions saveNode() and loadNode(),
-the lines 84- 87 und 90 are same for each filter node, the next lines 88-89 will vary
-depending on the input parameters and the TextField id’s.
-
-On the function loadNode(), we will read the values from the saved nodeData JSON
-object and load it into the TextFields representing the saved configuration values.
 
 
 ### 7. Update the toolbar buttons
