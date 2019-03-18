@@ -428,7 +428,7 @@ class as a QML object and add it into the toolbar to make it visible for the use
 ### 2. Add a new filter class
 
 - (Open the project in the Qt Creator)
-- Right-click on "Sources/Filter" and select **Add New...**
+- Right-click on "Sources/Filter" and select "Add New...":
 
 <center>
 	<img src="doc/Readme_DeveloperGuide/3.PNG" />
@@ -447,35 +447,24 @@ class as a QML object and add it into the toolbar to make it visible for the use
 
 ### 3. Implement filter class
 
-- Go to the header file of your new class
+The structure of filter classes are quite similar. So you can orient on predefined filters. 
 
-- The filter classes are very similar only the filter parameters might change, so you can
-define your class using the definition of an existing filter class
-
-- For our example the median filter needs two parameters: m_radiusX and
-m_radiusY, so we create these two variables on our class ItkMedianFilter, add its
-get, set methods and Q_PROPERTIES.
+- Open the header header file of your new filter:
 
 <center>
 	<img src="doc/Readme_DeveloperGuide/5.PNG" />
 </center>
 
- *Figure 2 : ItkMedianFilter Class, implementation example*  
+- Pay attention to the following steps:
 
-Consider the *Figure 2 : ItkMedianFilter Class, implementation example*. by
-implementing your filter class, pay attention to the following steps:
-
-1. The class should include the node.h header.
-2. The class should inherit from the Node class as public.
-3. The class should include the Q_OBJECT macro.
-4. In case the filter you want to implement needs some input values, so you need
-to create this input values as member variable.
-5. Implement for each parameter variable the get and set methods.
-6. Add a Notify Signal for each member variable you will use as parameter.
-7. Add the Q_PROPERTIES for each member variable on the class, using its
-get, set methods and signals. This will be needed to exchange data between
-the model and the view on the QML site.
-8. Implement the retrieveResult() function.
+	1. Include "node.h".
+	2. Inherit from the Node class.
+	3. Use Q_OBJECT macro with the class.
+	4. Declare member variables per input parameter of the filter.
+	5. Declare a pair of get and set method per input parameter.
+	6. Add a Signal per input parameter.
+	7. Add a Q_PROPERTY per input parameter referring member variable, get method, set method and signal. This is needed for the interaction between QML view and C++ model.
+	8. retrieveResult() is a pure virtual function of the base class. So it must be implemented and it shall contain the actual filter functionality.
 
 
 ### 4. Defining the filter class in the source file
