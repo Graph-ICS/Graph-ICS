@@ -465,69 +465,34 @@ The structure of filter classes are quite similar. So you can orient on predefin
     
     (4) Declare member variables per input parameter of the filter.
     
-    Declare a pair of get and set method per input parameter.
+    (5) Declare a pair of get and set method per input parameter.
     
-    Add a Signal per input parameter.
+    (6) Add a Signal per input parameter.
     
-    Add a Q_PROPERTY per input parameter referring member variable, get method, set method and signal. This is needed for the interaction between QML view and C++ model.
+    (7) Add a Q_PROPERTY per input parameter referring member variable, get method, set method and signal. This is needed for the interaction between QML view and C++ model.
     
-    retrieveResult() is a pure virtual function of the base class. So it must be implemented and it shall contain the actual filter functionality.
+    (8) retrieveResult() is a pure virtual function of the base class. So it must be implemented and it shall contain the actual filter functionality.
 
-
-### 4. Defining the filter class in the source file
-
-- Go to the source file of your class.
-- Define your constructor giving a default value for each input parameter (Look
-at the documentation).
-- Define the get and sets methods, make sure you call the function
-cleanCache() on the set methods.
+- Now go to the source file of the new filter.
+- Implement a default constructor by giving a default value for each member variable.
+- Define the get and set methods.
+- With the set methods ensure you call cleanCache() in case of real changes. In that case a reevaluation of a nodes leads to the call of retrieveResult() instead of using the possibly cached image:
 
 <center>
 	<img src="doc/Readme_DeveloperGuide/6.PNG" />
 </center>
 
-- Override the virtual function retrieveResult() as follows:  
-Consider the Figure 3 : itkmedianfilter.cpp, definition of retrieveResult(), the new class
-needs also to overwrite the virtual function node::retrieveResult().
+- Implement retrieveResult() by following the next code listing:
 
 <center>
 	<img src="doc/Readme_DeveloperGuide/7.PNG" />
 </center>
 
-*Figure 3 : itkmedianfilter.cpp, definition of retrieveResult()*
-
-The filter will be implemented on the Try block. The definition of the
-ItkMedianFilter::retrieveResult() function follows these 6 steps:
-
-1. The first If clause will check if there is an input, so this input is an QPixmap, we
-convert it on a QImage format to access to its pixels values. (line 37)
-2. The second clause will check if the m_img variable is set (this variable holds the
-input image), in this case the current value will be loaded. (line 38)
-3. On the Try block, we get the image input, prepare the ITK filter with the proper
-parameters: InputImageType, OutputImageType and ImageDimension. (line
-43 - 50 )
-4. We use the ImageConverter::itkImageFromQImage(TargetITKImage,
-FromQImage) function to convert the input QImage to a ITK Image. (line 51 )
-5. We create the ITK::MedianImageFilter pointer using the given InputImageType
-and OutputImageType parameters from step 3 (line 53 - 54), and set the values
-given from the user. (line 56 - 61)
-6. The ITK Image output from filter will be converted to an QImage to
-continue the data flow. (line 63)
-7. In order to continue the flow between the nodes, we need to convert out filter
-output to an QImage, so we call the
-ImageConverter::qImageFromITKImage(TargetQImage, FromITKImage)
-function. (line 65)
-8. In case an exeption occurred, then it will be catched on the catch block. (line 69-72)
-9. If the Filter was correct implemented, so the function retrieveResult() returns the
-flag true.(line 74)  
-
-Take care of the valid parameter types and values for your filter, the Figure 3 :
-itkmedianfilter.cpp, definition of retrieveResult() shows the position where this
-parameters might change for each ITK filter. The number 1 represent the input pixel
-types and image dimension, the number 2 represents the ITK filter parameters.
-
-
-
+	- m_img is inherited. It is the possibly cached image of a node.
+	- So first we check if the (one) input node is set and their is a cached image (lines 37 - 40). Then no "(re)calculation" needs to be done. 
+	- If this is not the case we proceed the actual filter (42 - 74).
+	- Worth mentioning is line 67 where we define our result value.
+	- In case of an error we return "false" (line 71) otherwise we return "true".
 
 
 ### 5. Register the class as QtQuick QML Object
