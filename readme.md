@@ -306,7 +306,7 @@ You can either write the path to the image you want to edit in the text field or
 	<img src="doc/readme_loadAnImage.png" />
 </center>
 
-- **Add and apply a filter**
+- ### Add and apply filters
 
 If you have created an image you can apply a filter on it. Create any filter node as you created the image node. Then connect your image (or your previous filter) with the filter by drawing an edge from the (right) output port to a filter's (left) input port. Double-click on the filer and the filtered image will be shown in the viewer. This can also be done if you right-click on the node and select "Show Image" its context menu.
 
@@ -314,7 +314,7 @@ If you have created an image you can apply a filter on it. Create any filter nod
 	<img src="doc/readme_addingAFilter.png" />
 </center>
 
-- **Removing an node**
+- ### Remove nodes
 
 Right-click on a node and select "Remove Node".
 
@@ -322,7 +322,7 @@ Right-click on a node and select "Remove Node".
 	<img src="doc/readme_removingAnNode.png" />
 </center>
 
-- **Edit several nodes**
+- ### Edit several nodes at once
 
 If you want to edit several nodes you can select them by drawing a rectangle on the canvas with your mouse.
 
@@ -336,7 +336,7 @@ The selected nodes will be marked and you can perform different actions on them 
 	<img src="doc/readme_editNodes2.png" />
 </center>
 
-- **Manage your configuration**
+- ### Manage your configuration
 
 You can open and save a configuration of nodes via the "File" menu. It is also possible to select an image from your filesystem to show it the viewer.
 
@@ -356,7 +356,7 @@ These options also works via the context menu of the canvas:
 	<img src="doc/readme_manageYourConfiguration3.png" />
 </center>
 
-- **Favorites toolbar**
+- ### Favorites toolbar
 
 Graph-ICS allows adding filters to the toolbar. To do so go to the combobox, right click on a node and select "Add To Favorites".
 
@@ -380,24 +380,10 @@ Via context menu you can also rearrange items within the toolbar by selecting "M
 
 ## Developer Guide
 
-Contents
-1. About the structure  
-1.1. QtQuick and QML  
-1.2. C++ Model  
-2. Creating a new filter node  
-2.1. Choose the filter  
-2.2. Adding a new C++ filter class  
-2.3. Implementing the filter class  
-2.4. Defining the filter class in the source file  
-2.5. Register the class as QtQuick QML Object  
-2.6. Create your QML file  
-2.7. Update the toolbar buttons  
-
-### 1. About the structure
 
 Graph-ICS is basically following a MVC architecture. is divided on two components.
 
-#### 1.1. QtQuick and QML
+
 The QtQuick framework includes the QML declarative scripting language. QML Objects are useful for the interaction with the user, the Graph-ICS user interface is conceded on QML, in Graph-ICS it makes possible to:
 
 - Represent filters and images using nodes the user can drag on the Editor
@@ -406,7 +392,7 @@ pane (using customs objects)
 Interact to mouse and key events like user inputs.  
 - Allow the user to change the filter values on a filter node and apply the filter
 with these new values by clicking on it.  
-#### 1.2. C++ Model
+
 
 Each filter node represents a C++ Class defined as **\<ClassName\>Filter** , each filter
 class is registered as QML Object on the main function so it can be instantiated as
@@ -427,12 +413,15 @@ changes will be notified using the given method next the NOTIFY macro
 </center>
 
 *Figure 1 : Typical filter declaration, here the ItkDiscreteGaussianFilter class*
+
 ### 2. Creating a new filter node
 To create a new filter object, it is needed to create a new filter class, register this
 class as a QML object and add it into the window toolbar to make it visible for the
 user. As example we want to add the *ITKMedianImageFilter* as follows:
 
-#### 2.1. Choose the filter
+
+### 1. Choose filter
+
 - Go to the documentation page of the filter you want to implement, for OpenCv or
 ITK (Another good website for ITK examples is <https://itk.org/Wiki/Main_Page> or
 <https://itk.org/ItkSoftwareGuide.pdf>
@@ -440,7 +429,10 @@ ITK (Another good website for ITK examples is <https://itk.org/Wiki/Main_Page> o
 need.
 - For our example filer the documentation can be visited at:
 <https://itk.org/Doxygen/html/classitk_1_1MedianImageFilter.html>
-#### 2.2. Adding a new C++ filter class
+
+
+### 2. Add a new filter class
+
 Open the project, if you open the project for first time, so follow the step 7 from the
 installation guide. Open the QtCreator and select by the Welcome Tab, the
 Graph-ICS project.
@@ -470,7 +462,10 @@ ItkMedianFilter), look at the existing classes and the names on camel case
 
 - Now a both header und source files from your class are available on the
 project pane.
-#### 2.3. Implementing the filter class
+
+
+### 3. Implement filter class
+
 - Go to the header file of your new class
 
 - The filter classes are very similar only the filter parameters might change, so you can
@@ -502,7 +497,8 @@ the model and the view on the QML site.
 8. Implement the retrieveResult() function.
 
 
-#### 2.4. Defining the filter class in the source file
+### 4. Defining the filter class in the source file
+
 - Go to the source file of your class.
 - Define your constructor giving a default value for each input parameter (Look
 at the documentation).
@@ -557,7 +553,8 @@ types and image dimension, the number 2 represents the ITK filter parameters.
 
 
 
-#### 2.5. Register the class as QtQuick QML Object
+### 5. Register the class as QtQuick QML Object
+
 Once we have already prepared the class following successfully the step 2 , so we
 should register this class on the main.cpp file as QML Type, it will make possible to
 use this class on QML files declaring it as normal QML Object.
@@ -582,7 +579,8 @@ Y = 0. Make sure you include your class header file, so we must add the line:
 	<img src="doc/Readme_DeveloperGuide/10.PNG" />
 </center>
 
-#### 2.6. Create your QML file
+### 6. Create your QML file
+
 In this step you should create a QML file on the QML project folder to be able to use
 our filter class in our user interface.
 
@@ -700,7 +698,9 @@ depending on the input parameters and the TextField id’s.
 On the function loadNode(), we will read the values from the saved nodeData JSON
 object and load it into the TextFields representing the saved configuration values.
 
-2.7. Update the toolbar buttons
+
+### 7. Update the toolbar buttons
+
 On the GToolBar.qml go to the ListModel and add your filter as a new ListElement
 object, see Figure 10 : ListModel and ListElements.
 
