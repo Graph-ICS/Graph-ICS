@@ -510,7 +510,7 @@ The structure of filter classes are quite similar. So you can orient on predefin
 	<img src="doc/Readme_DeveloperGuide/10.PNG" />
 </center>
 
-### 6. Create your QML file
+### 5. Create your QML file
 
 - Right-click on the QML/Filterand select "Add New...".
 - Select "Qt", "QML File" and click on "choose":
@@ -563,16 +563,11 @@ The structure of filter classes are quite similar. So you can orient on predefin
 </center>
 
 
-### 7. Update the toolbar buttons
+### 6. Update the toolbar
 
-On the GToolBar.qml go to the ListModel and add your filter as a new ListElement
-object, see Figure 10 : ListModel and ListElements.
-
-The name of the new ListElement should be exactly the name of the QML file you
-created without the .qml ending.
+- In GToolBar.qml go to the ListModel and add your filter as a new ListElement:
 
 <center>
 	<img src="doc/Readme_DeveloperGuide/18.PNG" />
 </center>
 
-*Figure 10 : ListModel and ListElements*
