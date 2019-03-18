@@ -414,54 +414,35 @@ changes will be notified using the given method next the NOTIFY macro
 
 *Figure 1 : Typical filter declaration, here the ItkDiscreteGaussianFilter class*
 
-### 2. Creating a new filter node
-To create a new filter object, it is needed to create a new filter class, register this
-class as a QML object and add it into the window toolbar to make it visible for the
-user. As example we want to add the *ITKMedianImageFilter* as follows:
+
+Graph-ICS supports to add your own filters. To create a new filter it is needed to create a filter class, register this
+class as a QML object and add it into the toolbar to make it visible for the user. The following steps show this in detail based on the example *ITKMedianImageFilter*.
 
 
 ### 1. Choose filter
 
-- Go to the documentation page of the filter you want to implement, for OpenCv or
-ITK (Another good website for ITK examples is <https://itk.org/Wiki/Main_Page> or
-<https://itk.org/ItkSoftwareGuide.pdf>
-- Read the documentation of the filter and check the input parameter you will
-need.
-- For our example filer the documentation can be visited at:
-<https://itk.org/Doxygen/html/classitk_1_1MedianImageFilter.html>
+- Go to the documentation page of the filter you want to implement (for OpenCv: https://docs.opencv.org/, for ITK: https://itk.org/Wiki/Main_Page or https://itk.org/ItkSoftwareGuide.pdf)
+- Here is the documentation of our example filter: https://itk.org/Doxygen/html/classitk_1_1MedianImageFilter.html
 
 
 ### 2. Add a new filter class
 
-Open the project, if you open the project for first time, so follow the step 7 from the
-installation guide. Open the QtCreator and select by the Welcome Tab, the
-Graph-ICS project.
-
-<center>
-	<img src="doc/Readme_DeveloperGuide/2.PNG" />
-</center>
-
-- Go to the Source folder
-- Go to the Filter folder
-- Right click on the filter folder and click on **Add New...**
+- (Open the project in the Qt Creator)
+- Right-click on "Sources/Filter" and select **Add New...**
 
 <center>
 	<img src="doc/Readme_DeveloperGuide/3.PNG" />
 </center>
 
-- Select C++ Class, click on choose.
-- Name the class like the filter you want to implement. (for example,
-ItkMedianFilter), look at the existing classes and the names on camel case
-- Click on finish.
-- If you get a warning from Qt, ignore it
-- Run CMake right clicking on the project folder and selecting “Run CMake”.
+- Select "C++ Class" and click on "choose".
+- Enter a class name, e.g. "ItkMedianFilter".
+- Click "next", then "finish".
+- Ignore CMake warning.
+- Right-click on project node and select “Run CMake”:
 
 <center>
-	<img src="doc/Readme_DeveloperGuide/4.PNG" />
+	<img src="doc/Readme_DeveloperGuide/4.PNG" width="500" />
 </center>
-
-- Now a both header und source files from your class are available on the
-project pane.
 
 
 ### 3. Implement filter class
