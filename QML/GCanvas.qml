@@ -70,6 +70,7 @@ Canvas {
 
         ctx.fillStyle = "#888888"
         //ctx.fillStyle = "#2E2E2E"
+        //ctx.fillStyle = "white"
 
         ctx.fillRect(0, 0, width, height);
 

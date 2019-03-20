@@ -1,6 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include <QIcon>
 //
 #include <QQmlProperty>
 //
@@ -45,6 +46,9 @@ int main(int argc, char *argv[])
 
 
     GImageProvider* gImageProvider = new GImageProvider();
+
+    app.setWindowIcon(QIcon("C:/workspace/Graph-ICS/doc/Logo.png")); // Logo des Programmes setzen
+
 
 
     QQmlApplicationEngine engine;

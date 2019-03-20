@@ -67,6 +67,12 @@ GNode {
         onTextChanged: {
             model.path = text;
         }
+        Keys.onReturnPressed: {
+            console.log("return pressed");
+            gImageProvider.img = model.getResult();
+            root.splitView.imageView.reload();
+        }
+
     }
     FileDialog {
         id: imageDialog
@@ -74,7 +80,7 @@ GNode {
         selectedNameFilter: "Image files (*)"
         onAccepted: {
             var buf = String(imageDialog.fileUrl);
-            model.path = buf.substring(8, buf.length); // Präfix file/// anschneiden
+            model.path = buf.substring(8, buf.length); // Präfix file/// abschneiden
             gImageProvider.img = model.getResult();
             root.splitView.imageView.reload();
         }

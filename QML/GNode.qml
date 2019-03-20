@@ -164,6 +164,10 @@ Item {
                     maximuxY = canvas.height - nodeLongestDistanceMaxY.height-(disMaxY-node.y);
                 }
             }
+            Keys.onDeletePressed: {
+                console.log("delete pressed");
+            }
+
             Menu {
                 id: contextMenu
                 MenuItem {
