@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
 
     GImageProvider* gImageProvider = new GImageProvider();
 
-    app.setWindowIcon(QIcon("C:/workspace/Graph-ICS/build/doc/Logo.png")); // Logo des Programmes setzen
+    app.setWindowIcon(QIcon("..doc/Logo.png")); // Logo des Programmes setzen
 
 
 
