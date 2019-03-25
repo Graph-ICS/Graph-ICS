@@ -2,6 +2,7 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QIcon>
+#include <QDebug>
 //
 #include <QQmlProperty>
 //
@@ -47,7 +48,8 @@ int main(int argc, char *argv[])
 
     GImageProvider* gImageProvider = new GImageProvider();
 
-    app.setWindowIcon(QIcon("..doc/Logo.png")); // Logo des Programmes setzen
+    app.setWindowIcon(QIcon("doc/Logo.png")); // Logo des Programmes setzen
+    qDebug() << app.applicationDirPath();
 
 
 
