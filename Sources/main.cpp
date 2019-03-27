@@ -49,7 +49,6 @@ int main(int argc, char *argv[])
     GImageProvider* gImageProvider = new GImageProvider();
 
     app.setWindowIcon(QIcon("doc/Logo.png")); // Logo des Programmes setzen
-    qDebug() << app.applicationDirPath();
 
 
 

@@ -91,7 +91,10 @@ set(QT_RESOURCES ${list_app_qml})
 # ******************************************************************************
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-add_executable(${PROJECT_NAME} ${list_app_src} ${QT_RESOURCES})
+add_executable(${PROJECT_NAME} ${list_app_src} ${QT_RESOURCES} ${ROOT_DIR}/doc/myapp.rc)
+##
+#add_executable(${PROJECT_NAME} ${SRCS} ${ROOT_DIR}/doc/myapp.rc)
+##
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${BINARY_DIR})
 
