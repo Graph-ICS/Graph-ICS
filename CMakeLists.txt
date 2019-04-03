@@ -68,7 +68,7 @@ message("OpenCv includes: " ${OpenCV_INCLUDE_DIRS})
 # ******************************************************************************
 add_definitions(${QT_DEFINITIONS})
 add_definitions(-DUSE_INSTALL_TARGET)
-add_definitions(-DQT_QML_DEBUG)
+add_definitions(-DQT_QML_RELEASE)
 
 # [7] getting sources: Add to project configuration
 # ******************************************************************************
