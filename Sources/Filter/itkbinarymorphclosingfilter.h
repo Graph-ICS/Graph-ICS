@@ -10,10 +10,11 @@ class ItkBinaryMorphClosingFilter : public Node
 
 public:
     explicit ItkBinaryMorphClosingFilter();
+    virtual ~ItkBinaryMorphClosingFilter() {}
     double getRadius() { return radius; }
     void setRadius(const double value);
 
-    bool retrieveResult();
+    virtual bool retrieveResult();
 
 signals:
     void radiusChanged();

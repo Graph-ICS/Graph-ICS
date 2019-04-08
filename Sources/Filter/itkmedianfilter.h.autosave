@@ -31,5 +31,5 @@ private:
     double m_radiusY;
 };
 
-
 #endif // ITKMEDIANFILTER_H
+

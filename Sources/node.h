@@ -15,6 +15,7 @@ class Node : public QObject
 
 public:
     explicit Node();
+    virtual ~Node() {}
 
     QQmlListProperty<Node> getInNodes();
     QQmlListProperty<Node> getOutNodes();

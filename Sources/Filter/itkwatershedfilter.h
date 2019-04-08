@@ -11,6 +11,7 @@ class ItkWatershedFilter : public Node
 
 public:
     explicit ItkWatershedFilter();
+    virtual ~ItkWatershedFilter() {}
 
     double getLevel() const;
     void setLevel(double value);
@@ -18,7 +19,7 @@ public:
     double getThreshold() const;
     void setThreshold(double value);
 
-    bool retrieveResult();
+    virtual bool retrieveResult();
 signals:
     void levelChanged();
     void thresholdChanged();

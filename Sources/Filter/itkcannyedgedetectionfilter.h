@@ -12,6 +12,7 @@ class ItkCannyEdgeDetectionFilter : public Node
 
 public:
     explicit ItkCannyEdgeDetectionFilter();
+    virtual ~ItkCannyEdgeDetectionFilter() {}
     double getVariance() { return variance; }
     void setVariance(const double value);
 
@@ -21,7 +22,7 @@ public:
     double getLowerThreshold() const;
     void setLowerThreshold(double value);
 
-    bool retrieveResult();
+    virtual bool retrieveResult();
 
 signals:
     void varianceChanged();

@@ -10,8 +10,9 @@ class CvMedianFilter : public Node
 
 public:
     explicit CvMedianFilter();
+    ~CvMedianFilter() {}
 
-    bool retrieveResult();
+    virtual bool retrieveResult();
 
     int getFilterParameter() const;
     void setFilterParameter(int value);

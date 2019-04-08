@@ -8,8 +8,9 @@ class ItkSubstractFilter : public Node
     Q_OBJECT
 public:
     explicit ItkSubstractFilter();
+    virtual ~ItkSubstractFilter() {}
 
-    bool retrieveResult();
+    virtual bool retrieveResult();
 
 private:
     QPixmap m_img1;

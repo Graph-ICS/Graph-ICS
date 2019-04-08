@@ -9,8 +9,9 @@ class QtBlackWhiteFilter : public Node
 
 public:
     explicit QtBlackWhiteFilter();
+    virtual ~QtBlackWhiteFilter() {}
 
-    bool retrieveResult();
+    virtual bool retrieveResult();
 };
 
 #endif // QTBLACKWHITEFILTER_H

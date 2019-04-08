@@ -10,11 +10,12 @@ class QtLighterFilter : public Node
 
 public:
     explicit QtLighterFilter();
+    virtual ~QtLighterFilter() {}
 
     double getValue() { return m_factor; }
     void setValue(const double value);
 
-    bool retrieveResult();
+    virtual bool retrieveResult();
 
 signals:
     void valueChanged();

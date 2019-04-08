@@ -11,8 +11,9 @@ class CvSobelOperatorFilter : public Node
 
 public:
     explicit CvSobelOperatorFilter();
+    virtual ~CvSobelOperatorFilter() {}
 
-    bool retrieveResult();
+    virtual bool retrieveResult();
 
     int getXDerivative() const;
     void setXDerivative(int value);
