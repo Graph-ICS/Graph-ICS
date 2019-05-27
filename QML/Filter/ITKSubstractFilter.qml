@@ -7,6 +7,7 @@ import Model.ItkSubstract 1.0
 
 
 GFilter2Ports {
+    objectName: "ITKSubstract"
     id: gNode
 
     ItkSubstract {
@@ -25,7 +26,7 @@ GFilter2Ports {
         text: "Itk Substract"
         wrapMode: Text.WordWrap
     }
+    function showWarning() {
+        warningSubstractPopup.showNormal();
+    }
 }
-
-
-

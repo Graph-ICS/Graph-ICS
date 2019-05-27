@@ -28,11 +28,10 @@ void CvMedianFilter::setFilterParameter(int value)
 
 bool CvMedianFilter::retrieveResult()
 {
-    if (m_inNodes.size() > 0) {
-        if(!(m_img.isNull())){
-            return true;
-        }
-
+    if (m_inNodes.size() < 1) {
+        return false;
+    }
+    else {
         try {
             m_img = m_inNodes[0]->getResult();
 

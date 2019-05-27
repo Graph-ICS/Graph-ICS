@@ -11,10 +11,10 @@ Node::Node()
 QQmlListProperty<Node> Node::getInNodes()
 {
     return QQmlListProperty<Node>(this, this,
-             &Node::addInNode,
-             &Node::getInNodeCount,
-             &Node::getInNode,
-             &Node::clearInNodes);
+                                  &Node::addInNode,
+                                  &Node::getInNodeCount,
+                                  &Node::getInNode,
+                                  &Node::clearInNodes);
 }
 
 void Node::addInNode(Node* node) {
@@ -108,11 +108,22 @@ void Node::clearOutNodes() {
 
 QPixmap Node::getResult()
 {
-    if (!retrieveResult()) {
-        m_img = QPixmap();
+    //    if (!retrieveResult()) {
+    //        qDebug() << "!retrieveResult";
+    //        m_img = QPixmap();
+    //    }
+    //    return m_img;
+
+   // qDebug() << "getResult_m_img: " << m_img;
+
+    if (m_img.isNull()) {
+        retrieveResult();
+        return m_img;
     }
 
-    return m_img;
+    else {
+        return m_img;
+    }
 }
 
 void Node::addOutNode(QQmlListProperty<Node>* list, Node* p) {

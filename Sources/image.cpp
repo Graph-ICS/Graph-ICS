@@ -11,7 +11,6 @@ void Image::setPath(const QString& path)
 {
     if (m_path == path)
         return;
-    //qDebug() << path ;
     m_path = path;
     cleanCache();
     emit pathChanged();

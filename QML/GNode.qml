@@ -3,11 +3,16 @@ import QtQuick.Controls 2.2
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Dialogs 1.0
 import QtQuick 2.11
-
+//
+import Model.ItkSubstract 1.0
+//
 Item {
     id: node
     width: 75
     height: 70
+
+    //
+    //property alias subtractPopup: subtractPopup
 
     property alias portOut: portOut
 
@@ -83,14 +88,14 @@ Item {
             }
             onEntered: {
                 if(!isSelected) {
-                parent.border.width = 2;
-                parent.border.color = "orange";
-                isEntered = true;
+                    parent.border.width = 2;
+                    parent.border.color = "orange";
+                    isEntered = true;
                 }
             }
             onExited: {
                 if(!isSelected) {
-                   resetToDefault();
+                    resetToDefault();
                     isSelected = false;
                     menuManager.updateSelectedNodes();
                 }
@@ -117,7 +122,18 @@ Item {
             onDoubleClicked: {
                 gImageProvider.img = node.model.getResult(); // diese Funktion müsste für das Multithreading ausgelagert werden
                 root.splitView.imageView.reload();
+                console.log(node.objectName);
+                if(node.objectName === "ITKSubstract") {
+                  if(node.model.getShowWarning()===true) {
+                     subtractPopup.showNormal();
+                  }
+                }
             }
+            //
+            SubtractWarningDialog {
+                id: subtractPopup
+            }
+            //
             onReleased: {
                 canDistanceBeCalculated = true;
                 if(hasPositionChanged === true) { //nur wenn Position des Knotens auch verändert wurde
@@ -126,42 +142,50 @@ Item {
                 hasPositionChanged = false;
             }
             onPressed: { // beim Verschieben von mehreren Knoten überprüfen ob sich diese noch im Canvas befinden
-                var disMinX = node.x;
-                var disMaxX = node.x;
-                var disMinY = node.y;
-                var disMaxY = node.y;
-                var nodeLongestDistanceMinX = node;
-                var nodeLongestDistanceMaxX = node;
-                var nodeLongestDistanceMaxY = node;
-                for (var j=0; j<canvas.nodes.length; j++) {
-                    var no = canvas.nodes[j];
-                    if (no.isSelected === true) {
-                        var difMinX = disMinX;
-                        var difMaxX = disMaxX;
-                        var difMaxY = disMaxY;
-                        disMinX = Math.min(disMinX, no.x);
-                        disMaxX = Math.max(disMaxX, no.x);
-                        disMinY = Math.min(disMinY, no.y);
-                        disMaxY = Math.max(disMaxY, no.y);
-                        if(difMinX !== disMinX) {
-                             nodeLongestDistanceMinX = no;
+                if (node.isSelected === false) { // falls ein Knoten markiert wurde aber ein unmarkierter Knoten verschoben wird
+                    maximumX = canvas.width-node.width-node.portOut.viewPort.width;
+                    minimumX = 0;
+                    maximuxY = canvas.height-node.height;
+                    minimumY = 0;
+                }
+                else {
+                    var disMinX = node.x;
+                    var disMaxX = node.x;
+                    var disMinY = node.y;
+                    var disMaxY = node.y;
+                    var nodeLongestDistanceMinX = node;
+                    var nodeLongestDistanceMaxX = node;
+                    var nodeLongestDistanceMaxY = node;
+                    for (var j=0; j<canvas.nodes.length; j++) {
+                        var no = canvas.nodes[j];
+                        if (no.isSelected === true) {
+                            var difMinX = disMinX;
+                            var difMaxX = disMaxX;
+                            var difMaxY = disMaxY;
+                            disMinX = Math.min(disMinX, no.x);
+                            disMaxX = Math.max(disMaxX, no.x);
+                            disMinY = Math.min(disMinY, no.y);
+                            disMaxY = Math.max(disMaxY, no.y);
+                            if(difMinX !== disMinX) {
+                                nodeLongestDistanceMinX = no;
+                            }
+                            if(difMaxX !== disMaxX) {
+                                nodeLongestDistanceMaxX = no;
+                            }
+                            if(difMaxY !== disMaxY) {
+                                nodeLongestDistanceMaxY = no;
+                            }
                         }
-                        if(difMaxX !== disMaxX) {
-                            nodeLongestDistanceMaxX = no;
+                        if(nodeLongestDistanceMinX.objectName === "Image") {
+                            minimumX = node.x-disMinX;
                         }
-                        if(difMaxY !== disMaxY) {
-                            nodeLongestDistanceMaxY = no;
-                        }
-                    }
-                    if(nodeLongestDistanceMinX.objectName === "Image") {
-                        minimumX = node.x-disMinX;
-                    }
-                    else
-                    minimumX = node.x-disMinX+node.portOut.viewPort.width;
+                        else
+                            minimumX = node.x-disMinX+node.portOut.viewPort.width;
 
-                    maximumX = canvas.width - nodeLongestDistanceMaxX.width - portOut.viewPort.width-(disMaxX-node.x);
-                    minimumY = node.y - disMinY;
-                    maximuxY = canvas.height - nodeLongestDistanceMaxY.height-(disMaxY-node.y);
+                        maximumX = canvas.width - nodeLongestDistanceMaxX.width - portOut.viewPort.width-(disMaxX-node.x);
+                        minimumY = node.y - disMinY;
+                        maximuxY = canvas.height - nodeLongestDistanceMaxY.height-(disMaxY-node.y);
+                    }
                 }
             }
             Keys.onDeletePressed: {
@@ -173,8 +197,8 @@ Item {
                 MenuItem {
                     text: "Show Image"
                     onTriggered: {
-                            gImageProvider.img = node.model.getResult();
-                            root.splitView.imageView.reload();
+                        gImageProvider.img = node.model.getResult();
+                        root.splitView.imageView.reload();
                     }
                 }
                 MenuItem {
@@ -208,7 +232,7 @@ Item {
     function saveNode(name) {
         var obj;
         obj = { x: x, y: y,
-        objectName : name};
+            objectName : name};
         return obj;
     }
     function loadNode(counter) {

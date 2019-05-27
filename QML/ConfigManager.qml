@@ -32,6 +32,8 @@ Item {
             outNode.portOut.defaultColor = canvas.edgeColor;
             portIn.defaultColor = canvas.edgeColor;
 
+            portIn.isConnected = true; // damit man bei geladener Config nicht mehr Linien ziehen kann als erlaubt
+
             var edge = { "portIn": portIn, "portOut": outNode.portOut };
             edge.portIn.parent.model.addInNode(edge.portOut.parent.model); // damit inNode liste aktualisiert wird
             edge.portOut.parent.model.addOutNode(edge.portIn.parent.model);

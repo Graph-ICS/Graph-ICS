@@ -47,6 +47,8 @@ Item{ // die Items die in der Combo Box
                 listView.currentIndex = index;
             }
         }
+
+        // damit man auch auf über obere Element der ComboBox einen Knoten erzeugen kann
         //        onPressed: {
         //            console.log("onPressed: ", modelData);
         //            canvas.resetSelectedNodes();

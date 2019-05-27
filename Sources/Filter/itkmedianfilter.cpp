@@ -1,75 +1,74 @@
-    #include "itkmedianfilter.h"
-    #include "imageconverter.h"
+#include "itkmedianfilter.h"
+#include "imageconverter.h"
 
-    #include <itkMedianImageFilter.h>
+#include <itkMedianImageFilter.h>
 
-    #include <QDebug>
-    #include <QDir>
+#include <QDebug>
+#include <QDir>
 
-    ItkMedianFilter::ItkMedianFilter()
-    {
-        m_radiusX = 1;
-        m_radiusY = 1;
+ItkMedianFilter::ItkMedianFilter()
+{
+    m_radiusX = 1;
+    m_radiusY = 1;
+}
+
+void ItkMedianFilter::setRadiusX(const double value)
+{
+    if (value == m_radiusX) {
+        return;
     }
+    m_radiusX = value;
+    cleanCache();
+    emit radiusXChanged();
+}
 
-    void ItkMedianFilter::setRadiusX(const double value)
-    {
-        if (value == m_radiusX)
-            return;
+void ItkMedianFilter::setRadiusY(const double value)
+{
+    if (value == m_radiusY)
+        return;
 
-        m_radiusX = value;
-        cleanCache();
-        emit radiusXChanged();
+    m_radiusY = value;
+    cleanCache();
+    emit radiusYChanged();
+}
+
+bool ItkMedianFilter::retrieveResult()
+{
+    if (m_inNodes.size() < 1) {
+        return false;
     }
+    else {
+        try {
+            m_img = m_inNodes[0]->getResult();
+            QImage img = m_img.toImage();
 
-    void ItkMedianFilter::setRadiusY(const double value)
-    {
-        if (value == m_radiusY)
-            return;
+            constexpr unsigned int imageDimension = 2;
+            using InputImageType = itk::Image<unsigned char, imageDimension>;
+            using OutputImageType = itk::Image<unsigned char, imageDimension>;
 
-        m_radiusY = value;
-        cleanCache();
-        emit radiusXChanged();
-    }
+            InputImageType ::Pointer itkImageIn = InputImageType ::New();
+            ImageConverter::itkImageFromQImage(itkImageIn, img);
 
-    bool ItkMedianFilter::retrieveResult()
-    {
-        if (m_inNodes.size() > 0) {
-            if(!(m_img.isNull())){
-                return true;
-            }
+            using FilterType = itk::MedianImageFilter< InputImageType, OutputImageType>;
+            FilterType::Pointer filter = FilterType::New();
 
-            try {
-                m_img = m_inNodes[0]->getResult();
-                QImage img = m_img.toImage();
+            InputImageType::SizeType indexRadius;
+            indexRadius[0] = m_radiusX; // radius along x
+            indexRadius[1] = m_radiusY; // radius along y
+            filter->SetRadius( indexRadius );
+            filter->SetInput( itkImageIn );
+            filter->Update();
 
-                constexpr unsigned int imageDimension = 2;
-                using InputImageType = itk::Image<unsigned char, imageDimension>;
-                using OutputImageType = itk::Image<unsigned char, imageDimension>;
+            itkImageIn = filter->GetOutput();
 
-                InputImageType ::Pointer itkImageIn = InputImageType ::New();
-                ImageConverter::itkImageFromQImage(itkImageIn, img);
+            ImageConverter::qImageFromITKImage(itkImageIn, img);
 
-                using FilterType = itk::MedianImageFilter< InputImageType, OutputImageType>;
-                FilterType::Pointer filter = FilterType::New();
+            m_img = QPixmap::fromImage(img);
 
-                InputImageType::SizeType indexRadius;
-                indexRadius[0] = m_radiusX; // radius along x
-                indexRadius[1] = m_radiusY; // radius along y
-                filter->SetRadius( indexRadius );
-                filter->SetInput( itkImageIn );
-                filter->Update();
-
-                itkImageIn = filter->GetOutput();
-
-                ImageConverter::qImageFromITKImage(itkImageIn, img);
-
-                m_img = QPixmap::fromImage(img);
-
-            } catch (int e) {
-                qDebug() << "ItkMedianFilter. Exception Nr. " << e << '\n';
-                return false;
-            }
+        } catch (int e) {
+            qDebug() << "ItkMedianFilter. Exception Nr. " << e << '\n';
+            return false;
         }
-        return true;
     }
+    return true;
+}

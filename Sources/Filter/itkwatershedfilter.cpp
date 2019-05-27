@@ -48,15 +48,14 @@ void ItkWatershedFilter::setThreshold(double value)
 
 bool ItkWatershedFilter::retrieveResult()
 {
-    if (m_inNodes.size() > 0) {
-        if(!(m_img.isNull())){
-            return true;
-        }
-
+    if (m_inNodes.size() < 1) {
+        return false;
+    }
+    else {
         try {
             m_img = m_inNodes[0]->getResult();
             QImage img = m_img.toImage();
-/*
+            /*
             constexpr unsigned int imageDimension = 2;
 
             using RGBAPixelType = itk::RGBAPixel< unsigned char >;

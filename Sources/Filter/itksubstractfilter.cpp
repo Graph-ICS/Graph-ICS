@@ -11,19 +11,36 @@ ItkSubstractFilter::ItkSubstractFilter()
 
 bool ItkSubstractFilter::retrieveResult()
 {
-    if (m_inNodes.size() == 2) {
-
-        if(!(m_img.isNull())){
-            return true;
-        }
-
+    qDebug() << m_inNodes.size();
+    if (m_inNodes.size() < 2) {
+        return false;
+    }
+    else {
         try {
+
+            //hier muss bestimmt werden was input1 und was input2 ist
+            getWarning = false;
+
             m_img = m_inNodes[0]->getResult();
             //1. get the current image object
             m_img1 = m_inNodes[0]->getResult();
             m_img2 = m_inNodes[1]->getResult();
+
+            qDebug() << m_img1;
+            qDebug() << m_img2;
+
+            if(m_img1.size().height() < m_img2.size().height()) {
+                qDebug() << "image1 größer als image2";
+            }
+            else if (m_img1.size().height() > m_img2.size().height()){
+                qDebug() <<"image2 größer als image1";
+                m_img = QPixmap();
+                getWarning = true;
+                return false;
+            }
             QImage img1 = m_img1.toImage();
             QImage img2 = m_img2.toImage();
+
 
             //3. Convert QImage to ITK Image
             itk::Image< unsigned char, 2>::Pointer itkImageIn1 = itk::Image< unsigned char, 2>::New();
@@ -52,3 +69,5 @@ bool ItkSubstractFilter::retrieveResult()
     }
     return true;
 }
+
+
