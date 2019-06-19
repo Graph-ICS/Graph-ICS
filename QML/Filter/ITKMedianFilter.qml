@@ -1,6 +1,7 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Styles 1.4
+import QtQuick.Dialogs 1.1
 
 import ".."
 import Model.ItkMedian 1.0
@@ -41,6 +42,8 @@ GFilter {
         text: model.radiusY
         renderType: Text.NativeRendering
 
+        validator: IntValidator {bottom: 0; top: 500;}
+
         onTextChanged: {
             model.radiusY = text;
         }
@@ -62,6 +65,8 @@ GFilter {
         text: model.radiusX
         renderType: Text.NativeRendering
 
+        validator: IntValidator {bottom: 0; top: 500;}
+
         onTextChanged: {
             model.radiusX = text;
         }
@@ -80,6 +85,15 @@ GFilter {
         color: "#ffffff"
         text: "RadiusX"
     }
+    MessageDialog {
+        id: messageDialog
+        title: "Warning"
+        text: "RadiusX and RadiusY should not be both bigger than 20"
+        onAccepted: {
+            messageDialog.close();
+        }
+        Component.onCompleted: visible = false
+    }
 
     function saveNode(name) {
         var obj;
@@ -96,5 +110,12 @@ GFilter {
         radiusY.text  = nodeData.radiusY;
         radiusX.text  = nodeData.radiusX;
     }
-
+    function validate() {
+        if(model.radiusY > 20 && model.radiusX > 20) {
+            radiusX.validator.top = 10;
+            messageDialog.open();
+            return false;
+        }
+        return true;
+    }
 }

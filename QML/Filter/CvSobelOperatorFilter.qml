@@ -1,11 +1,16 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Styles 1.4
+import QtQuick.Dialogs 1.1
 
 import ".."
 import Model.CvSobelOperator 1.0
 
+
 GFilter {
+
+    property int newText: 0
+
     id: gNode
 
     height: 86
@@ -42,6 +47,8 @@ GFilter {
         text: model.xDerivative
         renderType: Text.NativeRendering
 
+        validator: IntValidator {bottom: 0; top: 2;}
+
         onTextChanged: {
             model.xDerivative = text;
         }
@@ -64,8 +71,11 @@ GFilter {
         text: model.yDerivative
         renderType: Text.NativeRendering
 
+        validator: IntValidator {bottom: 0; top: 2;}
+
         onTextChanged: {
-            model.yDerivative = text;
+            newText = text.toString();
+            model.yDerivative = newText;
         }
     }
 
@@ -82,16 +92,35 @@ GFilter {
         color: "#ffffff"
         text: "yDerivative"
     }
+
+    //
+    MessageDialog {
+        id: messageDialog
+        title: "Warning"
+        text: "The values of the xDerivative and yDerivative must not be both zero."
+        onAccepted: {
+            messageDialog.close();
+        }
+        Component.onCompleted: visible = false
+    }
+
     function saveNode(name) {
         var obj;
         obj = { x: x, y: y,
-        objectName : name,
-        yDerivative: model.yDerivative,
-        xDerivative: model.xDerivative};
+            objectName : name,
+            yDerivative: model.yDerivative,
+            xDerivative: model.xDerivative};
         return obj;
     }
     function loadNode(nodeData) {
         xDerivative.text = nodeData.xDerivative;
         yDerivative.text  = nodeData.yDerivative;
+    }
+    function validate() {
+        if(model.yDerivative === 0 && model.xDerivative === 0) {
+            messageDialog.open();
+            return false;
+        }
+        return true;
     }
 }

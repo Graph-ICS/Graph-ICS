@@ -11,7 +11,7 @@ class Node : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QQmlListProperty<Node> inNodes READ getInNodes)
-   // Q_PROPERTY(QQmlListProperty<Node> outNodes READ getInNodes)
+    Q_PROPERTY(QQmlListProperty<Node> outNodes READ getInNodes)
 
 public:
     explicit Node();

@@ -46,6 +46,8 @@ GFilter {
         font.family: "Verdana"
         renderType: Text.NativeRendering
 
+        validator: IntValidator {bottom: 0; top: 200;}
+
         onTextChanged: {
             model.variance = text;
         }
@@ -67,6 +69,8 @@ GFilter {
 
         text: model.upperThreshold
 
+        validator: IntValidator {bottom: 0; top: 200;}
+
         onTextChanged: {
             model.upperThreshold = text;
         }
@@ -87,6 +91,8 @@ GFilter {
         rightPadding: 6
         selectByMouse: true
         leftPadding: 6
+
+        validator: IntValidator {bottom: 0; top: 200;}
 
         onTextChanged: {
             model.lowerThreshold = text;

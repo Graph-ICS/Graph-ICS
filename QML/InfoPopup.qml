@@ -24,7 +24,7 @@ Window {
         width: 319
         height: 40
         color: "#ffffff"
-        text: "Graph Based Medical Image Computing (GraphMIC)"
+        text: "Graphical Image Computing System (Graph-ICS)"
         wrapMode: Text.WordWrap
         font.bold: true
         font.weight: Font.Bold

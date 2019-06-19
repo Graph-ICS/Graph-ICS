@@ -6,7 +6,7 @@ cmake_minimum_required(VERSION 3.0)
 set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH};${CMAKE_CURRENT_SOURCE_DIR}/cmake;")
 include(Functions)
 
-set(TEMPLATE_APPLICATION_NAME "GraphMIC" CACHE STRING "Application name")
+set(TEMPLATE_APPLICATION_NAME "Graph-ICS" CACHE STRING "Application name")
 set(PROJECT_NAME ${TEMPLATE_APPLICATION_NAME})
 
 project(${PROJECT_NAME})

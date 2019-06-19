@@ -46,6 +46,8 @@ GFilter {
         font.family: "Verdana"
         renderType: Text.NativeRendering
 
+        validator: DoubleValidator {bottom: 0; top: 700;}
+
         onTextChanged: {
             model.variance = text;
         }

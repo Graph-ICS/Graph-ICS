@@ -57,7 +57,7 @@ GFilter {
         var obj;
         obj = { x: x, y: y,
         objectName : name,
-        kernelSize: model.kernelSize,};
+        kernelSize: model.kernelSize};
         return obj;
     }
     function loadNode(nodeData) {

@@ -11,9 +11,6 @@ Item {
     width: 75
     height: 70
 
-    //
-    //property alias subtractPopup: subtractPopup
-
     property alias portOut: portOut
 
     property var inPorts: []
@@ -120,20 +117,19 @@ Item {
                     contextMenu.popup()
             }
             onDoubleClicked: {
-                gImageProvider.img = node.model.getResult(); // diese Funktion müsste für das Multithreading ausgelagert werden
-                root.splitView.imageView.reload();
-                console.log(node.objectName);
-                if(node.objectName === "ITKSubstract") {
-                  if(node.model.getShowWarning()===true) {
-                     subtractPopup.showNormal();
-                  }
+                if(validate()) { // Validierungsfunktion, wird gegebenenfalls in den einzelnen Filtern überschrieben (z.B. CVSobel)
+                    gImageProvider.img = node.model.getResult(); // diese Funktion müsste für das Multithreading ausgelagert werden
+                    root.splitView.imageView.reload();
+                    if(node.objectName === "ITKSubstract") {
+                        if(node.model.getShowWarning()===true) {
+                            subtractPopup.showNormal();
+                        }
+                    }
                 }
             }
-            //
             SubtractWarningDialog {
                 id: subtractPopup
             }
-            //
             onReleased: {
                 canDistanceBeCalculated = true;
                 if(hasPositionChanged === true) { //nur wenn Position des Knotens auch verändert wurde
@@ -197,8 +193,10 @@ Item {
                 MenuItem {
                     text: "Show Image"
                     onTriggered: {
-                        gImageProvider.img = node.model.getResult();
-                        root.splitView.imageView.reload();
+                        if(validate()) {
+                            gImageProvider.img = node.model.getResult();
+                            root.splitView.imageView.reload();
+                        }
                     }
                 }
                 MenuItem {
@@ -235,6 +233,10 @@ Item {
             objectName : name};
         return obj;
     }
-    function loadNode(counter) {
+    function loadNode(counter) { // wird in Filtern überschrieben
+    }
+
+    function validate() { // wird in Filtern überschrieben
+        return true;
     }
 }

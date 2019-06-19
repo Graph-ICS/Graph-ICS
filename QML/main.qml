@@ -180,9 +180,12 @@ ApplicationWindow {
                 text: "Show Image"
                 enabled: menuManager.isViewAllowed()
                 onTriggered: {
+
                     var node = menuManager.retrieveSelectedNode();
-                    gImageProvider.img = node.model.getResult();
-                    root.splitView.imageView.reload();
+                    if(node.validate()) {
+                        gImageProvider.img = node.model.getResult();
+                        root.splitView.imageView.reload();
+                    }
                 }
             }
             MenuItem {
