@@ -26,7 +26,7 @@ GFilter {
     }
 
     TextField {
-        id: value
+        id: factor
         x: 44
         y: 48
         width: 40
@@ -39,10 +39,10 @@ GFilter {
         bottomPadding: 0
         horizontalAlignment: "AlignRight"
 
-        text: model.value
+        text: model.factor
 
         onTextChanged: {
-            model.value = text;
+            model.factor = text;
         }
 
         validator: IntValidator {
@@ -62,10 +62,10 @@ GFilter {
         var obj;
         obj = { x: x, y:y,
         objectName : name,
-        value: model.value};
+        factor: model.factor};
         return obj;
     }
     function loadNode(nodeData) {
-        value.text  = nodeData.value;
+        factor.text  = nodeData.factor;
     }
 }

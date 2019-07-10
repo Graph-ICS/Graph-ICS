@@ -8,15 +8,20 @@
 
 ItkBinaryMorphOpeningFilter::ItkBinaryMorphOpeningFilter()
 {
-    radius = 1.5;
+    m_radius = 1.5;
+}
+
+double ItkBinaryMorphOpeningFilter::getRadius()
+{
+    return m_radius;
 }
 
 void ItkBinaryMorphOpeningFilter::setRadius(const double value)
 {
-    if (value == radius)
+    if (value == m_radius)
         return;
 
-    radius = value;
+    m_radius = value;
     cleanCache();
     emit radiusChanged();
 
@@ -44,7 +49,7 @@ bool ItkBinaryMorphOpeningFilter::retrieveResult()
             //4. apply the filter
             typedef itk::BinaryBallStructuringElement<ImageType::PixelType, ImageType::ImageDimension > StructuringElementType;
             StructuringElementType structuringElement;
-            structuringElement.SetRadius(radius);
+            structuringElement.SetRadius(m_radius);
             structuringElement.CreateStructuringElement();
 
             typedef itk::BinaryMorphologicalOpeningImageFilter <ImageType,

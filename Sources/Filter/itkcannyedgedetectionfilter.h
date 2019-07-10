@@ -13,7 +13,7 @@ class ItkCannyEdgeDetectionFilter : public Node
 public:
     explicit ItkCannyEdgeDetectionFilter();
     virtual ~ItkCannyEdgeDetectionFilter() {}
-    double getVariance() { return variance; }
+    double getVariance();
     void setVariance(const double value);
 
     double getUpperThreshold() const;
@@ -32,11 +32,11 @@ signals:
 private:
     //variance: adjusts the
     //amount of Gaussian smoothing
-    double variance;
+    double m_variance;
     //upper/lowerThreshold: control which edges
     //are selected in the final step.
-    double upperThreshold;
-    double lowerThreshold;
+    double m_upperThreshold;
+    double m_lowerThreshold;
 };
 
 #endif // ITKCANNYEDGEDETECTIONFILTER_H

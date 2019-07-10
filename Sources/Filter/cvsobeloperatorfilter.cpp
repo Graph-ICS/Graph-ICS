@@ -8,37 +8,37 @@
 
 CvSobelOperatorFilter::CvSobelOperatorFilter()
 {
-    xDerivative = 1;
-    yDerivative = 0;
-    ddepth = CV_8U; //unsigned 8bit/pixel  CV_8U
+    m_xDerivative = 1;
+    m_yDerivative = 0;
+    m_ddepth = CV_8U; //unsigned 8bit/pixel  CV_8U
 }
 
 int CvSobelOperatorFilter::getXDerivative() const
 {
-    return xDerivative;
+    return m_xDerivative;
 }
 
 void CvSobelOperatorFilter::setXDerivative(int value)
 {
-    if (value == xDerivative)
+    if (value == m_xDerivative)
         return;
 
-    xDerivative = value;
+    m_xDerivative = value;
     cleanCache();
     emit xDerivativeSizeChanged();
 }
 
 int CvSobelOperatorFilter::getYDerivative() const
 {
-    return yDerivative;
+    return m_yDerivative;
 }
 
 void CvSobelOperatorFilter::setYDerivative(int value)
 {
-    if (value == yDerivative)
+    if (value == m_yDerivative)
         return;
 
-    yDerivative = value;
+    m_yDerivative = value;
     cleanCache();
     emit yDerivativeSizeChanged();
 }
@@ -63,7 +63,7 @@ bool CvSobelOperatorFilter::retrieveResult()
 
             //4. apply the filter
             //4.1 set values
-            cv::Sobel(cvImage, cvImage, ddepth, xDerivative, yDerivative);
+            cv::Sobel(cvImage, cvImage, m_ddepth, m_xDerivative, m_yDerivative);
 
             //5. convert to QImage
             ImageConverter::qImageFromCvImage(cvImage, img);

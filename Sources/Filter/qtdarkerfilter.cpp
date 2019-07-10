@@ -6,7 +6,12 @@ QtDarkerFilter::QtDarkerFilter()
     m_factor = 0.0;
 }
 
-void QtDarkerFilter::setValue(const double value)
+double QtDarkerFilter::getFactor()
+{
+    return m_factor;
+}
+
+void QtDarkerFilter::setFactor(const double value)
 {
 
     if (value == m_factor)
@@ -14,7 +19,7 @@ void QtDarkerFilter::setValue(const double value)
 
     m_factor = value;
     cleanCache();
-    emit valueChanged();
+    emit factorChanged();
 }
 
 bool QtDarkerFilter::retrieveResult()

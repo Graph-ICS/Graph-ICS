@@ -11,7 +11,7 @@ class ItkBinaryMorphClosingFilter : public Node
 public:
     explicit ItkBinaryMorphClosingFilter();
     virtual ~ItkBinaryMorphClosingFilter() {}
-    double getRadius() { return radius; }
+    double getRadius();
     void setRadius(const double value);
 
     virtual bool retrieveResult();
@@ -20,7 +20,7 @@ signals:
     void radiusChanged();
 
 private:
-    double radius; //milimeters
+    double m_radius; //milimeters
 };
 
 

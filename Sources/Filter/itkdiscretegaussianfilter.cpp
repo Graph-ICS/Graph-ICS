@@ -7,15 +7,20 @@
 
 ItkDiscreteGaussianFilter::ItkDiscreteGaussianFilter()
 {
-    variance = 1.5;
+    m_variance = 1.5;
+}
+
+double ItkDiscreteGaussianFilter::getVariance()
+{
+    return m_variance;
 }
 
 void ItkDiscreteGaussianFilter::setVariance(const double value)
 {
-    if (value == variance)
+    if (value == m_variance)
         return;
 
-    variance = value;
+    m_variance = value;
     cleanCache();
     emit varianceChanged();
 }
@@ -44,7 +49,7 @@ bool ItkDiscreteGaussianFilter::retrieveResult()
 
             filterType::Pointer gaussianFilter = filterType::New();
             gaussianFilter->SetInput(imageIn);
-            gaussianFilter->SetVariance(variance);
+            gaussianFilter->SetVariance(m_variance);
             gaussianFilter->Update();
 
             imageIn = gaussianFilter->GetOutput();

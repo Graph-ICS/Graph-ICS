@@ -6,7 +6,7 @@
 class CvMedianFilter : public Node
 {
     Q_OBJECT
-    Q_PROPERTY(int kernelSize READ getFilterParameter WRITE setFilterParameter NOTIFY kernelSizeChanged)
+    Q_PROPERTY(int kernelSize READ getKernelSize WRITE setKernelSize NOTIFY kernelSizeChanged)
 
 public:
     explicit CvMedianFilter();
@@ -14,8 +14,8 @@ public:
 
     virtual bool retrieveResult();
 
-    int getFilterParameter() const;
-    void setFilterParameter(int value);
+    int getKernelSize() const;
+    void setKernelSize(int value);
 
 signals:
     void kernelSizeChanged();
@@ -23,7 +23,7 @@ signals:
 private:
     //ksize - aperture linear size;
     //it must be odd and greater than 1, for example: 3, 5, 7 ...
-    int kernelSize;
+    int m_kernelSize;
 };
 
 #endif // CVMEDIANFILTER_H

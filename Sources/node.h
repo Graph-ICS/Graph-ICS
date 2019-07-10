@@ -17,6 +17,7 @@ public:
     explicit Node();
     virtual ~Node() {}
 
+
     QQmlListProperty<Node> getInNodes();
     QQmlListProperty<Node> getOutNodes();
 
@@ -38,6 +39,9 @@ public:
     void cleanCache();
 
 protected:
+
+
+
     QPixmap m_img;
 
     QVector<Node*> m_inNodes;

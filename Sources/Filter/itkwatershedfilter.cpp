@@ -12,36 +12,36 @@
 
 ItkWatershedFilter::ItkWatershedFilter()
 {
-    threshold = 0.0;
-    level = 0.0;
+    m_threshold = 0.0;
+    m_level = 0.0;
 }
 
 double ItkWatershedFilter::getLevel() const
 {
-    return level;
+    return m_level;
 }
 
 double ItkWatershedFilter::getThreshold() const
 {
-    return threshold;
+    return m_threshold;
 }
 
 void ItkWatershedFilter::setLevel(double value)
 {
-    if (value == level)
+    if (value == m_level)
         return;
 
-    level = value;
+    m_level = value;
     cleanCache();
     emit levelChanged();
 }
 
 void ItkWatershedFilter::setThreshold(double value)
 {
-    if (value == threshold)
+    if (value == m_threshold)
         return;
 
-    threshold = value;
+    m_threshold = value;
     cleanCache();
     emit thresholdChanged();
 }

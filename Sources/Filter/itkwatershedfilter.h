@@ -25,8 +25,8 @@ signals:
     void thresholdChanged();
 
 private:
-    double level;
-    double threshold;
+    double m_level;
+    double m_threshold;
 
 };
 

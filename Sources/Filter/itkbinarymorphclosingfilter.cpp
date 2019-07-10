@@ -8,15 +8,20 @@
 
 ItkBinaryMorphClosingFilter::ItkBinaryMorphClosingFilter()
 {
-    radius = 1.5;
+    m_radius = 1.5;
+}
+
+double ItkBinaryMorphClosingFilter::getRadius()
+{
+    return m_radius;
 }
 
 void ItkBinaryMorphClosingFilter::setRadius(const double value)
 {
-    if (value == radius)
+    if (value == m_radius)
         return;
 
-    radius = value;
+    m_radius = value;
     cleanCache();
     emit radiusChanged();
 
@@ -47,7 +52,7 @@ bool ItkBinaryMorphClosingFilter::retrieveResult()
                                                       ImageType::ImageDimension > StructuringElementType;
 
             StructuringElementType structuringElement;
-            structuringElement.SetRadius(radius);
+            structuringElement.SetRadius(m_radius);
             structuringElement.CreateStructuringElement();
 
             typedef itk::BinaryMorphologicalClosingImageFilter <ImageType,

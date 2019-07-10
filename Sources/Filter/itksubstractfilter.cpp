@@ -11,7 +11,6 @@ ItkSubstractFilter::ItkSubstractFilter()
 
 bool ItkSubstractFilter::retrieveResult()
 {
-    qDebug() << m_inNodes.size();
     if (m_inNodes.size() < 2) {
         return false;
     }
@@ -26,14 +25,7 @@ bool ItkSubstractFilter::retrieveResult()
             m_img1 = m_inNodes[0]->getResult();
             m_img2 = m_inNodes[1]->getResult();
 
-            qDebug() << m_img1;
-            qDebug() << m_img2;
-
-            if(m_img1.size().height() < m_img2.size().height()) {
-                qDebug() << "image1 größer als image2";
-            }
-            else if (m_img1.size().height() > m_img2.size().height()){
-                qDebug() <<"image2 größer als image1";
+            if (m_img1.size().height() > m_img2.size().height()){
                 m_img = QPixmap();
                 getWarning = true;
                 return false;

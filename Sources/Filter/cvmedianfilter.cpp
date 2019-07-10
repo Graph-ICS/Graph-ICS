@@ -8,20 +8,20 @@
 
 CvMedianFilter::CvMedianFilter()
 {
-    kernelSize = 1;
+    m_kernelSize = 1;
 }
 
-int CvMedianFilter::getFilterParameter() const
+int CvMedianFilter::getKernelSize() const
 {
-    return kernelSize;
+    return m_kernelSize;
 }
 
-void CvMedianFilter::setFilterParameter(int value)
+void CvMedianFilter::setKernelSize(int value)
 {
-    if (value == kernelSize)
+    if (value == m_kernelSize)
         return;
 
-    kernelSize = value;
+    m_kernelSize = value;
     cleanCache();
     emit kernelSizeChanged();
 }
@@ -47,7 +47,7 @@ bool CvMedianFilter::retrieveResult()
             //4. apply the filter
             //4.1 set values
             // Median smoothing
-            cv::medianBlur( cvImage, cvImage, kernelSize);
+            cv::medianBlur( cvImage, cvImage, m_kernelSize);
 
             //5. convert to QImage
             ImageConverter::qImageFromCvImage(cvImage, img);

@@ -26,9 +26,9 @@ signals:
     void yDerivativeSizeChanged();
 
 private:
-    int xDerivative;
-    int yDerivative;
-    int ddepth;     //Depth of the image
+    int m_xDerivative;
+    int m_yDerivative;
+    int m_ddepth;     //Depth of the image
 };
 
 #endif // CVSOBELOPERATORFILTER_H

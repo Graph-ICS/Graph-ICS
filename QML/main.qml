@@ -206,15 +206,6 @@ ApplicationWindow {
                 }
             }
         }
-        //        Menu {
-        //            title: "Toolbar"
-        //            MenuItem {
-        //                text: "Configure Toolbar"
-        //                onTriggered: {
-        //                    configureToolbar.showNormal();
-        //                }
-        //            }
-        //        }
     }
 
     FileDialog {
@@ -409,9 +400,6 @@ ApplicationWindow {
     }
     InfoPopup {
         id: popup
-    }
-    ConfigureToolbar {
-        id: configureToolbar
     }
 
     function resetConfig() {

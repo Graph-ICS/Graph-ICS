@@ -12,6 +12,16 @@ ItkMedianFilter::ItkMedianFilter()
     m_radiusY = 1;
 }
 
+double ItkMedianFilter::getRadiusX()
+{
+    return m_radiusX;
+}
+
+double ItkMedianFilter::getRadiusY()
+{
+    return m_radiusY;
+}
+
 void ItkMedianFilter::setRadiusX(const double value)
 {
     if (value == m_radiusX) {

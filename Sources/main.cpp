@@ -7,6 +7,7 @@
 #include <QQmlProperty>
 //
 #include "gimageprovider.h"
+#include "controller.h"
 #include "image.h"
 
 #include "qtblackwhitefilter.h"
@@ -22,6 +23,7 @@
 #include "cvsobeloperatorfilter.h"
 
 #include "itkwatershedfilter.h"
+
 
 int main(int argc, char *argv[])
 {
@@ -47,6 +49,7 @@ int main(int argc, char *argv[])
 
 
     GImageProvider* gImageProvider = new GImageProvider();
+   // Controller* controller = new Controller();
 
     app.setWindowIcon(QIcon("doc/Logo.png")); // Logo des Programmes setzen
 
@@ -54,6 +57,7 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("gImageProvider", gImageProvider);
+    //engine.rootContext()->setContextProperty("controller", controller);
     engine.addImageProvider("gimg", gImageProvider);
     engine.load(QUrl(QStringLiteral("QML/main.qml")));
 

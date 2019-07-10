@@ -1,4 +1,5 @@
 #include "node.h"
+#include "worker.h"
 
 #include <QDebug>
 
@@ -16,6 +17,7 @@ QQmlListProperty<Node> Node::getInNodes()
                                   &Node::getInNode,
                                   &Node::clearInNodes);
 }
+
 
 void Node::addInNode(Node* node) {
     m_inNodes.append(node);
@@ -108,16 +110,10 @@ void Node::clearOutNodes() {
 
 QPixmap Node::getResult()
 {
-    //    if (!retrieveResult()) {
-    //        qDebug() << "!retrieveResult";
-    //        m_img = QPixmap();
-    //    }
-    //    return m_img;
-
-   // qDebug() << "getResult_m_img: " << m_img;
-
     if (m_img.isNull()) {
+
         retrieveResult();
+
         return m_img;
     }
 

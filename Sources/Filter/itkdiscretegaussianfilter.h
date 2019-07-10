@@ -11,7 +11,7 @@ class ItkDiscreteGaussianFilter : public Node
 public:
     explicit ItkDiscreteGaussianFilter();
     virtual ~ItkDiscreteGaussianFilter() {}
-    double getVariance() { return variance; }
+    double getVariance();
     void setVariance(const double value);
 
     virtual bool retrieveResult();
@@ -20,7 +20,7 @@ signals:
     void varianceChanged();
 
 private:
-    double variance; //milimeters
+    double m_variance; //milimeters
 
 };
 

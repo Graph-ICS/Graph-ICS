@@ -7,14 +7,19 @@ QtLighterFilter::QtLighterFilter()
     m_factor = 0.0;
 }
 
-void QtLighterFilter::setValue(const double value)
+double QtLighterFilter::getFactor()
+{
+    return m_factor;
+}
+
+void QtLighterFilter::setFactor(const double value)
 {
     if (value == m_factor)
         return;
 
     m_factor = value;
     cleanCache();
-    emit valueChanged();
+    emit factorChanged();
 }
 
 bool QtLighterFilter::retrieveResult(){

@@ -7,47 +7,52 @@
 
 ItkCannyEdgeDetectionFilter::ItkCannyEdgeDetectionFilter()
 {    
-    variance = 2.0;
-    upperThreshold = 0.0;
-    lowerThreshold = 0.0;
+    m_variance = 2.0;
+    m_upperThreshold = 0.0;
+    m_lowerThreshold = 0.0;
+}
+
+double ItkCannyEdgeDetectionFilter::getVariance()
+{
+    return m_variance;
 }
 
 void ItkCannyEdgeDetectionFilter::setVariance(const double value)
 {
-    if (value == variance)
+    if (value == m_variance)
         return;
 
-    variance = value;
+    m_variance = value;
     m_img = QPixmap();
     emit varianceChanged();
 }
 
 double ItkCannyEdgeDetectionFilter::getUpperThreshold() const
 {
-    return upperThreshold;
+    return m_upperThreshold;
 }
 
 void ItkCannyEdgeDetectionFilter::setUpperThreshold(double value)
 {
-    if (value == upperThreshold)
+    if (value == m_upperThreshold)
         return;
 
-    upperThreshold = value;
+    m_upperThreshold = value;
     m_img = QPixmap();
     emit upperThresholdChanged();
 }
 
 double ItkCannyEdgeDetectionFilter::getLowerThreshold() const
 {
-    return lowerThreshold;
+    return m_lowerThreshold;
 }
 
 void ItkCannyEdgeDetectionFilter::setLowerThreshold(double value)
 {
-    if (value == lowerThreshold)
+    if (value == m_lowerThreshold)
         return;
 
-    lowerThreshold = value;
+    m_lowerThreshold = value;
     cleanCache();
     emit lowerThresholdChanged();
 }
@@ -96,9 +101,9 @@ bool ItkCannyEdgeDetectionFilter::retrieveResult()
             rescale->SetInput( cannyFilter->GetOutput() );
             rescale->Update();
 
-            cannyFilter->SetVariance( variance );
-            cannyFilter->SetUpperThreshold( upperThreshold );
-            cannyFilter->SetLowerThreshold( lowerThreshold );
+            cannyFilter->SetVariance( m_variance );
+            cannyFilter->SetUpperThreshold( m_upperThreshold );
+            cannyFilter->SetLowerThreshold( m_lowerThreshold );
             cannyFilter->Update();
             rescale->Update();
 

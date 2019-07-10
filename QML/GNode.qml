@@ -34,6 +34,7 @@ Item {
     property int minimumY: 0
     property int maximuxY: 0
 
+
     Rectangle {
         id: rect
         //color: "steelblue"
@@ -118,7 +119,8 @@ Item {
             }
             onDoubleClicked: {
                 if(validate()) { // Validierungsfunktion, wird gegebenenfalls in den einzelnen Filtern überschrieben (z.B. CVSobel)
-                    gImageProvider.img = node.model.getResult(); // diese Funktion müsste für das Multithreading ausgelagert werden
+                   gImageProvider.img = node.model.getResult(); // eventuell asynchroner Image Provider?
+                    //controller.worker.doWork(); // hier soll getResult vom Worker aus aufgerufen werden
                     root.splitView.imageView.reload();
                     if(node.objectName === "ITKSubstract") {
                         if(node.model.getShowWarning()===true) {
@@ -127,9 +129,11 @@ Item {
                     }
                 }
             }
+
             SubtractWarningDialog {
                 id: subtractPopup
             }
+
             onReleased: {
                 canDistanceBeCalculated = true;
                 if(hasPositionChanged === true) { //nur wenn Position des Knotens auch verändert wurde
@@ -185,7 +189,7 @@ Item {
                 }
             }
             Keys.onDeletePressed: {
-                console.log("delete pressed");
+                //console.log("delete pressed");
             }
 
             Menu {

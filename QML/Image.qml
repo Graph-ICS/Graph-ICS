@@ -68,7 +68,7 @@ GNode {
             model.path = text;
         }
         Keys.onReturnPressed: {
-            console.log("return pressed");
+            //console.log("return pressed");
             gImageProvider.img = model.getResult();
             root.splitView.imageView.reload();
         }

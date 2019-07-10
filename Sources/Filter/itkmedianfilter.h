@@ -15,8 +15,8 @@ public:
     explicit ItkMedianFilter();
     virtual ~ItkMedianFilter() {}
 
-    double getRadiusX() { return m_radiusX; }
-    double getRadiusY() { return m_radiusY; }
+    double getRadiusX();
+    double getRadiusY();
     void setRadiusX(const double value);
     void setRadiusY(const double value);
 
