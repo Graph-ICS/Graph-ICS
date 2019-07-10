@@ -61,6 +61,15 @@ Required components:
 9. (Optional) Change CMakeLists.txt file
 
 ### 1. Download the Project from GitHub
+
+Download from commandline (recommended):   
+1.1. Install git under https://git-scm.com/downloads   
+1.2. Build a folder where you want to download the project   
+1.3. Go to this folder and click right   
+1.4. Click on "Git Bash Here" and the commandline will open   
+1.5. Type the command "git clone https://github.com/Graph-ICS/Graph-ICS.git" and press enter   
+
+Alternative way:    
 1.1. Go to https://github.com/Graph-ICS/Graph-ICS   
 
 1.2. Click on "Clone or Download"  
@@ -294,6 +303,15 @@ Follow the steps in section 6 and consider the following changes:
 
 8.5. Click “configure project”
 
+### 9. Push the Project on GitHub
+If you made changed on the programm you can commit these on GitHub  
+9.1. Go to the folder of your project  
+9.2. Click right and select "Git Bash Here"
+9.3. Enter the following commands to the command line: 
+- git add --all  
+- git commit -m "first commit"  
+- git push -u origin master  
+The comment "first commit" can be changed to the description of the changes you made 
 
 ## User Guide
 
