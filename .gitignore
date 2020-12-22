@@ -1,0 +1,13 @@
+build/
+bin/
+CMakeLists.txt.user
+*.qmlc
+*.json
+src/*.autosave
+src/nodes/*.autosave
+src/nodes/filter/*.autosave
+qml/*.autosave
+qml/theme/*.autosave
+qml/components/*.autosave
+qml/nodes/*.autosave
+qml/nodes/components/*.autosave
