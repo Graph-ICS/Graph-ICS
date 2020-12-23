@@ -36,7 +36,7 @@ The node-color shows the user, that the image in the Viewer represents the resul
 Following these steps you will be able to install and run Graph-ICS
 
 ##### Windows
-- Navigate to the top of the Repository and select the latest Release under the Releases Tab
+- Navigate to the **[Graph-ICS Releases](https://github.com/Graph-ICS/Graph-ICS/releases)** and select the latest Release
 - Download the provided "Graph-ICS_X.X_Installer.exe" and run the Setup
 - After finishing the Installation process you can run Graph-ICS using the Desktop Shortcut
   
