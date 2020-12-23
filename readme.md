@@ -4,8 +4,8 @@ Graph-ICS
 ## Table of Contents
 1. [Overview](#overview)
 2. [Installation Guide](#installation-guide)
-3. [Installation Guide for Developers (Windows)](#Installation-Guide-for-Developers-(Windows))
-4. [Installation Guide for Developers (Linux)](#Installation-Guide-for-Developers-(Linux))
+3. [Installation Guide for Developers (Windows)](#installation-guide-for-developers-windows)
+4. [Installation Guide for Developers (Linux)](#installation-guide-for-developers-linux)
 5. [User Guide](#user-guide)
 6. [Developer Guide](#developer-guide)
 
