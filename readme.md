@@ -3,10 +3,11 @@ Graph-ICS
 
 ## Table of Contents
 1. [Overview](#overview)
-2. [Installation for Windows](#installation-for-windows)
-3. [Installation for Linux](#installation-for-linux)
-4. [User Guide](#user-guide)
-5. [Developer Guide](#developer-guide)
+2. [Installation Guide](#installation-guide)
+3. [Installation Guide for Developers (Windows)](#Installation-Guide-for-Developers-(Windows))
+4. [Installation Guide for Developers (Linux)](#Installation-Guide-for-Developers-(Linux))
+5. [User Guide](#user-guide)
+6. [Developer Guide](#developer-guide)
 
 ## Overview
 
@@ -30,7 +31,20 @@ The Example above illustrates the moments after the ItkCannyEdgeDetection-Node w
 Having a closer look at the Nodes, a missing '*' at the end of the node-name indicates, that this Node has already been processed and the result is available in the cache.
 The node-color shows the user, that the image in the Viewer represents the result of ItkCannyEdgeDetection-Node.
 
-## Installation for Windows
+## Installation Guide
+
+Following these steps you will be able to install and run Graph-ICS
+
+##### Windows
+- Navigate to the top of the Repository and select the latest Release under the Releases Tab
+- Download the provided "Graph-ICS_X.X_Installer.exe" and run the Setup
+- After finishing the Installation process you can run Graph-ICS using the Desktop Shortcut
+  
+##### Linux and MacOs
+- Currently there are no prebuild Binaries available for Linux, you need to try and build it yourself following the [Installation Guide for Developers (Linux)](#Installation-Guide-for-Developers-(Linux))
+
+
+## Installation Guide for Developers (Windows)
 
 After following the steps provided by the Installation Guide you should be able to build and run Graph-ICS.
 
@@ -295,7 +309,7 @@ Follow the steps in section 6 and consider the following changes:
 Feel free to publish your changes on Graph-ICS to Github. Every contribution helps!
 
 
-## Installation for Linux
+## Installation Guide for Developers (Linux)
 
 After following the steps provided by the Installation Guide you should be able to build and run Graph-ICS.
 

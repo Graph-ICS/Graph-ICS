@@ -39,7 +39,7 @@ Window {
         font.family: Theme.font.family
         font.pointSize: Theme.font.pointSize
         text: "Based on Qt 5.15.1 \n(MSVC 2015, 64Bit)\n\n" +
-                   "Build on XXXXXX " +
+                   "Build on 23.12.2020 " +
                    "Copyright ... \n\n" +
                    "The program is provided AS IS with" +
                    " NO WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN,"+
