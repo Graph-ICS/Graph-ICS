@@ -40,7 +40,7 @@ Following these steps you will be able to install and run Graph-ICS
 - Download the provided "Graph-ICS_X.X_Installer.exe" and run the Setup
 - After finishing the Installation process you can run Graph-ICS using the Desktop Shortcut
   
-##### Linux and MacOs
+##### Linux
 - Currently there are no prebuild Binaries available for Linux, you need to try and build it yourself following the [Installation Guide for Developers (Linux)](#Installation-Guide-for-Developers-(Linux))
 
 
