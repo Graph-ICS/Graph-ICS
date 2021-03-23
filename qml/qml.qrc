@@ -44,5 +44,13 @@
         <file>components/GFileDialog.qml</file>
         <file>GExportDialog.qml</file>
         <file>components/GFileButton.qml</file>
+        <file>components/GSwitch.qml</file>
+        <file>components/GComboBox.qml</file>
+        <file>nodes/components/NodeComboBoxAttribute.qml</file>
+        <file>view/GDiagramView.qml</file>
+        <file>view/GImageView.qml</file>
+        <file>view/GView.qml</file>
+        <file>view/GViewArea.qml</file>
+        <file>components/GViewAreaSettings.qml</file>
     </qresource>
 </RCC>

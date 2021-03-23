@@ -33,8 +33,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${BUILD_DIR})
 
 # [4] set QT Settings
 # ******************************************************************************
-set(TEMPLATE_QT_VERSION "5.15.1" CACHE STRING "Qt Version")
-set(TEMPLATE_QT_MODULES Core Gui Widgets Quick Qml Concurrent Network DBus PrintSupport)
+set(TEMPLATE_QT_VERSION "5.15.2" CACHE STRING "Qt Version")
+set(TEMPLATE_QT_MODULES Core Gui Widgets Quick Qml Concurrent Network DBus PrintSupport Svg)
 
 find_package(Qt5 ${TEMPLATE_QT_VERSION} CONFIG REQUIRED ${TEMPLATE_QT_MODULES})
 set(CMAKE_AUTOMOC ON)
@@ -45,18 +45,13 @@ set(CMAKE_AUTORCC ON)
 
 # [5] binding of libraries:
 # ******************************************************************************
-# set(ITK_DIR "D:\\lib\\ITK\\bin")
 find_package(ITK REQUIRED )
-message("ITK Pakage: " ${ITK_DIR})
 include(${ITK_USE_FILE})
 
-# set(OpenCv_DIR "D:\\lib\\opencv\\build")
-find_package(OpenCv REQUIRED )
-#message("OpenCv Pakage: " ${OpenCv_DIR})
-set(${OpenCV_INCLUDE_DIRS} ${OpenCv_DIR}/include)
+find_package(OpenCV REQUIRED )
+set(${OpenCV_INCLUDE_DIRS} ${OpenCV_DIR}/include)
 include_directories( ${OpenCV_INCLUDE_DIRS} )
-set(OPENCV_LIBRARIES ${OpenCv_DIR}/x64/vc14/bin/)
-#message("OpenCv includes: " ${OpenCV_INCLUDE_DIRS})
+set(OPENCV_LIBRARIES ${OpenCV_DIR}/x64/vc14/bin/)
 
 # [6] setting definitions
 # ******************************************************************************
@@ -67,23 +62,8 @@ add_definitions(${Qt5Widgets_DEFINITIONS} ${QtQml_DEFINITIONS} ${${Qt5Quick_DEFI
 
 # [7] getting sources: Add to project configuration
 # ******************************************************************************
-#AddSources("${SOURCE_DIR}" "Sources" list_app_src)
-#AddSources("${ROOT_DIR}/Sources/Filter" "/Sources/Filter" list_app_src)
 
-#AddResources("${ROOT_DIR}/QML" "QML" list_app_qml)
-#AddResources("${ROOT_DIR}/QML/Filter" "QML/Filter" list_app_qml)
-
-#AddResources("${ROOT_DIR}/doc" "doc" list_app_qml)
-
-#message("QML files on: " "${ROOT_DIR}/QML")
-#message("Source files on: " "${SOURCE_DIR}")
-
-include_directories(
-    ${ROOT_DIR}/src
-    ${ROOT_DIR}/src/nodes
-    ${ROOT_DIR}/src/nodes/filter
-    ${ROOT_DIR}/src/nodes/attributes
-)
+HEADER_DIRECTORIES(${SOURCE_DIR} header_dir_list)
 
 file(GLOB_RECURSE SOURCES
     ${ROOT_DIR}/src/*.cpp
@@ -91,8 +71,7 @@ file(GLOB_RECURSE SOURCES
 )
 
 file(GLOB_RECURSE QML
-#    ${ROOT_DIR}/QML/*.qml
-    ${ROOT_DIR}/QML/*.qrc
+    ${ROOT_DIR}/qml/*.qrc
 )
 
 file(GLOB RESOURCES
@@ -107,20 +86,55 @@ qt5_add_resources(QT_RESOURCES ${QML} ${RESOURCES})
 
 set(QML_IMPORT_PATH "${ROOT_DIR}/qml" CACHE STRING "Path to QML Files")
 
-#set(QT_RESOURCES ${list_app_qml})
-
 # [8] setting the target
 # ******************************************************************************
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-add_executable(${PROJECT_NAME} WIN32
-    ${SOURCES}
-    ${QT_RESOURCES}
-    ${ROOT_DIR}/myapp.rc
+# Platform specific steps
+
+if(APPLE)
+    message(STATUS "Building MacOS executable")
+
+    # set the .app icon
+    set(MACOSX_BUNDLE_ICON_FILE logo.icns)
+    set(MAC_ICON ${ROOT_DIR}/img/logo.icns)
+    set_source_files_properties(${MAC_ICON} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
+
+    set(CMAKE_MACOSX_BUNDLE true)
+
+    add_executable(${PROJECT_NAME} MACOSX_BUNDLE
+        ${MAC_ICON}
+        ${SOURCES}
+        ${QT_RESOURCES}
+    )
+
+elseif(WIN32)
+    message(STATUS "Building Windows executable")
+
+    add_executable(${PROJECT_NAME} WIN32
+        ${ROOT_DIR}/myapp.rc
+        ${SOURCES}
+        ${QT_RESOURCES}
+    )
+
+else()
+    message(STATUS "Building Linux executable")
+
+    add_executable(${PROJECT_NAME}
+        ${SOURCES}
+        ${QT_RESOURCES}
+    )
+
+endif()
+
+
+
+
+target_include_directories(
+    ${PROJECT_NAME}
+    PUBLIC
+    ${header_dir_list}
 )
-
-
-#target_include_directories(${PROJECT_NAME} PUBLIC ${BINARY_DIR})
 
 # [9] check if c++11 enabled
 # ******************************************************************************
@@ -166,6 +180,8 @@ target_link_libraries(${PROJECT_NAME}
     PUBLIC Qt5::Quick
     PUBLIC Qt5::Qml
     PUBLIC Qt5::Concurrent
+    PUBLIC Qt5::Svg
+
     ${ITK_LIBRARIES}
     ${OpenCV_LIBS})
 

@@ -144,6 +144,17 @@ Rectangle{
                 target: innerText
                 color: "transparent"
             }
+        },
+        State {
+            name: "disabled"
+            PropertyChanges {
+                target: graphics_contentDelegate
+                color: Theme.contentDelegate.color.background.disabled
+            }
+            PropertyChanges {
+                target: innerText
+                color: Theme.contentDelegate.color.text.disabled
+            }
         }
     ]
 

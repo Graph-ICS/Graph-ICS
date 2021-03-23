@@ -16,7 +16,7 @@ import QtQuick.Layouts 1.3
 
 import Theme 1.0
 import "components/"
-
+import "view/"
 //
 // TODO:
 // (- Reine Tastaturbedienung zulassen)
@@ -26,7 +26,7 @@ QQC2.ApplicationWindow {
 
     onClosing: {
         // stop the video if one is playing
-        workerThread.pauseVideo()
+        scheduler.stop()
     }
 
     id: root
@@ -51,11 +51,13 @@ QQC2.ApplicationWindow {
     property alias configManager: menuBar.configManager
 
     property alias canvas: canvas
-    property int minWidthCanvas: 200
-    property int minHeightCanvas: 200
+    property int minWidthCanvas: 0
+    property int minHeightCanvas: 148
     property int sidePanelWidth: 182
 
+    property var taskQueue: []
     property var nodeQueue: []
+    property var synchronizedNodes: []
 
     menuBar: GMenuBar{
         id: menuBar
@@ -65,19 +67,18 @@ QQC2.ApplicationWindow {
         id: favoritesBar
         search.onTextEdited: {
             sidePanel_widthAnimation.running = true
-            if(!sidePanel.googleSearch){
-                if(search.text == ""){
-                    sidePanel.reload()
-                } else {
-                    sidePanel.search(search.text)
-                }
+            if(sidePanel.searchOnType){
+                sidePanel.search(search.text)
+            }
+            if(search.text == ""){
+                sidePanel.reload()
             }
         }
         search.onAccepted: {
             sidePanel_widthAnimation.running = true
-            if(sidePanel.googleSearch){
+            if(!sidePanel.searchOnType){
                 if(search.text == ""){
-                    sidePanel.listModel.clear()
+                    sidePanel.reload()
                 } else {
                     sidePanel.search(search.text)
                 }
@@ -121,7 +122,8 @@ QQC2.ApplicationWindow {
 
         QQC1.SplitView {
             id: canvasSplitView
-            Layout.minimumWidth: canvas.minWidth
+            Layout.minimumWidth: statusBar.minWidth > canvas.minWidth ? statusBar.minWidth : canvas.minWidth
+
             orientation: Qt.Vertical
 
             handleDelegate: Rectangle {
@@ -139,6 +141,7 @@ QQC2.ApplicationWindow {
                 id: canvasMouseArea
                 acceptedButtons: Qt.LeftButton | Qt.RightButton
                 Layout.minimumHeight: canvas.minHeight
+                Layout.minimumWidth: canvas.minWidth
                 Layout.fillHeight: true
                 hoverEnabled: true
                 width: 614
@@ -190,96 +193,13 @@ QQC2.ApplicationWindow {
 
             GStatusbar {
                 id: statusBar
+                Layout.minimumHeight: minHeight
             }
         }
 
-        property alias imageView: imageView
-
-        Rectangle {
-            id: imageRect
-            color: Theme.mainColor
-            Layout.minimumWidth: 42
-
-            MouseArea {
-                id: mouseArea
-                acceptedButtons: Qt.LeftButton | Qt.RightButton
-                anchors.fill: parent
-
-                Image {
-                    id: imageView
-//                    anchors.verticalCenterOffset: -favoritesBar.height
-                    states: [
-                        State {
-                            name: "scale"
-                            AnchorChanges {
-                                target: imageView
-                                anchors.left: mouseArea.left
-                                anchors.right: mouseArea.right
-                                anchors.top: mouseArea.top
-                                anchors.bottom: mouseArea.bottom
-                            }
-                        },
-                        State {
-                            name: "normal"
-                            AnchorChanges {
-                                target: imageView
-                                anchors.horizontalCenter: mouseArea.horizontalCenter
-                                anchors.verticalCenter: mouseArea.verticalCenter
-                            }
-                        }
-                    ]
-
-                    width: parent.width
-
-                    state: 'normal'
-                    property int counter : 0
-                    source: "image://gimg/id=" + counter
-                    fillMode: Image.PreserveAspectFit
-
-                    function reload() {
-                        counter++;
-                        source= "image://gimg/id=" + counter;
-                        height = implicitHeight
-                    }
-                    function reloadNewImage(path) {
-                        source = path;
-                    }
-                    function removeImage()
-                    {
-                        source = "";
-                    }
-                }
-                onClicked: {
-                    forceActiveFocus()
-                    if (mouse.button === Qt.RightButton)
-                        viewerContextMenu.popup()
-                }
-                GMenu {
-                    id: viewerContextMenu
-                    QQC2.Action {
-                        text: "Clear Image"
-                        onTriggered: {
-                            menuBar.clearImage()
-                        }
-                        enabled: menuManager.isClearImageAllowed()
-                    }
-                    QQC2.Action {
-                        text: "Save Image As"
-                        onTriggered: {
-                            menuBar.fileDialog.open("save_image")
-                        }
-                        enabled: menuManager.isSaveImageAsAllowed()
-                    }
-                    QQC2.Action {
-                        text: "Export Video"
-                        onTriggered: {
-                            menuBar.exportDialog.nodeToExport = canvas.getShownImageNode()
-                            menuBar.exportDialog.showNormal()
-                        }
-                        enabled: menuManager.isExportVideoAllowed()
-                    }
-                }
-            }
+        GViewArea {
+            id: viewArea
+            Layout.minimumWidth: minWidth
         }
     }
 
@@ -293,6 +213,8 @@ QQC2.ApplicationWindow {
     function createNode(compName, mouseX, mouseY, absX, height) {
         var node
         var path = "qrc:/nodes/" + compName
+
+        var nodeCount = canvas.getNodeCounter(compName)
 
         // Konvention:
         // qml Datei in Ordner nodes Dateiname fuer Nodes mit suffix Node, fuer Filter analog suffix Filter
@@ -315,6 +237,10 @@ QQC2.ApplicationWindow {
 
             node = Qt.createQmlObject(str, root)
         }
+
+        node.number = nodeCount
+        node.rect.calculateNodeSize()
+
         return node;
     }
 
@@ -338,50 +264,79 @@ QQC2.ApplicationWindow {
 
     function queueNode(node){
 
-        if(nodeQueue.length == 0){
+        if(taskQueue.length == 0){
             canvas.setPipelineFlag(node, true)
         }
-        nodeQueue.push(node)
+        var nodeArray = []
+        nodeArray.push(node)
+        taskQueue.push(nodeArray)
         statusBar.queueNode(node)
+        scheduler.add([node.model], false)
+    }
+
+    function queueSynchronizedProcess(nodes){
+        synchronizedNodes = nodes
+        taskQueue.push(synchronizedNodes)
+        var models = []
+        synchronizedNodes.forEach(function setFlagAndGetModel(node){
+            canvas.setPipelineFlag(node, true)
+            models.push(node.model)
+            node.isQueued = true
+        })
+        scheduler.add(models, true)
     }
 
     Connections{
-        target: workerThread
+        target: scheduler
 
-        function onImageProcessed(result) {
+//        function onUpdateStatusbar(){
+//            if(taskQueue.length > 0){
+//                var nodes = taskQueue.shift()
 
-            // TODO:
-            // print(result) gibt bei fehlendem input Image QVariant(QPixmap, QPixmap(null)) aus
-            // herausfinden wie man das ausnutzen kann um die zuweisung zum ImageProvider zu verhindern
+//                nodes.forEach(function setFlag(node){
+//                    canvas.setPipelineFlag(node, false)
+//                    node.isQueued = false
+//                })
 
-            gImageProvider.img = result
-            imageView.reload()
+//                statusBar.dequeueNode()
+//                // set the Pipelineflag for the next Node in Line
+//                if(taskQueue.length > 0){
+//                    taskQueue[0].forEach(function setFlag(node){
+//                        canvas.setPipelineFlag(node, true)
+//                    })
+//                }
+//            }
+//        }
 
-            var node = nodeQueue.shift()
+//        function onResultReady(result, index){
+//            var nodes = taskQueue[0]
+//            viewArea.updateViews(nodes[index], result)
+////            nodes.push(nodes.shift())
+////            taskQueue[0] = nodes
+//        }
 
-            node.isQueued = false
-            statusBar.dequeueNode()
-            canvas.resetShownImage()
-            node.isImageShown = true
-            canvas.setPipelineFlag(node, false)
+//        function onDisplayMessageForNode(message, indexInTask){
+//            var nodes = taskQueue[0]
+//            var node = nodes[indexInTask]
+//            statusBar.printMessage(node.title.title + ": " + message)
+//        }
 
-            // set the Pipelineflag for the next Node in Line
-            if(nodeQueue.length > 0){
-                canvas.setPipelineFlag(nodeQueue[0], true)
-            }
-            menuManager.hasImage = true
-        }
+//        function onDisplayMessage(message){
+//            statusBar.printMessage(message)
+//        }
 
-        function onVideoFrameProcessed(result){
-            gImageProvider.img = result
-            imageView.reload()
-
-            var node = nodeQueue[0]
-            if(!node.isImageShown){
-                canvas.resetShownImage()
-                node.isImageShown = true
-            }
-            menuManager.hasImage = true
-        }
     }
+
+    function getAbsolutePosition(item) {
+          var returnPos = {};
+          returnPos.x = 0;
+          returnPos.y = 0;
+          if(item !== undefined && item !== null) {
+              var parentValue = getAbsolutePosition(item.parent);
+              returnPos.x = parentValue.x + item.x;
+              returnPos.y = parentValue.y + item.y;
+          }
+          return returnPos;
+    }
+
 }

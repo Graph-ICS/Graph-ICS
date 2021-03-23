@@ -11,6 +11,10 @@ Video::Video()
 
     m_inPortCount = 0;
     m_nodeName = "Video";
+    m_amountOfFrames = 0;
+    m_cyclicProcessing = true;
+    m_offset = -1;
+    m_interval = -1;
 }
 
 Video::~Video()
@@ -18,26 +22,19 @@ Video::~Video()
     m_capture.release();
 }
 
-
-
-
 bool Video::retrieveResult() {
     if(getAttributeValue("path").toString() == ""){
         m_attributes.value("frame")->setConstraintValue("maxValue", QVariant(0));
         emit attributeValuesUpdated();
-        m_path = "";
         return false;
     }
-    if(m_path != getAttributeValue("path").toString()){
-        m_path = getAttributeValue("path").toString();
+
+    if(!m_capture.isOpened()){
         if(!startVideo()){
             return false;
         }
     }
 
-    if(!m_capture.isOpened()){
-        return false;
-    }
     cv::Mat rawFrame;
 
     m_currentFrame = getAttributeValue("frame").toInt();
@@ -50,11 +47,71 @@ bool Video::retrieveResult() {
     return true;
 }
 
+bool Video::inputType(Node* startNode)
+{
+    if(m_offset + m_interval <= QDateTime::currentMSecsSinceEpoch()){
+        double fps = getAttributeValue("fps").toDouble();
+
+        if(fps != 0){
+            m_interval = 1000/fps;
+
+            if(m_offset != -1){
+                int frame = getAttributeValue("frame").toInt();
+                frame++;
+                setAttributeValue("frame", QVariant(frame));
+            }
+        }
+
+        m_offset = QDateTime::currentMSecsSinceEpoch();
+    }
+
+    int currFrame = getAttributeValue("frame").toInt();
+//    qDebug() << currFrame << startNode->getNodeName();
+    if(!m_capture.isOpened()){
+        if(!retrieveResult()){
+            // failed
+            return false;
+        }
+    }
+
+//    m_img = m_vid[currFrame].deepCopy();
+
+    if(startNode->m_vid.size() < m_vid.size()){
+        startNode->m_vid.fill(GImage(), m_vid.size());
+    }
+
+    if(startNode->m_vid[currFrame].isEmpty()){
+        if(!startNode->retrieveResult()){
+            // failed
+            return false;
+        }
+        startNode->m_vid[currFrame] = startNode->m_img.deepCopy();
+    } else {
+        startNode->m_img = startNode->m_vid[currFrame];
+        return true;
+    }
+
+    bool isCached = true;
+
+    for(int i = 0; i < startNode->m_vid.size(); i++){
+        if(startNode->m_vid[i].isEmpty()){
+            isCached = false;
+//            qDebug() << i << startNode->getNodeName();
+            break;
+        }
+    }
+
+    if(isCached){
+        emit startNode->cached(true);
+    }
+    return true;
+}
+
 
 bool Video::startVideo()
 {
-    m_capture.release();
     try {
+        m_path = getAttributeValue("path").toString();
         m_capture.open(m_path.toStdString());
     }  catch (...) {
         return false;
@@ -63,15 +120,15 @@ bool Video::startVideo()
     cleanCache();
     if(m_capture.isOpened()) {
         m_amountOfFrames = m_capture.get(CV_CAP_PROP_FRAME_COUNT);
-        m_amountOfFrames -= 2;
         m_vid.fill(GImage(), m_amountOfFrames);
         m_currentFrame = 0;
         m_attributes.value("frame")->setConstraintValue("maxValue", QVariant(m_amountOfFrames));
         setAttributeValue("frame", m_currentFrame);
         double fps = m_capture.get(CV_CAP_PROP_FPS);
-        setAttributeValue("fps", QVariant(fps));
+        if(getAttributeValue("fps").toDouble() == 0){
+            setAttributeValue("fps", QVariant(fps));
+        }
         m_attributes.value("fps")->setDefaultValue(QVariant(fps));
-        emit attributeValuesUpdated();
         return true;
     }
     m_attributes.value("frame")->setConstraintValue("maxValue", QVariant(0));
@@ -86,7 +143,7 @@ void Video::setAttributeValue(QString attributeName, QVariant value)
 
         if(attr->getValue() != value){
             if(attributeName == "frame"){
-                if(value.toInt() >= m_amountOfFrames){
+                if(value.toInt() > m_amountOfFrames-1){
                    value = QVariant(0);
                 }
             }
@@ -95,6 +152,7 @@ void Video::setAttributeValue(QString attributeName, QVariant value)
                 m_attributes.value("frame")->setConstraintValue("maxValue", QVariant(0));
                 setAttributeValue("fps", QVariant(0));
                 m_attributes.value("fps")->setDefaultValue(QVariant(0));
+                m_capture.release();
                 cleanCache();
             }
             attr->setValue(value);

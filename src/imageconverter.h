@@ -5,9 +5,10 @@
 #include <itkImageFileReader.h>
 #include <itkImageFileWriter.h>
 #include <itkRGBAPixel.h>
+#include <itkOpenCVImageBridge.h>
 
 #include <QPixmap>
-
+#include "gimage.h"
 #include <cv.h>
 
 #include <QDebug>
@@ -18,31 +19,35 @@ class ImageConverter
 public:
     explicit ImageConverter();
 
-    static QImage Mat2QImage(cv::Mat &src);
+    typedef itk::Image<unsigned char, 2> ItkImageType;
+    // QPixmap
     static QImage QPixmap2QImage(QPixmap &src);
 
+    // QImage
     static QPixmap QImage2QPixmap(QImage const& src);
+    static cv::Mat QImage2CvMat(QImage const& src);
+    template<typename TImage>
+    static void QImage2ItkImage(TImage& image, const QImage& path);
 
-    static cv::Mat QImage2Mat(QImage const& src);
+    // CvMat
+    static QImage CvMat2QImage(cv::Mat &src);
+    static ItkImageType::Pointer CvMat2ItkImage(cv::Mat src);
 
+    // ImageType Helper
     static QString cvType2String(int type);
 
 
-    //ITK Converter
+    //ItkImage
+    template<typename TImage>
+    static void ItkImage2QImage(TImage& image, QImage& qImage);
+//    template<typename TImage>
+//    static cv::Mat ItkImage2Mat(TImage& image);
+    static cv::Mat ItkImage2CvMat(ItkImageType::Pointer src);
 
-    static const int imageDimension = 2;
     /*
     using RGBAPixelType = itk::RGBAPixel<unsigned char>;
     using RGBAImageType = itk::Image< RGBAPixelType , imageDimension>;
     */
-    using ImagePixelType = unsigned char;
-    using ImageType = itk::Image< ImagePixelType, imageDimension >;
-
-    template<typename TImage>
-    static void itkImageFromQImage(TImage& image, const QImage& path);
-
-    template<typename TImage>
-    static void qImageFromITKImage(TImage& image, QImage& qImage);
 
 /*
  * Deklaration der Template Funktionen zur Umwandlung von QImage
@@ -58,12 +63,18 @@ public:
 
 };
 
+//template<typename TImage>
+//cv::Mat ImageConverter::ItkImage2Mat(TImage &image)
+//{
+//    return itk::OpenCVImageBridge::ITKImageToCVMat<TImage>(image, true);
+//}
+
 template <typename TImage>
-void ImageConverter::itkImageFromQImage(TImage& image, const QImage& qImage)
+void ImageConverter::QImage2ItkImage(TImage& image, const QImage& qImage)
 {
-    ImageType::RegionType region;
-    ImageType::IndexType start;
-    ImageType::SizeType size;
+    ItkImageType::RegionType region;
+    ItkImageType::IndexType start;
+    ItkImageType::SizeType size;
 
     start[0] = 0;
     start[1] = 0;
@@ -81,7 +92,7 @@ void ImageConverter::itkImageFromQImage(TImage& image, const QImage& qImage)
     {
         for(int h = 0; h < qImage.height(); h++)
         {
-            ImageType::IndexType pixelIndex;
+            ItkImageType::IndexType pixelIndex;
             pixelIndex[0] = w;
             pixelIndex[1] = h;
             image->SetPixel(pixelIndex, qImage.pixel(w,h));
@@ -91,9 +102,9 @@ void ImageConverter::itkImageFromQImage(TImage& image, const QImage& qImage)
 }
 
 template <typename TImage>
-void ImageConverter::qImageFromITKImage(TImage& image, QImage &qImage)
+void ImageConverter::ItkImage2QImage(TImage& image, QImage &qImage)
 {
-    ImageType::RegionType region = image->GetLargestPossibleRegion();
+    ItkImageType::RegionType region = image->GetLargestPossibleRegion();
     int width = (int)region.GetSize(0);
     int height = (int)region.GetSize(1);
 
@@ -103,8 +114,8 @@ void ImageConverter::qImageFromITKImage(TImage& image, QImage &qImage)
     {
         for(int h = 0; h < height; h++)
         {
-            ImageType::IndexType pixelIndex = {{w,h}};
-            ImageType::PixelType pixelValue = image->GetPixel( pixelIndex );
+            ItkImageType::IndexType pixelIndex = {{w,h}};
+            ItkImageType::PixelType pixelValue = image->GetPixel( pixelIndex );
             QRgb value = qRgb(pixelValue, pixelValue, pixelValue); // Pixelwerte aus der ITK Image in einzelnen channels gleich
             qimageOut.setPixel(w, h, value);
         }

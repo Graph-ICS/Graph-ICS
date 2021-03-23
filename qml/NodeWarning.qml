@@ -18,7 +18,7 @@ Item {
             if(txt !== "") {
 //                warning.text = txt
 //                warning.showNormal()
-                statusBar.printMessage(node.objectName + ": " + txt)
+                statusBar.printMessage(node.title.title + ": " + txt)
             }
         }
     }

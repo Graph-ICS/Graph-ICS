@@ -13,7 +13,7 @@ Image::Image()
 
 bool Image::retrieveResult()
 {
-    if(m_img.isSet()){
+    if(!m_img.isEmpty()){
         return true;
     }
     try {
@@ -22,7 +22,7 @@ bool Image::retrieveResult()
             m_img.setImage(img);
         }
         else {
-            m_img = GImage();
+            m_img.clear();
             return false;
         }
     } catch (int e) {

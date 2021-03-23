@@ -1,6 +1,7 @@
 pragma Singleton
 
 import QtQuick 2.0
+import QtCharts 2.15
 
 // Theme Singleton: Globale Konstanten fuer alle Objekte
 // Farben, Font usw sollen nur hier geaendert werden
@@ -10,8 +11,8 @@ QtObject{
     property bool colorfulMode: false
     property bool accentEnabled: true
 
-    readonly property color mainColor: darkMode ? colorfulMode ? "" : "#303030" : colorfulMode ? "" : "white"
-    readonly property color accentColor: colorfulMode ? "" : "#4182AF"
+    readonly property color mainColor: darkMode ?  "#303030" :  "white"
+    readonly property color accentColor:  "#4182AF"
 
     // Einheitliche font in der ganzen Oberfläche
     readonly property var font: QtObject {
@@ -24,19 +25,22 @@ QtObject{
 
         readonly property var color: QtObject {
             readonly property var background: QtObject {
-                readonly property color normal: darkMode ? colorfulMode ? "" : "#292929" : colorfulMode ? "" : "white"
-                readonly property color hover: darkMode ? colorfulMode ? "" : "#383838" : colorfulMode ? "" : "#F3F3F3"
-                readonly property color press: darkMode ? colorfulMode ? "" : "#4D4D4D" : colorfulMode ? "" : "#EEEEEE"
-                readonly property color pressAndHold: colorfulMode ? "" : Theme.accentColor
+                readonly property color normal: darkMode ?  "#292929" :  "white"
+                readonly property color hover: darkMode ?  "#383838" :  "#F3F3F3"
+                readonly property color press: darkMode ?  "#4D4D4D" :  "#EEEEEE"
+                readonly property color pressAndHold:  Theme.accentColor
+                readonly property color disabled: darkMode ? "#383838" : "#F3F3F3"
             }
 
             readonly property var text: QtObject {
-                readonly property color normal: darkMode ? colorfulMode ? "" : "#575757" : colorfulMode ? "" : "#A1A1A1"
-                readonly property color hover: darkMode ? colorfulMode ? "" : "#757575" : colorfulMode ? "" : "#949494"
-                readonly property color press: darkMode ? colorfulMode ? "" : "#8C8C8C" : colorfulMode ? "" : "#828282"
+                readonly property color normal: darkMode ?  "#919191" :  "#A1A1A1"
+                readonly property color hover: darkMode ?  "#A8A8A8" :  "#949494"
+                readonly property color press: darkMode ?  "#C2C2C2" :  "#828282"
                 readonly property color pressAndHold: "white"
+                readonly property color disabled: darkMode ? "#919191" : "#A1A1A1"
             }
         }
+        readonly property int height: 40
     }
 
     readonly property var textField: QtObject {
@@ -61,10 +65,8 @@ QtObject{
         readonly property var color: QtObject {
 
             readonly property var background: QtObject {
-                readonly property color normal: colorfulMode ? "#0D3A94" : Theme.accentColor
-                // shown: die Farbe des Nodes falls das dementsprechende
-                // Image gerade in der View angezeigt wird
-                readonly property color shown: /*"darkcyan"*/ colorfulMode ? "#69183E" : "teal"
+                readonly property color normal: darkMode ? "#40556B" : "#4182AF"
+                readonly property color border: Qt.darker(node.color.background.normal)
             }
 
             readonly property var port: QtObject {
@@ -88,16 +90,37 @@ QtObject{
     readonly property var canvas: QtObject {
         readonly property var color: QtObject {
             readonly property var background: QtObject {
-                readonly property color normal: darkMode ? colorfulMode ? "" : "#4A4A4A" :colorfulMode ? "" :  "gainsboro"
+                readonly property color normal: darkMode ?  "#4A4A4A" :  "gainsboro"
             }
             readonly property var stroke: QtObject {
-                readonly property color normal: darkMode ? colorfulMode ? "" : "lightgray" : colorfulMode ? "" : "darkgray"
+                readonly property color normal: darkMode ?  "lightgray" :  "darkgray"
             }
             readonly property var edge: QtObject {
                 readonly property color normal: "#B80012"
                 readonly property color hover: Theme.node.color.border.hover
             }
         }
+    }
+
+    // ViewArea Color
+    readonly property var viewArea: QtObject {
+        readonly property var defaultColor: QtObject {
+            readonly property color normal: Theme.accentColor
+            readonly property color shown: "#406BC7"
+
+        }
+        readonly property var colors: [
+            "dodgerblue",
+            "crimson",
+            "slateblue",
+            "greenyellow",
+            "springgreen",
+            "gold",
+            "coral",
+            "deepskyblue",
+            "deeppink",
+            "olivedrab"
+        ]
     }
 }
 

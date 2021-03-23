@@ -62,5 +62,7 @@ Item {
 
     function restoreDefault(){
         textField.text = parent.model.getAttributeDefaultValue(objectName)
+        parent.model.setAttributeValue(objectName, textField.text)
+
     }
 }

@@ -24,8 +24,13 @@ Window {
     property var nodeToExport: null
 
     onVisibilityChanged: {
-        if(visible)
+        if(visible){
             requestActivate()
+        }
+
+        for(var i = 0; i < canvas.nodes.length; i++){
+            canvas.setPipelineFlag(canvas.nodes[i], visible)
+        }
     }
 
     onClosing: {

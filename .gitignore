@@ -1,8 +1,10 @@
+.vscode/
 build/
 bin/
 CMakeLists.txt.user
 *.qmlc
 *.json
+*.autosave
 src/*.autosave
 src/nodes/*.autosave
 src/nodes/filter/*.autosave

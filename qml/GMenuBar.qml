@@ -73,30 +73,30 @@ QQC2.MenuBar {
             enabled: menuManager.isSaveConfigAsAllowed()
         }
 
-        QQC2.MenuSeparator {
-            contentItem: Rectangle {
-                implicitWidth: 200
-                implicitHeight: 1
-                color: Theme.accentColor
-            }
-        }
+//        QQC2.MenuSeparator {
+//            contentItem: Rectangle {
+//                implicitWidth: 200
+//                implicitHeight: 1
+//                color: Theme.accentColor
+//            }
+//        }
 
-        QQC2.Action {
-            text: "Save Image As"
-            onTriggered: {
-                fileDialog.open("save_image")
-            }
-            enabled: menuManager.isSaveImageAsAllowed()
-        }
+//        QQC2.Action {
+//            text: "Save Image As"
+//            onTriggered: {
+//                fileDialog.open("save_image")
+//            }
+//            enabled: menuManager.isSaveImageAsAllowed()
+//        }
 
-        QQC2.Action {
-            text: "Export Video"
-            onTriggered: {
-                exportDialog.nodeToExport = canvas.getShownImageNode()
-                exportDialog.showNormal()
-            }
-            enabled: menuManager.isExportVideoAllowed()
-        }
+//        QQC2.Action {
+//            text: "Export Video"
+//            onTriggered: {
+//                exportDialog.nodeToExport = canvas.getShownImageNode()
+//                exportDialog.showNormal()
+//            }
+//            enabled: menuManager.isExportVideoAllowed()
+//        }
 
         QQC2.MenuSeparator {
             contentItem: Rectangle {
@@ -159,14 +159,14 @@ QQC2.MenuBar {
                 node.processNode()
             }
         }
-
-        QQC2.Action {
-            text: "Clear Image"
-            onTriggered: {
-                clearImage()
-            }
-            enabled: menuManager.isClearImageAllowed()
-        }
+        // TODO: maybe reactivate
+//        QQC2.Action {
+//            text: "Clear Image"
+//            onTriggered: {
+//                clearImage()
+//            }
+//            enabled: menuManager.isClearImageAllowed()
+//        }
 
         QQC2.MenuSeparator {
             contentItem: Rectangle {
@@ -228,16 +228,17 @@ QQC2.MenuBar {
             switch(state){
                 case 'open_json':
                     configManager.openConfig(fileUrl)
+
                     break
                 case 'save_json':
                     configManager.saveConfig(fileUrl)
-                    if(isConfigReadyToClear === true) {
+                    if(isConfigReadyToClear) {
                         resetConfig();
                         isConfigReadyToClear = false;
                     }
                     break
                 case 'save_image':
-                    fileIO.writeImageFile(fileUrl, canvas.getShownImageNode().model)
+                    fileIO.writeImageFile(fileUrl, currentNode.model)
                     break
                 case 'save_video':
                     break
@@ -245,6 +246,7 @@ QQC2.MenuBar {
                     break
             }
         }
+         property var currentNode: null
     }
 
     function removeSelectedNodes(){
@@ -293,15 +295,20 @@ QQC2.MenuBar {
     }
 
     function clearImage() {
-        imageView.removeImage();
+        viewArea.removeImage()
         menuManager.hasImage = false;
-        canvas.resetShownImage()
+    }
+
+    function clearViews(){
+        viewArea.clearAll()
+        menuManager.hasImage = false;
     }
 
     function resetConfig() {
         menuManager.configResetted();
         configManager.clearConfig();
         menuManager.prepareNewConfig();
+        clearViews()
     }
 
     function newConfig() {
@@ -316,6 +323,7 @@ QQC2.MenuBar {
     function openConfig() {
         fileDialog.open("open_json")
         menuManager.hasConfig = true
+        menuManager.configResetted()
     }
 
     function saveConfig() {

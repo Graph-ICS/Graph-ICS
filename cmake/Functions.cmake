@@ -21,3 +21,15 @@ function(AddResources rel_path group_name list_res)
   set(${list_res} ${list_return} PARENT_SCOPE)
 endfunction()
 
+macro(HEADER_DIRECTORIES relative_path return_list)
+    FILE(GLOB_RECURSE new_list "${relative_path}/*.h")
+    SET(dir_list "")
+
+    FOREACH(file_path ${new_list})
+        GET_FILENAME_COMPONENT(dir_path ${file_path} PATH)
+        SET(dir_list ${dir_list} ${dir_path})
+    ENDFOREACH()
+
+    LIST(REMOVE_DUPLICATES dir_list)
+    SET(${return_list} ${dir_list})
+endmacro()

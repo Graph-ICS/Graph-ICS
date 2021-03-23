@@ -4,17 +4,13 @@
 #include <QDebug>
 
 Node::Node() :
-    m_img(GImage()),
-    m_vid(QVector<GImage>()),
+    m_inPortCount(1),
     m_nodeName(QString("")),
-    m_warningMessage(QString(""))
+    m_warningMessage(QString("")),
+    m_cyclicProcessing(false),
+    m_outputType(QString("GImage"))
 {
-    // die meisten Nodes sind filter, diese haben eine inNode daher ist der Default value 1
-    // bei Nodes ohne oder mehr inNodes, wie Image und ItkSubtract muss dieser
-    // parameter im Konstruktor angepasst werden
-    m_inPortCount = 1;
-//    m_nodeName = "";
-//    m_warningMessage = "";
+
 }
 
 QQmlListProperty<Node> Node::getInNodes()
@@ -43,7 +39,7 @@ Node *Node::getInputNode()
 
 void Node::addInNode(Node* node) {
     m_inNodes.append(node);
-    m_img = GImage();
+    m_img.clear();
 
     emit inNodesChanged();
 }
@@ -60,7 +56,7 @@ Node *Node::getInNode(int index) const
 
 void Node::removeInNode(Node* node) {
     m_inNodes.removeOne(node);
-    m_img = GImage();
+    m_img.clear();
 
     emit inNodesChanged();
 }
@@ -72,45 +68,21 @@ void Node::cleanCache()
             m_outNodes.at(i)->cleanCache();
         }
     }
+
     m_vid.clear();
-    m_img = GImage();
+    m_img.clear();
+    m_data.clear();
+
     emit cached(false);
 }
-
-void Node::cleanImageCache()
-{
-    if(m_outNodes.size() > 0){
-        for (int i = 0; i < m_outNodes.size(); ++i) {
-            m_outNodes.at(i)->cleanImageCache();
-        }
-    }
-    m_img = GImage();
-    if(m_vid.isEmpty()){
-        emit cached(false);
-    }
-}
-
-void Node::cleanVideoCache()
-{
-    if(m_outNodes.size() > 0){
-        for (int i = 0; i < m_outNodes.size(); ++i) {
-            m_outNodes.at(i)->cleanVideoCache();
-        }
-    }
-    m_vid.clear();
-    if(!m_img.isSet()){
-        emit cached(false);
-    }
-}
-
 
 QVariant Node::getAttributeConstraint(QString attributeName, QString constraintName)
 {
     if(m_attributes.contains(attributeName)){
         return m_attributes.value(attributeName)->getConstraint(constraintName);
     } else {
-        qDebug() << "an attribute with this name does not exist!";
-        throw "an attribute with this name does not exist!";
+        qDebug() << "an attribute with the name \"" + attributeName + "\" does not exist!";
+        throw "an attribute with the name \"" + attributeName + "\" does not exist!";
     }
 }
 
@@ -119,8 +91,8 @@ QString Node::getAttributeType(QString attributeName) const
     if(m_attributes.contains(attributeName)){
         return m_attributes.value(attributeName)->getType();
     } else {
-        qDebug() << "an attribute with this name does not exist!";
-        throw "an attribute with this name does not exist!";
+        qDebug() << "an attribute with the name \"" + attributeName + "\" does not exist!";
+        throw "an attribute with the name \"" + attributeName + "\" does not exist!";
     }
 }
 
@@ -129,8 +101,8 @@ QVariant Node::getAttributeValue(QString attributeName) const
     if(m_attributes.contains(attributeName)){
         return m_attributes.value(attributeName)->getValue();
     } else {
-        qDebug() << "an attribute with this name does not exist!";
-        throw "an attribute with this name does not exist!";
+        qDebug() << "an attribute with the name \"" + attributeName + "\" does not exist!";
+        throw "an attribute with the name \"" + attributeName + "\" does not exist!";
     }
 }
 
@@ -146,8 +118,8 @@ void Node::setAttributeValue(QString attributeName, QVariant value)
         }
 
     } else {
-        qDebug() << "an attribute with this name does not exist!";
-        throw "an attribute with this name does not exist!";
+        qDebug() << "an attribute with the name \"" + attributeName + "\" does not exist!";
+        throw "an attribute with the name \"" + attributeName + "\" does not exist!";
     }
 }
 
@@ -156,8 +128,8 @@ QVariant Node::getAttributeDefaultValue(QString attributeName) const
     if(m_attributes.contains(attributeName)){
         return m_attributes.value(attributeName)->getDefaultValue();
     } else {
-        qDebug() << "an attribute with this name does not exist!";
-        throw "an attribute with this name does not exist!";
+        qDebug() << "an attribute with the name \"" + attributeName + "\" does not exist!";
+        throw "an attribute with the name \"" + attributeName + "\" does not exist!";
     }
 }
 
@@ -174,11 +146,6 @@ QList<QString> Node::getAttributeNames() const
 int Node::getInPortCount() const
 {
     return m_inPortCount;
-}
-
-const QVector<GImage> &Node::getVideo()
-{
-    return m_vid;
 }
 
 void Node::registerAttribute(QString key, NodeAttribute *attribute)
@@ -244,53 +211,52 @@ void Node::clearOutNodes() {
     }
 }
 
-GImage Node::getResult()
-{
-    Node* input = getInputNode();
-    if(input->hasAttribute("frame")){
-        int currFrame = input->getAttributeValue("frame").toInt();
-        if(input->m_vid.size() == 0){
-            if(!retrieveResult()){
-                m_img = GImage();
-                return m_img;
-            }
-        }
-        if(m_vid.size() < input->m_vid.size()){
-            m_vid.fill(GImage(), input->m_vid.size());
-        }
-        m_img = m_vid.at(currFrame);
-        if(!m_img.isSet()){
-//            input->cleanImageCache();
-            if(!retrieveResult()){
-                m_img = GImage();
-                return m_img;
-            }
-            m_vid[currFrame] = m_img;
-        }
-        bool isCached = true;
-        for(auto i : m_vid){
-            if(!i.isSet()){
-                isCached = false;
-                break;
-            }
-        }
-        emit cached(isCached);
+GImage Node::getResultImage() {
 
-    } else {
-        bool getCached = true;
-        if(input->getNodeName() == "Camera"){
-            // Camera Pipeline never gets cached
-            getCached = false;
-            input->cleanImageCache();
-        }
-        if (!m_img.isSet()) {
-            if(retrieveResult()){
-                emit cached(getCached);
-            }
-        }
+    if(getInputNode()->inputType(this)){
+        return m_img.deepCopy();
     }
+    // no deep copy on failure
+    return m_img;
+}
 
-    return m_img.deepCopy();
+GImage Node::resultImage()
+{
+    getInputNode()->inputType(this);
+
+    return m_img;
+}
+
+const QVector<GImage> &Node::resultVideo()
+{
+    return m_vid;
+}
+
+GData Node::getResultData()
+{
+    if(getInputNode()->inputType(this)){
+        return m_data.deepCopy();
+    }
+    // no deep copy on failure
+    return m_data;
+}
+
+GData Node::resultData()
+{
+    getInputNode()->inputType(this);
+
+    return m_data;
+}
+
+// Default behaviour
+bool Node::inputType(Node* startNode)
+{
+    bool isCached = true;
+    if(startNode->m_img.isEmpty() && startNode->m_data.isEmpty()){
+        isCached = startNode->retrieveResult();
+        emit startNode->cached(isCached);
+    }
+    return isCached;
 }
 
 void Node::addOutNode(QQmlListProperty<Node>* list, Node* p) {
@@ -318,9 +284,7 @@ QString Node::getWarningMessage() const
     return m_warningMessage;
 }
 
-// pruefung ob toNode bereits im Graphen als inNode vorhanden ist
-
-// -> Zyklus Bildung verhindern
+// check if an edge to the toNode would create a circle
 bool Node::hasGraphCircle(Node* toNode){
 
     if(toNode == this) {
@@ -333,4 +297,14 @@ bool Node::hasGraphCircle(Node* toNode){
     }
 
     return m_inNodes[0]->hasGraphCircle(toNode);
+}
+
+bool Node::isCyclicProcessing()
+{
+    return m_cyclicProcessing;
+}
+
+QString Node::getOutputType()
+{
+    return m_outputType;
 }

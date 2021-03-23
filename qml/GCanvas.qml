@@ -529,8 +529,9 @@ Canvas {
                 break;
             }
         }
-        if(node.isImageShown){
-            menuBar.clearImage()
+        if(node.isShown){
+            viewArea.clearShown(node)
+            menuManager.hasImage = false
         }
 
         node.destroy();
@@ -539,8 +540,8 @@ Canvas {
             update();
             requestPaint();
         }
-//        menuManager.updateConfig(); // Nodes array wurde verändert
-//        menuManager.updateSelectedNodes();
+        menuManager.updateConfig(); // Nodes array wurde verändert
+        menuManager.updateSelectedNodes();
 
     }
 
@@ -708,13 +709,6 @@ Canvas {
         return a;
     }
 
-    function resetShownImage(){
-        for(var i = 0; i < nodes.length; i++){
-            var node = nodes[i]
-            node.isImageShown = false
-        }
-    }
-
     function getShownImageNode() {
         for(var i = 0; i < nodes.length; i++){
             var node = nodes[i]
@@ -778,6 +772,43 @@ Canvas {
                 }
             }
         }
+    }
+
+    function getNodeCounter(nodeName){
+        var num = 0
+        nodes.forEach(function(i){
+            if(nodeName === i.objectName){
+                if(num < i.number){
+                    num = i.number
+                }
+            }
+        })
+        num++
+        return num
+
+
+//        var nbrs = []
+//        for(var i = 0; i < nodes.length; i++){
+//            if(nodes[i].objectName === node.objectName){
+//                nbrs.push(nodes[i].number)
+//            }
+//        }
+//        // sort numbers in ascending order
+//        nbrs.sort(function compareNumbers(a, b) {
+//            return a - b;
+//        })
+
+//        // smallest number
+//        var num = 1
+//        nbrs.forEach(function(number){
+//            if(num === number){
+//                num++
+//            } else {
+//                // fill gap
+//                return
+//            }
+//        })
+//        node.number = num
     }
 
 }

@@ -8,12 +8,11 @@ import Theme 1.0
 Item {
     id: graphics_StatusBarDelegate
     property string text: "placeholderText"
-    property bool firstElement: false
-    property int index: 0
     property string inputNode: ""
+    property var node: null
 
-    signal emptyQueue
-    signal removeTask(var index)
+    property alias videoControls: videoControl
+
     height: ma.height + 14
     width: 196
 
@@ -23,7 +22,7 @@ Item {
         anchors.verticalCenter: parent.verticalCenter
         radius: 10
         color: Theme.accentColor
-        visible: firstElement
+        visible: !videoControl.paused
     }
 
     MouseArea {
@@ -38,12 +37,9 @@ Item {
             id: label
             anchors.fill: parent
             text: graphics_StatusBarDelegate.text
-            color: firstElement ? Theme.contentDelegate.color.text.hover : Theme.contentDelegate.color.text.normal
+            color: Theme.contentDelegate.color.text.hover
             font.pointSize: Theme.font.pointSize
             font.family: Theme.font.family
-        }
-        onClicked: {
-            menu.popup()
         }
     }
 
@@ -59,34 +55,38 @@ Item {
 
     GVideoControlPanel {
         id: videoControl
-        visible: inputNode == "Video" | inputNode == "Camera" ? firstElement : false
         anchors.left: bottomLine.right
         anchors.verticalCenter: ma.verticalCenter
         anchors.leftMargin: 4
         paused: false
-        height: 28
-        width: 180
+        height: 22
+        width: height*2 + 8
 
         onPlay: {
-            workerThread.playVideo()
+            scheduler.resumeNode(node.model)
         }
         onPause: {
-            workerThread.pauseVideo()
+            scheduler.suspendNode(node.model)
         }
         onStop: {
-            workerThread.stopVideo()
+            scheduler.stopNode(node.model)
+            stopButton.enabled = false
         }
     }
 
-    GMenu {
-        id: menu
-        QQC2.Action {
-            text: "remove Task"
-            enabled: !firstElement
-            onTriggered: {
-                removeTask(graphics_StatusBarDelegate.index)
-            }
-        }
+    function disableStop(){
+        videoControl.stopButton.enabled = false
     }
+
+//    GMenu {
+//        id: menu
+//        QQC2.Action {
+//            text: "remove Task"
+//            enabled: !firstElement
+//            onTriggered: {
+//                removeTask(graphics_StatusBarDelegate.index)
+//            }
+//        }
+//    }
 
 }

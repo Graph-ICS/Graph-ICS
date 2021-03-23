@@ -8,7 +8,7 @@ import Theme 1.0
 
 Window {
     id: popup;
-    title: "Graph-ICS - Info"
+    title: "Graph-ICS - About"
     minimumWidth: 350
     maximumWidth: 350
     minimumHeight: label.height + logoCES.height + logoRemic.height + 40
@@ -38,8 +38,7 @@ Window {
         color: Theme.contentDelegate.color.text.hover
         font.family: Theme.font.family
         font.pointSize: Theme.font.pointSize
-        text: "Based on Qt 5.15.1 \n(MSVC 2015, 64Bit)\n\n" +
-                   "Build on 23.12.2020 " +
+        text: "Version 0.10 - Based on Qt 5.15.2\n" +
                    "Copyright ... \n\n" +
                    "The program is provided AS IS with" +
                    " NO WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN,"+

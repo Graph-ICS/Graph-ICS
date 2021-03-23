@@ -27,6 +27,9 @@ QString FileIO::openFile(QString url)
 
 void FileIO::saveFile(QString text, QString url)
 {
+    if(url.startsWith("file")){
+        url.remove(0, PATHOVERHEAD);
+    }
     QFile file(url);
     if(!file.open(QIODevice::WriteOnly | QIODevice::Text)){
         return;
@@ -63,12 +66,16 @@ void FileIO::writeVideoFile(QString outputPath, Node *node)
 void FileIO::writeImageFile(QString outputPath, Node *node)
 {
     outputPath.remove(0, PATHOVERHEAD);
-    auto img = node->getResult();
+    auto img = node->resultImage();
     img.getQImage().save(outputPath);
 }
 
 QString FileIO::removePathoverhead(QString outputPath)
 {
-    return outputPath.remove(0, PATHOVERHEAD);
+    QString result = outputPath;
+    if(outputPath.startsWith("file")){
+        result = outputPath.remove(0, PATHOVERHEAD);
+    }
+    return result;
 }
 

@@ -13,7 +13,7 @@ import Theme 1.0
 Item {
     id: intAttribute
 
-    width: label.implicitWidth + textField.width + 28
+    width: label.implicitWidth + textField.implicitWidth + 28
     height: /*textField.height*/ 24
     anchors.topMargin: 8
     anchors.left: parent.left
@@ -23,11 +23,11 @@ Item {
         id: textField
         enabled: !intAttribute.parent.isInPipeline
         horizontalAlignment: TextInput.AlignHCenter
-        width: 46
+        width: implicitWidth
         height: font.pointSize + 16
         font.family: Theme.font.family
         font.pointSize: Theme.font.pointSize
-        maximumLength: 3
+        maximumLength: 4
         validator: IntValidator {
             locale: "en"
         }
@@ -38,6 +38,9 @@ Item {
         }
         onFocusChanged: {
             validateValue()
+        }
+        onWidthChanged: {
+            intAttribute.parent.rect.updateNodeWidth()
         }
     }
 

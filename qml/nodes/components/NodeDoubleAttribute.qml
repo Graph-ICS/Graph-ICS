@@ -13,7 +13,7 @@ import Theme 1.0
 Item {
     id: doubleAttribute
 
-    width: label.implicitWidth + textField.width + 28
+    width: label.implicitWidth + textField.implicitWidth + 28
     height: /*textField.height*/ 24
     anchors.topMargin: 8
     anchors.left: parent.left
@@ -23,13 +23,12 @@ Item {
         id: textField
         enabled: !doubleAttribute.parent.isInPipeline
         horizontalAlignment: TextInput.AlignHCenter
-        width: 46
+        width: implicitWidth
         height: font.pointSize + 16
         font.family: Theme.font.family
         font.pointSize: Theme.font.pointSize
-        maximumLength: 4
+        maximumLength: 6
         validator: DoubleValidator {
-            decimals: 2
             locale: "en"
         }
         borderColor: doubleAttribute.parent.rect.border.color
@@ -39,6 +38,10 @@ Item {
         }
         onFocusChanged: {
             validateValue()
+        }
+
+        onWidthChanged: {
+            doubleAttribute.parent.rect.updateNodeWidth()
         }
     }
 

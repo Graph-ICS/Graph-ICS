@@ -69,8 +69,8 @@ GNode {
         var obj;
         obj = { x: x, y: y, objectName : objectName,
         path: model.getAttributeValue(path.objectName),
-        play: model.getAttributeValue(play.objectName),
-        frame: model.getAttributeValue(frame.objectName)
+        frame: model.getAttributeValue(frame.objectName),
+        fps: model.getAttributeValue(fps.objectName)
         };
         return obj;
     }

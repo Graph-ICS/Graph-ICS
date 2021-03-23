@@ -27,12 +27,13 @@ Item {
         '
         var savePart = 'function saveNode(name) {
             var obj
-            obj = { x: node.x, y: node.y, objectName : objectName'
+            obj = { x: node.x, y: node.y, objectName : objectName, number: number'
         var loadPart = 'function loadNode(nodeData) {
             for(var i = 0; i < attributes.length; i++){
                 model.setAttributeValue(attributes[i].objectName, nodeData[attributes[i].objectName])
             }
             updateAttributeValues()
+            number = nodeData.number
         }
         '
 
@@ -113,6 +114,7 @@ Item {
                     savePart +
                     loadPart  + '}'
 
+        model.destroy()
         return str
     }
 

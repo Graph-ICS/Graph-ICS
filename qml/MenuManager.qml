@@ -123,17 +123,17 @@ Item {
         }
     }
 
-    function isExportVideoAllowed() {
-        if(hasImage){
-            var node = canvas.getShownImageNode()
+    function isExportVideoAllowed(currentNode) {
+//        if(hasImage){
+            var node = currentNode
             if(node !== null){
                 if(node.model.getInputNodeName() === "Video") {
-                    if(node.isCached){
+                    if(node.isCached && !node.isInPipeline){
                         return true
                     }
                 }
             }
-        }
+//        }
         return false
     }
 

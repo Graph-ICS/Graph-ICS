@@ -12,14 +12,14 @@ import "components/"
 Item{
     id: favoritesBar
     width: parent.width
-    height: visible ? 40 : 0
+    height: visible ? Theme.contentDelegate.height : 0
     property alias searchBar: searchBar
     property alias search: textField
     property alias favoritesContainer: favoriteItems
     property bool addFavorites: true
 
     onVisibleChanged: {
-        canvas.moveNodes(visible, 40)
+        canvas.moveNodes(visible, Theme.contentDelegate.height)
     }
 
     DropArea {

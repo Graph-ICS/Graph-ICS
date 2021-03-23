@@ -2,15 +2,15 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Window 2.2
-
+import Qt.labs.qmlmodels 1.0
 import "components/"
 import Theme 1.0
 
 Window {
     id: graphics_Settings
 
-    height: 266
-    width:  472
+    height: 233
+    width:  396
     minimumHeight: 133
     minimumWidth: 236
     maximumHeight: 576
@@ -24,7 +24,11 @@ Window {
         for(var i = 0; i < listModels.length; i++){
             for(var j = 0; j < listModels[i].count; j++){
                 var obj = listModels[i].get(j)
-                setOption(obj["option"], obj["value"])
+                if(obj["option"] === "views"){
+                    setOption(obj.option, obj.viewsValue)
+                } else {
+                    setOption(obj["option"], obj["value"])
+                }
             }
         }
     }
@@ -32,7 +36,7 @@ Window {
     TabBar {
         id: tabbar
         width: parent.width
-        height: 40
+        height: 32
         background:  Rectangle {
             width: graphics_Settings.width
             height: graphics_Settings.height
@@ -87,39 +91,67 @@ Window {
                 color: Theme.contentDelegate.color.background.hover
                 Rectangle {
                     anchors.fill: parent
-                    anchors.margins: 24
+                    anchors.margins: 11
                     color: Theme.mainColor
 
                     GListView {
                         id: layoutList
-                        model: ListModel {
+                        ListModel {
                             id: layoutListModel
+
                             ListElement {
+                                type: "switch"
                                 option: "enable Sidepanel"
                                 value: true
                             }
                             ListElement {
+                                type: "switch"
                                 option: "enable Favoritesbar"
                                 value: true
                             }
                             ListElement {
+                                type: "switch"
                                 option: "enable Statusbar"
                                 value: true
                             }
                             ListElement {
-                                option: "scale Image in Imageview"
-                                value: false
+                                type: "views"
+                                option: "views"
+                                viewsValue: 2
                             }
+
                         }
-                        delegate: GSwitchDelegate {
-                            text: option
-                            checked: value
-                            onCheckedChanged: {
-                                value = checked
-                                configManager.saveSettings()
-                                setOption(option, value)
-                            }
+                        DelegateChooser {
+                            id: chooser
+                            role: "type"
+                            choices: [
+                                DelegateChoice {
+                                    roleValue: "switch"
+                                    GSwitchDelegate {
+                                        text: option
+                                        checked: value
+                                        onCheckedChanged: {
+                                            model.value = checked
+                                            configManager.saveSettings()
+                                            setOption(model.option, model.value)
+                                        }
+                                    }
+                                },
+                                DelegateChoice {
+                                    roleValue: "views"
+                                    GViewAreaSettings {
+                                        viewsValue: model.viewsValue
+                                        onViewsChanged: {
+                                            model.viewsValue = value
+                                            configManager.saveSettings()
+                                            setOption("views", value)
+                                        }
+                                    }
+                                }
+                            ]
                         }
+                        model: layoutListModel
+                        delegate: chooser
                     }
                 }
             }
@@ -132,7 +164,7 @@ Window {
                 color: Theme.contentDelegate.color.background.hover
                 Rectangle {
                     anchors.fill: parent
-                    anchors.margins: 24
+                    anchors.margins: 11
                     color: Theme.mainColor
 
                     GListView {
@@ -140,7 +172,7 @@ Window {
                         model: ListModel {
                             id: searchListModel
                             ListElement {
-                                option: "enable 'google-Search'"
+                                option: "search on typing (slower performance)"
                                 value: false
                             }
                             ListElement {
@@ -170,7 +202,7 @@ Window {
                 color: Theme.contentDelegate.color.background.hover
                 Rectangle {
                     anchors.fill: parent
-                    anchors.margins: 24
+                    anchors.margins: 11
                     color: Theme.mainColor
 
                     GListView {
@@ -229,17 +261,21 @@ Window {
                 favoritesBar.favoritesContainer.visible = value
                 break
 
-            case "scale Image in Imageview":
-                imageView.state = value ? 'scale' : 'normal'
-                imageView.reload()
+
+            case "views":
+                viewArea.addViews(value)
                 break
 
-            case "enable 'google-Search'":
-                sidePanel.googleSearch = value
-                if(value)
-                    sidePanel.listModel.clear()
-                else
-                    sidePanel.reload()
+            case "scale Image in Imageview":
+                var state = value ? 'scale' : 'normal'
+                // TODO: fix with viewArea
+//                viewArea.imageView.setState(state)
+//                viewArea.imageView.reload()
+                break
+
+            case "search on typing (slower performance)":
+                sidePanel.searchOnType = value
+                sidePanel.reload()
                 break
 
             case "enable Statusbar":
@@ -270,7 +306,18 @@ Window {
         for(var i = 0; i < config.length; i++){
             listModels[i].clear()
             for(var j = 0; j < config[i].length; j++){
-                listModels[i].append({"option": config[i][j]["option"], "value": config[i][j]["value"]})
+                if("type" in config[i][j]){
+                    if("viewsValue" in config[i][j]){
+                        listModels[i].append({"type": config[i][j]["type"],
+                                                 "option": config[i][j]["option"],
+                                                 "value": config[i][j]["value"],
+                                                 "viewsValue": config[i][j]["viewsValue"]})
+                    } else {
+                        listModels[i].append({"type": config[i][j]["type"], "option": config[i][j]["option"], "value": config[i][j]["value"]})
+                    }
+                } else {
+                    listModels[i].append({"option": config[i][j]["option"], "value": config[i][j]["value"]})
+                }
             }
         }
     }

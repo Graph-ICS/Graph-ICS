@@ -10,95 +10,116 @@ Item {
     signal play()
     signal pause()
     signal stop()
-
+    property int iconMargin: 0
     property int margin: 4
     property var color: QtObject {
         property color normal: Theme.contentDelegate.color.text.normal
         property color hover: Theme.node.color.border.hover
+        property color disabled: Theme.contentDelegate.color.text.normal
     }
 
     property alias paused: playPauseButton.paused
-
-    GButton {
-        id: playPauseButton
+    property alias playPauseButton: playPauseButton
+    property alias stopButton: stopButton
+    Row {
+        spacing: 0
         height: parent.height
-        width: height
-        transparent: true
-        anchors.left: parent.left
-        anchors.leftMargin: margin
-        anchors.verticalCenter: parent.verticalCenter
-        property bool paused: true
-        Image {
-            id: playPauseIcon
-            anchors.fill: parent
-            source: parent.paused ? "qrc:/img/play.svg" : "qrc:/img/pause.svg"
-            fillMode: Image.PreserveAspectFit
-        }
+        width: childrenRect.width
+        GButton {
+            id: playPauseButton
+            height: parent.height
+            width: height
+            transparent: false
 
-        ColorOverlay {
-            id: playPauseColor
-            anchors.fill: playPauseIcon
-            source: playPauseIcon
-            color: graphics_VideoControl.color.normal
-        }
+//            anchors.left: parent.left
+//            anchors.leftMargin: margin
+//            anchors.verticalCenter: parent.verticalCenter
+            property bool paused: true
+            Image {
+                id: playPauseIcon
+                anchors.fill: parent
+                anchors.margins: iconMargin
+                source: parent.paused ? "qrc:/img/play.svg" : "qrc:/img/pause.svg"
+                fillMode: Image.PreserveAspectFit
+            }
 
-        onClicked: {
-            forceActiveFocus()
-            if(paused) {
-                paused = false
-                play()
-            } else {
-                paused = true
-                pause()
+            ColorOverlay {
+                id: playPauseColor
+                anchors.fill: playPauseIcon
+                source: playPauseIcon
+                color: graphics_VideoControl.color.normal
+            }
+
+            onClicked: {
+                forceActiveFocus()
+                if(paused) {
+                    paused = false
+                    play()
+                } else {
+                    paused = true
+                    pause()
+                }
+            }
+
+            onEnabledChanged: {
+                if(enabled)
+                    playPauseColor.color = color.normal
+                else
+                    playPauseColor.color =  color.disable
+            }
+
+            onEntered: {
+                playPauseColor.color = color.hover
+            }
+            onExited: {
+                playPauseColor.color = color.normal
             }
         }
 
-        onEnabledChanged: {
-            if(enabled)
-                playPauseColor.color = color.normal
-            else
-                playPauseColor.color =  color.disable
+        Rectangle {
+            height: parent.height
+            width: 8
+            color: Theme.contentDelegate.color.background.normal
         }
 
-        onEntered: {
-            playPauseColor.color = color.hover
-        }
-        onExited: {
-            playPauseColor.color = color.normal
-        }
-    }
+        GButton {
+            id: stopButton
+            height: parent.height
+            width: height
+            transparent: false
+//            anchors.left: playPauseButton.right
+//            anchors.leftMargin: margin
+//            anchors.verticalCenter: parent.verticalCenter
+            Image {
+                id: stopIcon
+                anchors.fill: parent
+                anchors.margins: iconMargin
+                source: "qrc:/img/stop.svg"
+                fillMode: Image.PreserveAspectFit
+            }
+            ColorOverlay {
+                id: stopColor
+                anchors.fill: stopIcon
+                source: stopIcon
+                color: graphics_VideoControl.color.normal
+            }
 
-    GButton {
-        id: stopButton
-        height: parent.height
-        width: height
-        transparent: true
-        anchors.left: playPauseButton.right
-        anchors.leftMargin: margin
-        anchors.verticalCenter: parent.verticalCenter
-        Image {
-            id: stopIcon
-            anchors.fill: parent
-            source: "qrc:/img/stop.svg"
-            fillMode: Image.PreserveAspectFit
-        }
-        ColorOverlay {
-            id: stopColor
-            anchors.fill: stopIcon
-            source: stopIcon
-            color: graphics_VideoControl.color.normal
-        }
+            onClicked: {
+                forceActiveFocus()
+                stop()
+            }
 
-        onClicked: {
-            forceActiveFocus()
-            stop()
-        }
-
-        onEntered: {
-            stopColor.color = color.hover
-        }
-        onExited: {
-            stopColor.color = color.normal
+            onEntered: {
+                stopColor.color = color.hover
+            }
+            onExited: {
+                stopColor.color = color.normal
+            }
+            onEnabledChanged: {
+                if(!enabled){
+                    stopColor.color = graphics_VideoControl.color.normal
+                }
+            }
         }
     }
 

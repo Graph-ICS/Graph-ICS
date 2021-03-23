@@ -7,5 +7,7 @@
         <file>img/play.svg</file>
         <file>img/stop.svg</file>
         <file>img/logo.png</file>
+        <file>img/diagram_icon.svg</file>
+        <file>img/image_icon.svg</file>
     </qresource>
 </RCC>

@@ -16,27 +16,35 @@ Item {
     height: /*attributeSwitch.height - 4*/ 24
     anchors.topMargin: 8
     anchors.left: parent.left
-    anchors.leftMargin: 9
-    Rectangle{
-        color: Theme.textField.color.background.normal
-        radius: 1
-        height: attributeSwitch.height - 4
-        width: attributeSwitch.width - 6
-        GSwitchDelegate {
-            height: 28
-            enabled: !boolAttribute.parent.isInPipeline
-            anchors.centerIn: parent
-            id: attributeSwitch
-            text: boolAttribute.objectName
-            checked: boolAttribute.parent.model.getAttributeDefaultValue(boolAttribute.objectName)
-            onCheckedChanged: {
-                boolAttribute.parent.model.setAttributeValue(boolAttribute.objectName, checked)
-            }
-            textColorChecked: Theme.textField.color.text.normal
-            textColor: Theme.textField.color.text.normal
-            switchColor: Theme.textField.color.text.normal
-            switchColorChecked: boolAttribute.parent.rect.border.color
+    anchors.leftMargin: 0
+
+    QQC2.Label {
+        id: attributeName
+        anchors.left: attributeSwitch.right
+//        anchors.leftMargin: 6
+        anchors.verticalCenter: attributeSwitch.verticalCenter
+        text: boolAttribute.objectName
+        font.pointSize: Theme.font.pointSize
+        font.family: Theme.font.family
+        color: Theme.node.color.text.normal
+    }
+
+    GSwitch {
+        id: attributeSwitch
+        height: 28
+        enabled: !boolAttribute.parent.isInPipeline
+        anchors.left: boolAttribute.left
+        anchors.verticalCenter: boolAttribute.verticalCenter
+
+
+        checked: boolAttribute.parent.model.getAttributeDefaultValue(boolAttribute.objectName)
+        onCheckedChanged: {
+            boolAttribute.parent.model.setAttributeValue(boolAttribute.objectName, checked)
         }
+        textColorChecked: /*Theme.textField.color.text.normal*/ Theme.node.color.text.normal
+        textColor: /*Theme.textField.color.text.normal*/ Theme.node.color.text.normal
+        switchColor: /*Theme.textField.color.text.normal*/ Theme.node.color.text.normal
+        switchColorChecked: boolAttribute.parent.rect.border.color
     }
 
     function updateValue(){

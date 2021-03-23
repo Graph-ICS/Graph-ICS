@@ -16,6 +16,8 @@ Item {
     width: rect.width
     height: rect.height
 
+    property int number: 1
+
     property bool isCached: false
     property bool isQueued: false
     property bool isInPipeline: false
@@ -43,16 +45,49 @@ Item {
     property int minimumY: 0
     property int maximumY: 0
 
-    property bool isImageShown: false
+    property bool isShown: false
 
     property NodeTitle title: null
     property var attributes: []
 
+    onIsCachedChanged: {
+        title.isCached = isCached
+        rect.updateNodeWidth()
+        if(!isCached){
+            viewArea.clearShown(node)
+        }
+    }
+
+    DropArea {
+        anchors.fill: parent
+        z:1
+        onDropped: {
+            var dropItem = drag.source
+            if(checkDropObject(dropItem.toString())){
+                dropItem.view.changeConnectedNode(node)
+            }
+        }
+        function checkDropObject(itemString){
+            return itemString.search("Rectangle") !== -1
+        }
+    }
+
     GNodeBase {
         id: rect
-        isShown: isImageShown
 
         Component.onCompleted: {
+//            calculateNodeSize()
+        }
+
+        onWidthChanged: {
+            var portDiv = 2
+            if(node.x + rect.width + node.portOut.viewPort.width/portDiv > canvas.width){
+                node.x -= node.x + rect.width + node.portOut.viewPort.width/portDiv - canvas.width
+            }
+            resizeCanvas()
+        }
+
+        function calculateNodeSize(){
             if(title != null){
                 var bounds = title.getBounds()
                 if(rect.minWidth < bounds["w"])
@@ -67,7 +102,7 @@ Item {
                     for(var i = 0; i < attributes.length; i++){
                         var obj = attributes[i]
 
-                        rect.height += obj.height /*+ 12 - i * 3*/ + 8
+                        rect.height += obj.height + 8
 
                         if(obj.width > rect.width){
                             rect.width = obj.width
@@ -75,6 +110,22 @@ Item {
                     }
                     rect.height += 3
                 }
+            }
+            canvas.requestPaint()
+            resizeCanvas()
+        }
+
+        function updateNodeWidth(){
+            if(title != null){
+                var bounds = title.getBounds()
+                var max = bounds["w"]
+                attributes.forEach(function(obj){
+                    if(obj.width > max){
+                        max = obj.width
+                    }
+                })
+                rect.width = max
+                canvas.requestPaint()
             }
         }
 
@@ -262,7 +313,7 @@ Item {
             GMenu {
                 id: contextMenu
                 QQC2.Action {
-                    text: "Show Image"
+                    text: "Process Node"
                     onTriggered: {
                         processNode()
                     }
@@ -274,7 +325,7 @@ Item {
                         if(!isInPipeline){
                             restoreAttributeDefaults()
                         } else {
-                            statusBar.printMessage("cannot restore Attribute Defaults while in Pipeline")
+                            statusBar.printMessage("You can't restore the Node defaults right now")
                         }
                     }
                 }
@@ -297,11 +348,7 @@ Item {
     }
 
     function processNode(){
-        if(!node.isQueued){
-            node.isQueued = true
-//            validateAttributeValues()
-            queueNode(node)
-        }
+        statusBar.addToQueue(node)
     }
 
     function restoreAttributeDefaults(){
@@ -309,15 +356,9 @@ Item {
             attributes[i].restoreDefault()
         }
         node.model.cleanCache()
+        node.isShown = false
+        viewArea.clearShown(node)
     }
-
-//    function validateAttributeValues(){
-//        for(var i = 0; i < attributes.length; i++){
-//            if(typeof(attributes[i].validateValue) == 'function') {
-//                attributes[i].validateValue()
-//            }
-//        }
-//    }
 
     function calculateDistance(currNode) {
         for( var j=0; j<nodesToMove.length; j++) {

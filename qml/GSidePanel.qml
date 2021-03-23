@@ -12,7 +12,7 @@ import "components/"
 
 Item{
     id: graphics_SidePanel
-    property bool googleSearch: false
+    property bool searchOnType: false
     property alias listModel: sidePanelListModel
 
 
@@ -112,8 +112,7 @@ Item{
             model: ListModel {
                 id: sidePanelListModel
                 Component.onCompleted: {
-                    if(!googleSearch)
-                        graphics_SidePanel.reload()
+                    graphics_SidePanel.reload()
                 }
             }
             delegate: dragDelegate

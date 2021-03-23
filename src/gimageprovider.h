@@ -4,20 +4,19 @@
 #include <QObject>
 #include <QPixmap>
 #include <QQuickImageProvider>
-#include "gimage.h"
 
 class GImageProvider : public QObject, public QQuickImageProvider
 {
     Q_OBJECT
-    Q_PROPERTY(GImage img READ getImg WRITE setImg NOTIFY imgChanged)
+    Q_PROPERTY(QPixmap img READ getImg WRITE setImg NOTIFY imgChanged)
 
 public:
     explicit GImageProvider();
     QPixmap requestPixmap(const QString &id, QSize *size, const QSize &requestedSize);
 
-    const GImage& getImg() { return m_img; }
-    void setImg(const GImage& img);
-
+    const QPixmap& getImg() { return m_img; }
+    void setImg(const QPixmap& img);
+    Q_INVOKABLE void removeImg();
     //
     Q_INVOKABLE virtual QPixmap loadImage(QString path);
     //
@@ -29,7 +28,7 @@ signals:
     void imgChanged();
 
 private:
-    GImage m_img;
+    QPixmap m_img;
 };
 
 

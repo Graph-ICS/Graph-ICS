@@ -42,9 +42,23 @@ Item {
         }
     }
 
-    function loadEdges(edgesJson) {
+    function loadNodes(data){
+        var dataNodes = data
+
+        for (var i = 0; i < dataNodes.length; i++) {
+            var nodeData = dataNodes[i];
+            var node = createNode(nodeData.objectName)
+            node.parent = canvas
+            node.x = nodeData.x;
+            node.y = nodeData.y;
+            canvas.nodes.push(node);
+            node.loadNode(nodeData);
+        }
+    }
+
+    function loadEdges(data) {
         canvas.edges.splice(0, canvas.edges.length); //array ausleeren
-        var dataEdges = JSON.parse(edgesJson);
+        var dataEdges = data
         for (var i = 0; i < dataEdges.length; i++) {
             var edgesData = dataEdges[i];
             var indexInode = edgesData.inNodeIndex; //index des inNodes wird ausgelesen
@@ -74,6 +88,22 @@ Item {
         }
     }
 
+    function loadViewNodeConnection(data){
+        data.forEach(function load(viewData){
+            canvas.nodes.forEach(function find(node){
+                if(viewData.nodeTitle === node.title.title){
+                    var view = viewArea.viewAt(viewData.viewIndex)
+                    if(view === null){
+                        return
+                    }
+                    view.changeConnectedNode(node)
+                    return
+                }
+            })
+        })
+
+    }
+
     function saveEdges() {
         var edgesArr = [];
         for (var i = 0; i < canvas.edges.length; i++) {
@@ -87,52 +117,57 @@ Item {
                 portInIndex: portInIndex};
             edgesArr[i] = obj;
         }
-        var edgesJson = JSON.stringify(edgesArr);
-        return edgesJson;
+
+//        var edgesJson = JSON.stringify(edgesArr);
+        return edgesArr;
     }
 
-    function saveConfig(fileUrl) {
-        fileUrl = String(fileUrl)
-        if(fileUrl.substring(0, 8) === "file:///"){
-            fileUrl = fileUrl.substring(8, fileUrl.length)
-        }
-        menuManager.windowTitle = getFileName(fileUrl);//Name des aktuellen Files wird im ApplicationWindow angezeigt
-        menuManager.filePath = fileUrl;
-        var obj_node = [];
+    function saveNodes(){
+        var nodes = [];
         for (var i = 0; i < canvas.nodes.length; i++) {
             var node = canvas.nodes[i];
             var modelName = String(node);
             var buf = modelName.split("_"); // name des Filters wird aus dem String rausgenommen
             var name = buf[0];
-            obj_node[i] = node.saveNode(name);
+            nodes[i] = node.saveNode(name);
         }
-        var nodesJson = JSON.stringify(obj_node); // alle Daten der Knoten
-        var edgesJson = configManager.saveEdges(); // Daten der Kanten
-        var dataJson = nodesJson + edgesJson; // Trennzeichen eingefügt, um Daten der Konten und der Kanten zu trennen
-        fileIO.saveFile(dataJson, fileUrl);
+        return nodes
+    }
+
+    function saveConfig(fileUrl) {
+        fileUrl = String(fileUrl)
+        // remove prefix (OS specific)
+        fileUrl = fileIO.removePathoverhead(fileUrl)
+
+        menuManager.windowTitle = getFileName(fileUrl) //Name des aktuellen Files wird im ApplicationWindow angezeigt
+        menuManager.filePath = fileUrl
+
+        var nodes = saveNodes()
+        var edges = saveEdges()
+        var views = viewArea.saveViewNodeConnection()
+
+        var dataArray = [nodes, edges, views] // put data into array 0:nodes, 1:edges, 2:view connection
+
+        fileIO.saveFile(JSON.stringify(dataArray), fileUrl);
     }
 
     function openConfig(fileUrl) {
         fileUrl = String(fileUrl)
-        fileUrl = fileUrl.substring(8, fileUrl.length)
+        // remove prefix (OS specific)
+        fileUrl = fileIO.removePathoverhead(fileUrl)
+
         menuManager.windowTitle = getFileName(fileUrl);//Name des aktuellen Files wird im ApplicationWindow angezeigt
         menuManager.filePath = fileUrl;
         clearConfig();
         var fileData = fileIO.openFile(fileUrl);
-        var dataJson = fileData.split(/(])/);
-        var nodesJson = dataJson[0]+dataJson[1]; //Daten der Knoten
-        var edgesJson = dataJson[2]+dataJson[3]; //Daten der Kanten
-        var dataNodes = JSON.parse(nodesJson);
-        for (var i = 0; i < dataNodes.length; i++) {
-            var nodeData = dataNodes[i];
-            var node = createNode(nodeData.objectName)
-            node.parent = canvas
-            node.x = nodeData.x;
-            node.y = nodeData.y;
-            canvas.nodes.push(node);
-            node.loadNode(nodeData);
-        }
-        loadEdges(edgesJson);
+
+//        var dataJson = fileData.split(/(])/);
+
+        var data = JSON.parse(fileData);
+
+        loadNodes(data[0])
+        loadEdges(data[1])
+        loadViewNodeConnection(data[2])
 
         resizeCanvas(); // fall eine Konfiguration geöffnet wird, deren Window Size beim speichern unterschiedlich war
 

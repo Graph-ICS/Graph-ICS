@@ -151,7 +151,7 @@ MouseArea {
         canvas.nodes.push(thisNode);
         menuManager.updateConfig();
         thisNode = null
-
+        resizeCanvas()
     }
 
     function getAbsolutePosition(node) {
@@ -164,5 +164,5 @@ MouseArea {
               returnPos.y = parentValue.y + node.y;
           }
           return returnPos;
-      }
+    }
 }

@@ -68,6 +68,10 @@ GNodeAccessItem {
         onEntered: {
             var item = drag.source.toString()
 
+            if(item.search("Rectangle") !== -1){
+                return
+            }
+
             if(item.search("GNodeAccessItem") === -1){
 
                 favoritesBarItem.delegate.items.move(drag.source.DelegateModel.itemsIndex,
