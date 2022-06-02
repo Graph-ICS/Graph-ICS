@@ -1,0 +1,23 @@
+#include "nodeprovider.h"
+#include <QQmlProperty>
+
+// clang-format off
+${NODEPROVIDER_INCLUDES} // clang-format on
+
+NodeProvider::NodeProvider(QObject* parent)
+    : QObject(parent)
+    , m_nodeList(QList<QString>())
+{
+}
+
+void NodeProvider::registerNodes()
+{
+    // clang-format off
+    ${NODEPROVIDER_REGISTRATION}
+    // clang-format on
+}
+
+QList<QString> NodeProvider::getNodeNames() const
+{
+    return m_nodeList;
+}

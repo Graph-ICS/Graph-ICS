@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>${PROJECT_NAME}</DisplayName>
+    <Description>${PROJECT_DESCRIPTION}</Description>
+    <ReleaseDate>${BUILD_DATE}</ReleaseDate>
+    <Version>${PROJECT_VERSION}</Version>
+    <Default>true</Default>
+    <Licenses>
+        <License name="License Agreement" file="LICENSE.txt" />
+    </Licenses>
+    <Script>installscript.js</Script>
+</Package>

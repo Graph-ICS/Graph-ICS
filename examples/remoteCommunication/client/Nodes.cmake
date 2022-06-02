@@ -1,0 +1,2 @@
+
+set(REMOTE_EXAMPLE_CLIENT_NODES RemoteSobel)

@@ -1,0 +1,21 @@
+syntax = "proto2";
+
+package Entities;
+
+message Image {
+    optional string encoding = 2;
+    optional bytes data = 1;
+}
+
+message Request {
+    optional int32 id = 1;
+    required int32 service = 2;
+    required int32 function = 3;
+    required string stubId = 4;
+    optional int32 intValue = 5;
+    optional bool boolValue = 6;
+    optional string stringValue = 7;
+    optional string uuidValue = 8;
+    
+    optional Image image = 9;
+}

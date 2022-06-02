@@ -1,0 +1,48 @@
+#ifndef GAPPINFO_H
+#define GAPPINFO_H
+
+// clang-format off
+#define REMOTE_PLUGIN_ENABLED ${REMOTE_PLUGIN_ENABLED}
+// clang-format on
+
+#include <QObject>
+
+class GAppInfo : public QObject
+{
+    Q_OBJECT
+public:
+    GAppInfo(QObject* parent = nullptr)
+        : QObject(parent)
+    {
+    }
+
+    Q_INVOKABLE QString getAppVersion() const
+    {
+        // clang-format off
+        return "${PROJECT_VERSION}";
+        // clang-format on
+    }
+
+    Q_INVOKABLE QString getAppDescription() const
+    {
+        // clang-format off
+        return "${PROJECT_DESCRIPTION}";
+        // clang-format on
+    }
+
+    Q_INVOKABLE QString getQtVersion() const
+    {
+        // clang-format off
+        return "${QT_VERSION}";
+        // clang-format on
+    }
+
+    Q_INVOKABLE bool remotePluginEnabled() const
+    {
+        // clang-format off
+        return ${REMOTE_PLUGIN_ENABLED};
+        // clang-format on
+    }
+};
+
+#endif // GAPPINFO_H

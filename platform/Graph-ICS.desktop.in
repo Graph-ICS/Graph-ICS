@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=${PROJECT_NAME}
+Comment=${PROJECT_DESCRIPTION}
+Exec=${PROJECT_NAME}
+Icon=${PROJECT_NAME}
+Categories=Graphics;

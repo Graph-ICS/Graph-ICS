@@ -1,189 +1,145 @@
-# [1] set Poject settings
+# Project setup
 # ******************************************************************************
-cmake_minimum_required(VERSION 3.0)
 
-## Add CMake custom functions
+cmake_minimum_required(VERSION 3.14)
+
+string(TIMESTAMP BUILD_DATE "%Y-%m-%d")
+
+project(
+  "Graph-ICS"
+  VERSION "1.0"
+  DESCRIPTION
+    "Graph-ICS is an open-source tool to define, filter and visualize image and data streams."
+  HOMEPAGE_URL "https://github.com/Graph-ICS/Graph-ICS"
+  LANGUAGES CXX)
+
+set(GRAPHICS_CAMERA_USAGE
+    "Graph-ICS uses camera to filter and record camera streams.")
+
+if(CMAKE_BUILD_TYPE STREQUAL "Release")
+  configure_file(${CMAKE_CURRENT_SOURCE_DIR}/package/package.xml.in
+                 ${CMAKE_CURRENT_BINARY_DIR}/package/package.xml)
+  configure_file(${CMAKE_CURRENT_SOURCE_DIR}/package/installscript.js
+                 ${CMAKE_CURRENT_BINARY_DIR}/package/installscript.js COPYONLY)
+  configure_file(${CMAKE_CURRENT_SOURCE_DIR}/LICENSE.txt
+                 ${CMAKE_CURRENT_BINARY_DIR}/package/LICENSE.txt COPYONLY)
+endif()
+
+# Set CMake Test Program to be a library (Fix 'C Comiler not able to compile a
+# simple test program' Bug)
+set(CMAKE_TRY_COMPILE_TARGET_TYPE "STATIC_LIBRARY")
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+# Add CMake custom functions
 set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH};${CMAKE_CURRENT_SOURCE_DIR}/cmake;")
 include(Functions)
 
-set(TEMPLATE_APPLICATION_NAME "Graph-ICS" CACHE STRING "Application name")
-set(PROJECT_NAME ${TEMPLATE_APPLICATION_NAME})
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-project(${PROJECT_NAME})
-
-set(TEMPLATE_USE_CPP11 ON CACHE BOOL "Use C++11")
-
-# [2] set project directories
+# Libraries
 # ******************************************************************************
-set(CMAKE_INSTALL_PREFIX ${CMAKE_CURRENT_SOURCE_DIR}/install)
-set(ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
-set(SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
-set(PROJECT_INSTALL_DIR ${CMAKE_INSTALL_PREFIX})
-set(BUILD_DIR ${ROOT_DIR}/build)
+# Qt
+set(QT_VERSION "5.15.2")
 
-#message("This is CMAKE_CURRENT_SOURCE_DIR: " ${CMAKE_CURRENT_SOURCE_DIR})
+set(QT_MODULES
+    Core
+    Widgets
+    Gui
+    Quick
+    Qml
+    Concurrent
+    Svg
+    Charts
+    Multimedia
+    WebEngine)
 
-# [3] set output directories
-# ******************************************************************************
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${BUILD_DIR})
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${BUILD_DIR})
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${BUILD_DIR})
+find_package(Qt5 ${QT_VERSION} CONFIG REQUIRED ${QT_MODULES})
 
-
-# [4] set QT Settings
-# ******************************************************************************
-set(TEMPLATE_QT_VERSION "5.15.2" CACHE STRING "Qt Version")
-set(TEMPLATE_QT_MODULES Core Gui Widgets Quick Qml Concurrent Network DBus PrintSupport Svg)
-
-find_package(Qt5 ${TEMPLATE_QT_VERSION} CONFIG REQUIRED ${TEMPLATE_QT_MODULES})
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
+add_compile_options(${QT_DEFINITIONS})
+add_compile_options(-DUSE_INSTALL_TARGET)
+add_compile_options(-DQT_QML_RELEASE)
+add_compile_options(${Qt5Widgets_DEFINITIONS} ${QtQml_DEFINITIONS}
+                    ${${Qt5Quick_DEFINITIONS}})
 
-
-# [5] binding of libraries:
-# ******************************************************************************
-find_package(ITK REQUIRED )
+# ITK
+set(ITK_VERSION "5.2.1")
+find_package(ITK ${ITK_VERSION} REQUIRED)
 include(${ITK_USE_FILE})
 
-find_package(OpenCV REQUIRED )
-set(${OpenCV_INCLUDE_DIRS} ${OpenCV_DIR}/include)
-include_directories( ${OpenCV_INCLUDE_DIRS} )
-set(OPENCV_LIBRARIES ${OpenCV_DIR}/x64/vc14/bin/)
+# OpenCV
+set(OPENCV_VERSION "4.5.5")
+find_package(OpenCV ${OPENCV_VERSION} REQUIRED)
 
-# [6] setting definitions
-# ******************************************************************************
-add_definitions(${QT_DEFINITIONS})
-add_definitions(-DUSE_INSTALL_TARGET)
-add_definitions(-DQT_QML_RELEASE)
-add_definitions(${Qt5Widgets_DEFINITIONS} ${QtQml_DEFINITIONS} ${${Qt5Quick_DEFINITIONS}})
-
-# [7] getting sources: Add to project configuration
+# App
 # ******************************************************************************
 
-HEADER_DIRECTORIES(${SOURCE_DIR} header_dir_list)
+message(STATUS "")
+message(STATUS "Graph-ICS - Setup")
 
-file(GLOB_RECURSE SOURCES
-    ${ROOT_DIR}/src/*.cpp
-    ${ROOT_DIR}/src/*.h
-)
+set(NODEPROVIDER_INCLUDES "")
+set(NODEPROVIDER_REGISTRATION "")
 
-file(GLOB_RECURSE QML
-    ${ROOT_DIR}/qml/*.qrc
-)
+add_subdirectory(app)
 
-file(GLOB RESOURCES
-    ${ROOT_DIR}/*.qrc
-)
-
-source_group("src" FILES ${SOURCES})
-source_group("qml" FILES ${QML})
-source_group("resources" FILES ${RESOURCES} ${ROOT_DIR}/myapp.rc)
-
-qt5_add_resources(QT_RESOURCES ${QML} ${RESOURCES})
-
-set(QML_IMPORT_PATH "${ROOT_DIR}/qml" CACHE STRING "Path to QML Files")
-
-# [8] setting the target
+# Plugins
 # ******************************************************************************
-set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+add_subdirectory(plugins)
 
-# Platform specific steps
-
-if(APPLE)
-    message(STATUS "Building MacOS executable")
-
-    # set the .app icon
-    set(MACOSX_BUNDLE_ICON_FILE logo.icns)
-    set(MAC_ICON ${ROOT_DIR}/img/logo.icns)
-    set_source_files_properties(${MAC_ICON} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
-
-    set(CMAKE_MACOSX_BUNDLE true)
-
-    add_executable(${PROJECT_NAME} MACOSX_BUNDLE
-        ${MAC_ICON}
-        ${SOURCES}
-        ${QT_RESOURCES}
-    )
-
-elseif(WIN32)
-    message(STATUS "Building Windows executable")
-
-    add_executable(${PROJECT_NAME} WIN32
-        ${ROOT_DIR}/myapp.rc
-        ${SOURCES}
-        ${QT_RESOURCES}
-    )
-
-else()
-    message(STATUS "Building Linux executable")
-
-    add_executable(${PROJECT_NAME}
-        ${SOURCES}
-        ${QT_RESOURCES}
-    )
-
+# Examples
+# ******************************************************************************
+option(GRAPHICS_BUILD_EXAMPLES "Build the Examples" OFF)
+if(GRAPHICS_BUILD_EXAMPLES)
+  add_subdirectory(examples)
 endif()
 
-
-
-
-target_include_directories(
-    ${PROJECT_NAME}
-    PUBLIC
-    ${header_dir_list}
-)
-
-# [9] check if c++11 enabled
+# Code generation (nodeprovider.cpp, gappinfo.h)
 # ******************************************************************************
-if(${TEMPLATE_USE_CPP11})
-    if(${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION} GREATER 3.0)
-        set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 11)
-        set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD_REQUIRED ON)
-    else()
-        if(APPLE)
-            list(APPEND CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1y -stdlib=libc++")
-        endif()
-        if(UNIX AND NOT APPLE)
-            list(APPEND CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-        endif()
-    endif()
+message(STATUS "")
+message(STATUS "Graph-ICS - Code Generation")
+# Generate gappinfo.cpp
+message(STATUS "Generating GAppInfo...")
+set(APPINFO_H_PATH ${CMAKE_CURRENT_BINARY_DIR}/app/gappinfo.h)
+configure_file(app/src/gappinfo.h.in ${APPINFO_H_PATH})
+message(STATUS "Finished ${APPINFO_H_PATH}")
+
+# fix c++ code line ending. ";" gets removed because cmake thinks that the
+# entries define a list (cmake standard list seperator is ";")
+string(REPLACE "<semicolon>" ";" NODEPROVIDER_REGISTRATION
+               "${NODEPROVIDER_REGISTRATION}")
+
+message(STATUS "Generating NodeProvider...")
+# Generate code from NODEPROVIDER_INCLUDES and NODEPROVIDER_REGISTRATION
+set(NODEPROVIDER_CPP_PATH ${CMAKE_CURRENT_BINARY_DIR}/app/nodeprovider.cpp)
+configure_file(app/src/nodeprovider.cpp.in ${NODEPROVIDER_CPP_PATH})
+
+message(STATUS "Finished ${NODEPROVIDER_CPP_PATH}")
+
+target_sources(${PROJECT_NAME} PRIVATE ${NODEPROVIDER_CPP_PATH}
+                                       ${APPINFO_H_PATH})
+
+message(STATUS "")
+
+# Documentation (Doxygen, Sphinx, Breathe)
+# ******************************************************************************
+
+set(APP_SOURCE_DIR ${CMAKE_SOURCE_DIR}/app/src)
+
+option(GRAPHICS_BUILD_DOCUMENTATION "Build the API documentation" OFF)
+
+if(GRAPHICS_BUILD_DOCUMENTATION)
+
+  message(STATUS "Graph-ICS API Documentation - Setup")
+
+  add_subdirectory(docs)
+
+  message(STATUS "Finished")
+
+  message(STATUS "")
 endif()
-
-# [10] copy the ressources after build on the build folder
-# ******************************************************************************
-#add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory "${ROOT_DIR}/qml" ${BUILD_DIR}/qml)
-#add_custom_target(CopyResources ALL COMMAND ${CMAKE_COMMAND} -E copy_directory "${ROOT_DIR}/qml" ${BUILD_DIR}/qml)
-
-#add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory "${ROOT_DIR}/docs" ${BUILD_DIR}/docs)
-
-# copy the .dll from OpenCv
-file(GLOB list_globbed "${OPENCV_LIBRARIES}*.dll")
-foreach(file ${list_globbed})
-    add_custom_command(
-            TARGET ${PROJECT_NAME} POST_BUILD
-            COMMAND ${CMAKE_COMMAND} -E copy
-                    ${file}
-                    ${BUILD_DIR})
-endforeach()
-
-
-# [11] linking libraries
-# ******************************************************************************
-target_link_libraries(${PROJECT_NAME}
-    # dlls, die man benötigt
-    PUBLIC Qt5::Core
-    PUBLIC Qt5::Widgets
-    PUBLIC Qt5::Gui
-    PUBLIC Qt5::Quick
-    PUBLIC Qt5::Qml
-    PUBLIC Qt5::Concurrent
-    PUBLIC Qt5::Svg
-
-    ${ITK_LIBRARIES}
-    ${OpenCV_LIBS})
-
-#message("OpenCv libs: " ${OPENCV_LIBRARIES})
-#message("ITK libs: " ${ITK_LIBRARIES})

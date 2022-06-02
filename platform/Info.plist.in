@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>CFBundleExecutable</key>
+		<string>${PROJECT_NAME}</string>
+		<key>CFBundleGetInfoString</key>
+		<string>${PROJECT_DESCRIPTION}</string>
+		<key>CFBundleIconFile</key>
+		<string>${MACOSX_BUNDLE_ICON_FILE}</string>
+		<key>CFBundleVersion</key>
+		<string>${PROJECT_VERSION}</string>
+		<key>CSResourcesFileMapped</key>
+		<true />
+		<key>NSCameraUsageDescription</key>
+		<string>${GRAPHICS_CAMERA_USAGE}</string>
+		<key>NSPrincipalClass</key>
+		<string>NSApplication</string>
+		<key>NSHighResolutionCapable</key>
+		<string>True</string>
+	</dict>
+</plist>
