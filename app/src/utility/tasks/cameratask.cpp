@@ -241,30 +241,17 @@ void CameraTask::execute()
 
     if (m_openCameraRequested)
     {
+        bool isOpen = m_cameraNode->openCamera();
         QMutexLocker locker(getScheduler()->getMutex());
-        if (isCameraDeviceOpen())
-        {
-            setCamOn(true);
-        }
-        else
-        {
-            locker.unlock();
-            bool isOpen = m_cameraNode->openCamera();
-            locker.relock();
-            setCamOn(isOpen);
-        }
+        setCamOn(isOpen);
         m_openCameraRequested = false;
         emit allowedChanged();
     }
 
     if (m_closeCameraRequested)
     {
-        m_node->unlock();
-        if (!m_cameraNode->isLocked())
-        {
-            m_cameraNode->closeCamera();
-        }
-        m_node->lock();
+        m_cameraNode->closeCamera();
+        QMutexLocker locker(getScheduler()->getMutex());
         m_closeCameraRequested = false;
         setCamOn(false);
         emit allowedChanged();
@@ -348,10 +335,7 @@ bool CameraTask::process(Node* node, Port* fromPort, Port* toPort)
 void CameraTask::onCancelled()
 {
     ImageTask::onCancelled();
-    if (!m_cameraNode->isLocked())
-    {
-        m_cameraNode->closeCamera();
-    }
+    m_cameraNode->closeCamera();
     clearRecordedFrames();
 }
 

@@ -13,6 +13,7 @@ Camera::Camera()
     , m_fps(attributeFactory.makeDoubleTextField(0.0f, 0.0f, 144.0f, "FPS"))
     , m_device(attributeFactory.makeIntTextField(0, 0, 100, 1, "Device"))
     , m_capture()
+    , m_cameraOpenCounter(0)
 {
     m_fps->forceDisableLocking();
 
@@ -23,14 +24,17 @@ Camera::Camera()
 
 Camera::~Camera()
 {
-    closeCamera();
+    closeCamera(true);
 }
 
 bool Camera::retrieveResult()
 {
-    if (!openCamera())
+    if (!isCameraDeviceOpen())
     {
-        return false;
+        if (!openCamera())
+        {
+            return false;
+        }
     }
 
     cv::Mat frame;
@@ -80,16 +84,21 @@ bool Camera::openCamera()
         }
         openCameraDevices.push_back(device);
     }
+    m_cameraOpenCounter++;
     return true;
 }
 
-void Camera::closeCamera()
+void Camera::closeCamera(bool force)
 {
     if (m_capture.isOpened())
     {
-        m_capture.release();
-        int device = m_device->getValue().toInt();
-        openCameraDevices.removeOne(device);
+        m_cameraOpenCounter--;
+        if (m_cameraOpenCounter == 0 || force)
+        {
+            m_capture.release();
+            int device = m_device->getValue().toInt();
+            openCameraDevices.removeOne(device);
+        }
     }
 }
 } // namespace G

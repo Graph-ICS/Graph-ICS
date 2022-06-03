@@ -24,7 +24,7 @@ public:
 
     bool isCameraDeviceOpen() const;
     bool openCamera();
-    void closeCamera();
+    void closeCamera(bool force = false);
 
 private:
     static QVector<int> openCameraDevices;
@@ -34,6 +34,8 @@ private:
     Attribute* m_device;
 
     cv::VideoCapture m_capture;
+
+    int m_cameraOpenCounter;
 };
 } // namespace G
 
