@@ -13,6 +13,7 @@ project(
   HOMEPAGE_URL "https://github.com/Graph-ICS/Graph-ICS"
   LANGUAGES CXX)
 
+message(STATUS ${PROJECT_VERSION})
 set(GRAPHICS_CAMERA_USAGE
     "Graph-ICS uses camera to filter and record camera streams.")
 

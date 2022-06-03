@@ -13,3 +13,4 @@ qml/theme/*.autosave
 qml/components/*.autosave
 qml/nodes/*.autosave
 qml/nodes/components/*.autosave
+.DS_Store

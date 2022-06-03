@@ -1,0 +1,8 @@
+﻿---
+BasedOnStyle: Microsoft
+AccessModifierOffset: '-4'
+BreakConstructorInitializers: BeforeComma
+IndentCaseLabels: 'true'
+PointerAlignment: Left
+
+...
