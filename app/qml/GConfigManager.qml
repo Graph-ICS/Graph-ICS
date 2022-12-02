@@ -10,7 +10,7 @@ import "components"
 Item {
     id: configManager
 
-    readonly property string configFileSuffix: ".gconfig"
+    readonly property string configFileSuffix: ".json"
 
     readonly property string configFile: {
         let buf = internal.configFileUrl.split("/")
